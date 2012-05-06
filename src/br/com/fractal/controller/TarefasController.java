@@ -1,7 +1,6 @@
 package br.com.fractal.controller;
 
 import javax.persistence.EntityManager;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -11,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.TarefasDAO;
+import br.com.fractal.infra.JPAUtil;
 import br.com.fractal.model.Tarefas;
 
 
@@ -19,8 +19,8 @@ public class TarefasController {
 
 //	private EntityManager em;
 
-	ServletRequest request;
-	EntityManager em = (EntityManager) request.getAttribute("em");
+//	ServletRequest request;
+//	EntityManager em = (EntityManager) request.getAttribute("em");
 	
 	@RequestMapping("novaTarefa")
 	public String form() {
@@ -30,6 +30,9 @@ public class TarefasController {
 	@RequestMapping("adicionaTarefa")
 	public String adiciona(@Valid Tarefas tarefas, BindingResult result, HttpServletResponse response){
 		if (!result.hasFieldErrors("descricao")) {
+			
+			EntityManager em = new JPAUtil().getEntityManager();
+			em.getTransaction().begin();
 			
 			new TarefasDAO(em).adiciona(tarefas);
 
@@ -44,6 +47,9 @@ public class TarefasController {
 	@RequestMapping("listaTarefas")
 	public String lista(Model model){
 
+		EntityManager em = new JPAUtil().getEntityManager();
+		em.getTransaction().begin();
+
 		TarefasDAO dao = new TarefasDAO(em);
 		
 		model.addAttribute("tarefas", dao.lista());
@@ -57,6 +63,9 @@ public class TarefasController {
 	@RequestMapping("removeTarefa")
 	public String remove(Tarefas tarefas) {
 
+		EntityManager em = new JPAUtil().getEntityManager();
+		em.getTransaction().begin();
+
 		TarefasDAO dao = new TarefasDAO(em);
 		dao.remove(tarefas);
 		
@@ -69,7 +78,10 @@ public class TarefasController {
 
 	@RequestMapping("mostraTarefa")
 	public String mostra(Long id, Model model, HttpServletResponse response){
-		
+
+		EntityManager em = new JPAUtil().getEntityManager();
+		em.getTransaction().begin();
+
 		TarefasDAO dao = new TarefasDAO(em);
 		model.addAttribute("tarefa", dao.buscaPorId(id));
 		
@@ -83,6 +95,9 @@ public class TarefasController {
 	@RequestMapping("alteraTarefa")
 	public String altera(Tarefas tarefas){
 
+		EntityManager em = new JPAUtil().getEntityManager();
+		em.getTransaction().begin();
+
 		TarefasDAO dao = new TarefasDAO(em);
 		dao.altera(tarefas);
 
@@ -94,7 +109,10 @@ public class TarefasController {
 	
 	@RequestMapping("Menu")
 	public String menu(Model model){
-		
+
+		EntityManager em = new JPAUtil().getEntityManager();
+		em.getTransaction().begin();
+
 		TarefasDAO dao = new TarefasDAO(em);
 		model.addAttribute("tarefas", dao.lista());
 		

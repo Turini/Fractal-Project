@@ -27,6 +27,7 @@ public class TestaDAOS {
 		tarefas.setDataTermino(Calendar.getInstance());
 		
 		tarefasDAO.adiciona(tarefas);
+		tarefasDAO.remove(tarefas);
 		
 		em.getTransaction().commit();
 		em.close();
