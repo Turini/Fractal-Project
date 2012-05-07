@@ -42,8 +42,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-3.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-3.0.6.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
-	<classpathentry kind="lib" path="/home/turini/workspace/Fractal/WebContent/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-validator-4.1.0.Final.jar"/>
-	<classpathentry kind="lib" path="/home/turini/Desktop/25/apache-tomcat-7.0.14/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -1,9 +1,12 @@
 package br.com.fractal.controller;
 
 import javax.persistence.EntityManager;
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.hibernate.cfg.beanvalidation.HibernateTraversableResolver;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,16 +31,19 @@ public class TarefasController {
 	}
 	
 	@RequestMapping("adicionaTarefa")
-	public String adiciona(@Valid Tarefas tarefas, BindingResult result, HttpServletResponse response){
+	public String adiciona(@Valid Tarefas tarefas, BindingResult result, HttpServletResponse response, HttpServletRequest request){
+		
 		if (!result.hasFieldErrors("descricao")) {
+
+			EntityManager em = (EntityManager) request.getAttribute("em");
 			
-			EntityManager em = new JPAUtil().getEntityManager();
-			em.getTransaction().begin();
+//			EntityManager em = new JPAUtil().getEntityManager();
+//			em.getTransaction().begin();
 			
 			new TarefasDAO(em).adiciona(tarefas);
 
-			em.getTransaction().commit();
-			em.close();
+//			em.getTransaction().commit();
+//			em.close();
 			
 			return "redirect:Menu";
 			
@@ -45,79 +51,89 @@ public class TarefasController {
 	}
 
 	@RequestMapping("listaTarefas")
-	public String lista(Model model){
+	public String lista(Model model, HttpServletRequest request){
 
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
+		EntityManager em = (EntityManager) request.getAttribute("em");
+
+//		EntityManager em = new JPAUtil().getEntityManager();
+//		em.getTransaction().begin();
 
 		TarefasDAO dao = new TarefasDAO(em);
 		
 		model.addAttribute("tarefas", dao.lista());
 		
-		em.getTransaction().commit();
-		em.close();
+//		em.getTransaction().commit();
+//		em.close();
 		
 		return "tarefas/lista";
 	}
 
 	@RequestMapping("removeTarefa")
-	public String remove(Tarefas tarefas) {
+	public String remove(Tarefas tarefas, HttpServletRequest request) {
 
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
+		EntityManager em = (EntityManager) request.getAttribute("em");
+
+//		EntityManager em = new JPAUtil().getEntityManager();
+//		em.getTransaction().begin();
 
 		TarefasDAO dao = new TarefasDAO(em);
 		dao.remove(tarefas);
 		
-		em.getTransaction().commit();
-		em.close();
+//		em.getTransaction().commit();
+//		em.close();
 		
 //		response.setStatus(200);
 		return "redirect:Menu";
 	}
 
 	@RequestMapping("mostraTarefa")
-	public String mostra(Long id, Model model, HttpServletResponse response){
+	public String mostra(Long id, Model model, HttpServletResponse response, HttpServletRequest request){
 
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
+		EntityManager em = (EntityManager) request.getAttribute("em");
+		
+//		EntityManager em = new JPAUtil().getEntityManager();
+//		em.getTransaction().begin();
 
 		TarefasDAO dao = new TarefasDAO(em);
 		model.addAttribute("tarefa", dao.buscaPorId(id));
 		
-		em.getTransaction().commit();
-		em.close();
+//		em.getTransaction().commit();
+//		em.close();
 		
 		response.setStatus(200);
 		return "dados-do-dialog";
 	}
 	
 	@RequestMapping("alteraTarefa")
-	public String altera(Tarefas tarefas){
+	public String altera(Tarefas tarefas, HttpServletRequest request){
 
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
+		EntityManager em = (EntityManager) request.getAttribute("em");
+
+//		EntityManager em = new JPAUtil().getEntityManager();
+//		em.getTransaction().begin();
 
 		TarefasDAO dao = new TarefasDAO(em);
 		dao.altera(tarefas);
 
-		em.getTransaction().commit();
-		em.close();
+//		em.getTransaction().commit();
+//		em.close();
 
 		return "redirect:Menu";
 	}
 	
 	@RequestMapping("Menu")
-	public String menu(Model model){
+	public String menu(Model model, HttpServletRequest request){
 
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
+		EntityManager em = (EntityManager) request.getAttribute("em");
+
+//		EntityManager em = new JPAUtil().getEntityManager();
+//		em.getTransaction().begin();
 
 		TarefasDAO dao = new TarefasDAO(em);
 		model.addAttribute("tarefas", dao.lista());
 		
-		em.getTransaction().commit();
-		em.close();
+//		em.getTransaction().commit();
+//		em.close();
 		
 		return "menu";
 	}

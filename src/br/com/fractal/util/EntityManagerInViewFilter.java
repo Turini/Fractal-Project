@@ -9,11 +9,10 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 
 import br.com.fractal.infra.JPAUtil;
 
-@WebFilter(urlPatterns = "/*")
+//@WebFilter(urlPatterns = "/*")
 public class EntityManagerInViewFilter implements Filter {
 
 	@Override
@@ -38,6 +37,7 @@ public class EntityManagerInViewFilter implements Filter {
 		} catch (Exception e) {
 			entityManager.getTransaction().rollback();
 			throw new ServletException(e);
+		
 		} finally {
 			entityManager.close();
 		}

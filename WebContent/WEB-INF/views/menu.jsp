@@ -98,7 +98,7 @@ function exibirTarefa(id) {
 	$.get("mostraTarefa", {id: id}, function(resposta) {
 		$("#detalhes-tarefa").html(resposta);
 		$('#detalhes-tarefa').dialog('open');
-		exibirComentarios(id);
+// 		exibirComentarios(id);
 	});
 }
 
