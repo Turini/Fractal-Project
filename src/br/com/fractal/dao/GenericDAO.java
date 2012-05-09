@@ -23,7 +23,7 @@ public class GenericDAO<T> {
 	}
 	
 	public void altera(T t) {
-		// TODO implements this method
+		this.em.merge(t);
 	}
 
 	public T buscaPorId(Long id) {
