@@ -109,10 +109,11 @@ function exibirComentarios(id) {
 }
 	
 function excluirTarefa(id) {
-	$.post("removeTarefa", {id: id} , function (){
+	$.get("removeTarefa?id="+id);
+// 	$.post("removeTarefa", {id: id} , function (){
 		$("#tarefa-"+id).hide();
 		$('#detalhes-tarefa').dialog('close');
-	});
+// 	});
 }
 
 function salvarEdicaoTarefa(id) {

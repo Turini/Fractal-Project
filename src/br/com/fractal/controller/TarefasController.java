@@ -1,30 +1,22 @@
 package br.com.fractal.controller;
 
 import javax.persistence.EntityManager;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.hibernate.cfg.beanvalidation.HibernateTraversableResolver;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.TarefasDAO;
-import br.com.fractal.infra.JPAUtil;
 import br.com.fractal.model.Tarefas;
 
 
 @Controller
 public class TarefasController {
 
-//	private EntityManager em;
-
-//	ServletRequest request;
-//	EntityManager em = (EntityManager) request.getAttribute("em");
-	
 	@RequestMapping("novaTarefa")
 	public String form() {
 		return "tarefas/formulario";
@@ -37,14 +29,8 @@ public class TarefasController {
 
 			EntityManager em = (EntityManager) request.getAttribute("em");
 			
-//			EntityManager em = new JPAUtil().getEntityManager();
-//			em.getTransaction().begin();
-			
 			new TarefasDAO(em).adiciona(tarefas);
 
-//			em.getTransaction().commit();
-//			em.close();
-			
 			return "redirect:Menu";
 			
 		} else return "redirect:Menu";
@@ -55,32 +41,21 @@ public class TarefasController {
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
 
-//		EntityManager em = new JPAUtil().getEntityManager();
-//		em.getTransaction().begin();
-
 		TarefasDAO dao = new TarefasDAO(em);
 		
 		model.addAttribute("tarefas", dao.lista());
-		
-//		em.getTransaction().commit();
-//		em.close();
 		
 		return "tarefas/lista";
 	}
 
 	@RequestMapping("removeTarefa")
-	public String remove(Tarefas tarefas, HttpServletRequest request) {
+	public String remove(Long id, Tarefas tarefas, HttpServletRequest request) {
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
 
-//		EntityManager em = new JPAUtil().getEntityManager();
-//		em.getTransaction().begin();
-
 		TarefasDAO dao = new TarefasDAO(em);
-		dao.remove(tarefas);
-		
-//		em.getTransaction().commit();
-//		em.close();
+		Tarefas buscaPorId = dao.buscaPorId(id);
+		dao.remove(buscaPorId);
 		
 //		response.setStatus(200);
 		return "redirect:Menu";
@@ -91,14 +66,8 @@ public class TarefasController {
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
 		
-//		EntityManager em = new JPAUtil().getEntityManager();
-//		em.getTransaction().begin();
-
 		TarefasDAO dao = new TarefasDAO(em);
 		model.addAttribute("tarefa", dao.buscaPorId(id));
-		
-//		em.getTransaction().commit();
-//		em.close();
 		
 		response.setStatus(200);
 		return "dados-do-dialog";
@@ -109,14 +78,8 @@ public class TarefasController {
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
 
-//		EntityManager em = new JPAUtil().getEntityManager();
-//		em.getTransaction().begin();
-
 		TarefasDAO dao = new TarefasDAO(em);
 		dao.altera(tarefas);
-
-//		em.getTransaction().commit();
-//		em.close();
 
 		return "redirect:Menu";
 	}
@@ -126,14 +89,8 @@ public class TarefasController {
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
 
-//		EntityManager em = new JPAUtil().getEntityManager();
-//		em.getTransaction().begin();
-
 		TarefasDAO dao = new TarefasDAO(em);
 		model.addAttribute("tarefas", dao.lista());
-		
-//		em.getTransaction().commit();
-//		em.close();
 		
 		return "menu";
 	}
