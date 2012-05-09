@@ -41,7 +41,7 @@
 Comment
 <input type="text" id="conteudo" name="conteudo" class="text ui-widget-content ui-corner-all" size="48px" />
 
-<input type="hidden" id="tarefa_id" name="tarefa_id" value="${tarefa.id}">
+<%-- <input type="hidden" id="tarefas" name="tarefas" value="${tarefa.id}"/> --%>
 
 <button onclick="adiconaComentario()">Add</button>
 </form>

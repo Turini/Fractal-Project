@@ -98,12 +98,12 @@ function exibirTarefa(id) {
 	$.get("mostraTarefa", {id: id}, function(resposta) {
 		$("#detalhes-tarefa").html(resposta);
 		$('#detalhes-tarefa').dialog('open');
-// 		exibirComentarios(id);
+		exibirComentarios(id);
 	});
 }
 
 function exibirComentarios(id) {
-	$.get("mostraComentarios", {id: id}, function(resposta) {
+	$.get("listaComentarios", {id: id}, function(resposta) {
 		$("#novo-comentario").html(resposta);
 	});
 }

@@ -33,5 +33,8 @@ public class ComentariosDAO {
 	public List<Comentario> lista() {
 		return dao.lista();
 	}
+	public List<Comentario> buscaComentarioPorTarefa(Long id) {		
+		return dao.buscaComentarioPorTarefa(id);
+	}
 
 }

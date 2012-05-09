@@ -38,13 +38,9 @@ public class TarefasController {
 
 	@RequestMapping("listaTarefas")
 	public String lista(Model model, HttpServletRequest request){
-
 		EntityManager em = (EntityManager) request.getAttribute("em");
-
 		TarefasDAO dao = new TarefasDAO(em);
-		
 		model.addAttribute("tarefas", dao.lista());
-		
 		return "tarefas/lista";
 	}
 

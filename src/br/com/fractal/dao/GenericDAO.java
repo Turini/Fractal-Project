@@ -3,6 +3,9 @@ package br.com.fractal.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
+import br.com.fractal.model.Comentario;
 
 public class GenericDAO<T> {
 
@@ -33,6 +36,18 @@ public class GenericDAO<T> {
 	@SuppressWarnings("unchecked")
 	public List<T> lista() {
 		return this.em.createQuery("from " + classe.getName()).getResultList();
+	}
+
+	// TODO: isso fica no GenericDAO mesmo? melhor no Comentario.
+	@SuppressWarnings("unchecked")
+	public List<Comentario> buscaComentarioPorTarefa(Long id) {
+
+		String jpql = "select c from Comentario c where c.tarefas_id = :tarefas_id";
+
+		Query query =this.em.createQuery(jpql);
+		query.setParameter("tarefas_id", 1);
+
+		return query.getResultList();
 	}
 
 }

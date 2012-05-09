@@ -5,23 +5,27 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Comentario {
-	
+
 	@Id @GeneratedValue
-	int tarefa_id;
-	
+	Long id;
+
 	private Calendar data;
-	
+
 	String conteudo;
 
-	public int getTarefa_id() {
-		return tarefa_id;
+	@ManyToOne
+	Tarefas tarefas;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setTarefa_id(int tarefa_id) {
-		this.tarefa_id = tarefa_id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Calendar getData() {
@@ -39,5 +43,13 @@ public class Comentario {
 	public void setConteudo(String conteudo) {
 		this.conteudo = conteudo;
 	}
-	
+
+	public Tarefas getTarefas() {
+		return tarefas;
+	}
+
+	public void setTarefas(Tarefas tarefas) {
+		this.tarefas = tarefas;
+	}
+
 }

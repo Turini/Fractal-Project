@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ComentariosDAO;
+import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Comentario;
 
 @Controller
@@ -33,6 +34,18 @@ public class ComentarioController {
 		model.addAttribute("comentario", dao.buscaPorId(id));
 		
 		response.setStatus(200);
+		return "comentarios-do-dialog";
+	}
+	
+	@RequestMapping("listaComentarios")
+	public String lista(Model model, HttpServletRequest request){
+
+		EntityManager em = (EntityManager) request.getAttribute("em");
+
+		ComentariosDAO dao = new ComentariosDAO(em);
+		
+		model.addAttribute("comentario", dao.lista());
+		
 		return "comentarios-do-dialog";
 	}
 
