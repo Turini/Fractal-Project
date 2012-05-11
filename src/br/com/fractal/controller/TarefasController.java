@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.fractal.dao.ComentariosDAO;
 import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Tarefas;
 
@@ -90,4 +91,18 @@ public class TarefasController {
 		
 		return "menu";
 	}
+	
+	@RequestMapping("mostraComentariosDaTarefa")
+	public String mostra(Long id, Model model, HttpServletResponse response, HttpServletRequest request, Tarefas tarefa){
+		
+		EntityManager em = (EntityManager) request.getAttribute("em");
+//		ComentariosDAO dao = new ComentariosDAO(em);
+		TarefasDAO dao = new TarefasDAO(em);
+		Tarefas buscaPorId = dao.buscaPorId(id);
+		model.addAttribute("comentario", dao.buscaComentarioPorTarefa(buscaPorId));
+		
+		response.setStatus(200);
+		return "comentarios-do-dialog";
+	}
+	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.fractal.model.Comentario;
 import br.com.fractal.model.Tarefas;
 
 public class TarefasDAO {
@@ -32,6 +33,10 @@ private final GenericDAO<Tarefas> dao;
 
 	public List<Tarefas> lista() {
 		return dao.lista();
+	}
+
+	public List<Comentario> buscaComentarioPorTarefa(Tarefas tarefa) {		
+		return dao.buscaComentarioPorTarefa(tarefa);
 	}
 
 }

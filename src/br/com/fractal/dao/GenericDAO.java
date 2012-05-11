@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.fractal.model.Comentario;
+import br.com.fractal.model.Tarefas;
 
 public class GenericDAO<T> {
 
@@ -40,12 +41,12 @@ public class GenericDAO<T> {
 
 	// TODO: isso fica no GenericDAO mesmo? melhor no Comentario.
 	@SuppressWarnings("unchecked")
-	public List<Comentario> buscaComentarioPorTarefa(Long id) {
+	public List<Comentario> buscaComentarioPorTarefa(Tarefas tarefa) {
 
-		String jpql = "select c from Comentario c where c.tarefas_id = :tarefas_id";
+		String jpql = "select c from Comentario c where c.tarefas = :tarefa";
 
 		Query query =this.em.createQuery(jpql);
-		query.setParameter("tarefas_id", 1);
+		query.setParameter("tarefa", tarefa);
 
 		return query.getResultList();
 	}

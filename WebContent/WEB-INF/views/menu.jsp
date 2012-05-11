@@ -103,7 +103,7 @@ function exibirTarefa(id) {
 }
 
 function exibirComentarios(id) {
-	$.get("listaComentarios", {id: id}, function(resposta) {
+	$.get("mostraComentariosDaTarefa", {id: id}, function(resposta) {
 		$("#novo-comentario").html(resposta);
 	});
 }
