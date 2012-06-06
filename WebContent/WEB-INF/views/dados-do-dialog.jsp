@@ -43,7 +43,7 @@ Comment
 
 <%-- <input type="hidden" id="tarefas" name="tarefas" value="${tarefa.id}"/> --%>
 
-<button onclick="adiconaComentario()">Add</button>
+<button onclick="adiconaComentario(${tarefa.id}); return false;">Add</button>
 </form>
 <br />
 <br />

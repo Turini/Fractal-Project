@@ -14,13 +14,9 @@
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/jquery-ui.js"></script>
 
-<link
-	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
-	rel="stylesheet" type="text/css" />
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
 <!-- TODO: Import all the js code from page to a new menu.js file... and delete which one is unused-->
 
@@ -125,8 +121,11 @@ function habilitarEdicaoTarefa() {
 	$("#salvar").show();
 }
 
-function adiconaComentario() {
-    $("#adicionaComentario").submit();	
+function adiconaComentario(id) {
+	var conteudo = $("#conteudo").val();
+	$.post("adicionaComentario", {id:id, conteudo:conteudo});
+	
+//     $("#adicionaComentario").submit();	
 }
 
 	$(function() { 

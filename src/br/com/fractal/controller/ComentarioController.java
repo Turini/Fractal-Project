@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ComentariosDAO;
+import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Comentario;
 import br.com.fractal.model.Tarefas;
 
@@ -19,10 +20,20 @@ public class ComentarioController {
 //	private EntityManager em;
 
 	@RequestMapping("adicionaComentario")
-	public String adiciona(@Valid Comentario comentario, HttpServletRequest request){
+	public String adiciona(Long id, Comentario comentario, HttpServletRequest request){
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
-		new ComentariosDAO(em).adiciona(comentario);
+		System.out.println("Ronaldo");
+		System.out.println(comentario.getId());
+		
+		ComentariosDAO comentariosDAO = new ComentariosDAO(em);
+		
+		TarefasDAO dao = new TarefasDAO(em);
+		Tarefas tarefa = dao.buscaPorId(id);
+		comentario.setTarefas(tarefa);
+		
+		comentariosDAO.altera(comentario);
+		
 		return "redirect:Menu";
 	}
 	
