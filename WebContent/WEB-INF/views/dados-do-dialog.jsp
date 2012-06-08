@@ -61,7 +61,7 @@ Comment
 	<span class="ui-icon ui-icon-wrench"
 		style="float: right; margin: 0 1px 6px 0; text-align: right;"></span>
 </button>
-<button id="salvar" hidden="true" onclick="salvarEdicaoTarefa()">
+<button id="salvar" hidden="true" onclick="salvarEdicaoTarefa(${tarefa.id})">
 	<span class="ui-icon ui-icon-disk"
 		style="float: right; margin: 0 1px 6px 0; text-align: right;"></span>
 </button>

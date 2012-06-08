@@ -114,6 +114,7 @@ function excluirTarefa(id) {
 
 function salvarEdicaoTarefa(id) {
 	$( "#alteraTarefa" ).submit();
+	$.get("removeTarefa?id="+id);
 }
 
 function habilitarEdicaoTarefa() {
@@ -186,22 +187,27 @@ h1 {
 	margin: 0;
 	padding: 0;
 	float: left;
-	margin-right: 10px;
+	margin-right: 1%;
 	background: grey;
-	padding: 5px;
+	padding: 0;
 	width: 22%;
 }
 
 #sortable1 li,#sortable2 li,#sortable3 li,#sortable4 li {
-	margin: 5px;
-	padding: 15px;
-	font-size: 100%;
-	width: 89%;
+	margin: 1.5%;
+	padding: 0;
+	font-size: 95%;
+	width: 96.3%;
 	background: buttonface;
+	height: 31px;
+	text-align: center;
+	padding-top: 3%;
 }
 
-/* #sortable1, #sortable2, #sortable3, #sortable4 { list-style-type: none; float: left; margin-left: 0.8%; background: grey; padding: 0.2%;} */
-/* #sortable1 li, #sortable2 li, #sortable3 li, #sortable4 li { margin: 1%; padding: 4%; font-size: 100%; width: 89%; background: buttonface; }  */
+#create-task{
+	margin-left: 5%;
+}
+
 </style>
 
 </head>
@@ -214,7 +220,7 @@ h1 {
 
 		<div id="menu-lateral" style="background-color: gray; float: left; height: 100%; width: 19%;" > <br />
 		
-		<button id="create-task" style="margin-left: 5%;">Create new task</button>
+		<button id="create-task";">Create new task</button>
 		
 		</div>
 		
