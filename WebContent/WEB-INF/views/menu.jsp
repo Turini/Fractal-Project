@@ -323,6 +323,12 @@ h1 {
 				<label for="destinario">Addressed</label> <input type="text"
 					name="destinario" id="destinario" maxlength="29" value=""
 					class="text ui-widget-content ui-corner-all" size="31px" /> <br />
+				
+<!-- TODO: Depois precisa vincular com projetos existentes... -->
+				<label for="projeto_id">Projeto ID</label>
+				<input type="text" name="projeto_id" class="text ui-widget-content ui-corner-all"/>
+				
+				
 			</fieldset>
 		</form>
 	</div>

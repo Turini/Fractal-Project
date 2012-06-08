@@ -34,6 +34,10 @@
 		<option value="Congelada">Congelada</option>
 		<option value="Finalizada">Finalizada</option>
 	</select>
+	<br/>
+	<label for="projeto_id">Projeto ID</label>
+	<input type="text" name="projeto_id" class="text ui-widget-content ui-corner-all"/>
+				
 </form>
 <hr noshade>
 
