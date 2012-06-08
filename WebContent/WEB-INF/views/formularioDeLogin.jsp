@@ -39,6 +39,7 @@
 
 <body style="background-color: #E8E8E8;">
 
+<img alt="img" src="/FractalProjec/resources/img/imagemFractal.png">
 
 	<div class="panel" align="center" style="background-color: gray; height: 200px; 
 			 width: 1000px; margin-left: auto; margin-right: auto; margin-top: 200px; border-color: white; border-width: 1cm;">
