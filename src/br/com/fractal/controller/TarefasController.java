@@ -18,11 +18,6 @@ import br.com.fractal.model.Tarefas;
 @Controller
 public class TarefasController {
 
-	@RequestMapping("novaTarefa")
-	public String form() {
-		return "tarefas/formulario";
-	}
-	
 	@RequestMapping("adicionaTarefa")
 	public String adiciona(@Valid Tarefas tarefas, BindingResult result, HttpServletResponse response, HttpServletRequest request){
 		

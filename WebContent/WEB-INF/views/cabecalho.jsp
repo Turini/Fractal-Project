@@ -25,14 +25,13 @@
 	</head>
 
 
-		<body style="font-size:80.5%;">
+		<body style="font-size:70.5%;">
 
 <div style="background-color: gray; height: 140px;"> <br>
 
 	<div id="radio" style="text-align: right; margin-right: 1%;">
 	<input type="radio" id="radio1" name="radio" /><label for="radio1"><a href="Menu">Menu</a> </label>
-	<input type="radio" id="radio2" name="radio" /><label for="radio2"><a href="novaTarefa">Nova Tarefa</a> </label>
-	<input type="radio" id="radio3" name="radio" /><label for="radio3"><a href="listaTarefas">Listar Tarefas</a> </label>
+	<input type="radio" id="radio2" name="radio" /><label for="radio2"><a href="x">Brainstorm?</a> </label>
 	<input type="radio" id="radio4" name="radio" /><label for="radio4"><a href="telaUsuarios">Usuarios</a> </label>
 	<input type="radio" id="radio5" name="radio" /><label for="radio5"><a href="logout" onclick="mensagemLogout()"><span class="ui-icon ui-icon-power" style="float:left; margin:0 5px 4px 0;"></span> Logout</a></label>
 	</div>

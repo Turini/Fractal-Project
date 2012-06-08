@@ -196,7 +196,6 @@ h1 {
 #sortable1 li,#sortable2 li,#sortable3 li,#sortable4 li {
 	margin: 1.5%;
 	padding: 0;
-	font-size: 95%;
 	width: 96.3%;
 	background: buttonface;
 	height: 31px;
