@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.fractal.model.Comentario;
+import br.com.fractal.model.Projeto;
 import br.com.fractal.model.Tarefas;
 
 public class GenericDAO<T> {
@@ -48,6 +49,17 @@ public class GenericDAO<T> {
 		Query query =this.em.createQuery(jpql);
 		query.setParameter("tarefa", tarefa);
 
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Tarefas> listaPorProjeto(Long id) {
+	
+		String jpql = "select t from Tarefas t where t.projeto_id = :projeto_id";
+		
+		Query query = this.em.createQuery(jpql);
+		query.setParameter("projeto_id", id);
+		
 		return query.getResultList();
 	}
 

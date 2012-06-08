@@ -26,6 +26,8 @@ public class Tarefas {
 	private Calendar dataTermino;
 	
 	private int prazo;
+	
+	private Long projeto_id; 
 
 	public Long getId() {
 		return id;
@@ -85,6 +87,14 @@ public class Tarefas {
 
 	public void setPrazo(int prazo) {
 		this.prazo = prazo;
+	}
+
+	public Long getProjeto_id() {
+		return projeto_id;
+	}
+
+	public void setProjeto_id(Long projeto_id) {
+		this.projeto_id = projeto_id;
 	}
 
 }

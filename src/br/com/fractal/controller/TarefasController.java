@@ -77,12 +77,13 @@ public class TarefasController {
 	}
 	
 	@RequestMapping("Menu")
-	public String menu(Model model, HttpServletRequest request){
+	public String menu(Long id, Model model, HttpServletRequest request){
 
 		EntityManager em = (EntityManager) request.getAttribute("em");
 
 		TarefasDAO dao = new TarefasDAO(em);
-		model.addAttribute("tarefas", dao.lista());
+//		model.addAttribute("tarefas", dao.lista());
+		model.addAttribute("tarefas", dao.listaPorProjeto(id));
 		
 		return "menu";
 	}

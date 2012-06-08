@@ -219,7 +219,7 @@ h1 {
 
 		<div id="menu-lateral" style="background-color: gray; float: left; height: 100%; width: 19%;" > <br />
 		
-		<button id="create-task";">Create new task</button>
+		<button id="create-task">Create new task</button>
 		
 		</div>
 		

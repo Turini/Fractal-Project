@@ -8,9 +8,11 @@
 		<class>br.com.fractal.model.Tarefas</class>
 		<class>br.com.fractal.model.Comentario</class>
 		<class>br.com.fractal.model.Usuarios</class>
-		
+		<class>br.com.fractal.model.Projeto</class>
+
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+<!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 			
 			<!-- poderia ser: create,create-drop -->
 			<property name="hibernate.hbm2ddl.auto" value="update"/>

@@ -39,4 +39,8 @@ private final GenericDAO<Tarefas> dao;
 		return dao.buscaComentarioPorTarefa(tarefa);
 	}
 
+	public List<Tarefas> listaPorProjeto(Long id) {
+		return dao.listaPorProjeto(id);
+	}
+
 }
