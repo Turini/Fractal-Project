@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.fractal.model.Comentario;
-import br.com.fractal.model.Projeto;
 import br.com.fractal.model.Tarefas;
 
 public class GenericDAO<T> {

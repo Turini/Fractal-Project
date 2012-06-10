@@ -28,41 +28,76 @@
 /*   		input.text { margin-bottom:12px; width:95%; padding: .4em; } */
  		fieldset { padding:0; border:0; margin-top:25px; } 
  		h1 { font-size: 1.2em; margin: .6em 0; } 
-/*  		div#users-contain { width: 350px; margin: 20px 0; }  */
 /*  		div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }  */
-/*  		div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; } */
-/*  		.ui-dialog .ui-state-error { padding: .3em; } */
-/*  		.validateTips { border: 1px solid transparent; padding: 0.3em; } */
- 	</style>
+ 	
+ 	#img {
+ 		width: 75%;
+ 	}
+ 	
+ 	#pageContent{
+	 	background-color: darkGray;
+		height: 90px;
+		width: 265px;
+		margin-top: 5%;
+		float: right;
+ 	}
+ 	
+ 	#password{
+ 		display: none;
+ 	}
+ 	
+ 	input{
+ 	border-radius: 6px;
+ 	}
+ 	
+ 	label{
+ 	display: table-caption;
+	margin-left: 5%;
+ 	}
+ 	
+</style>
 
 </head>
 
-<body style="background-color: #E8E8E8;">
+<body>
 
-<img alt="img" src="/FractalProjec/resources/img/imagemFractal.png">
+<img id="img" alt="img" src="/FractalProjec/resources/img/imagemFractal.png">
 
-	<div class="panel" align="center" style="background-color: gray; height: 200px; 
-			 width: 1000px; margin-left: auto; margin-right: auto; margin-top: 200px; border-color: white; border-width: 1cm;">
+	<div id="pageContent" style="border-radius: 10%">
 
-	<div id="pageContent">
 
-      <h1 style="margin-left: 2%; font-size:200%;  color: #363636;" align="left" id="header">Fractal Tasks Project</h1>
+<script type="text/javascript">
+
+	
+	
+	function changeInput(){
+		$("#user").hide();
+		$("#password").show();
+	}
+	
+</script>
 
 		<form action="efetuaLogin" method="post" style="margin-top: 5%;">
-            <label for="login">User:</label>  
-            <input type="text" name="login" class="text ui-widget-content ui-corner-all" />
-            <label for="senha">Password:</label> 
-            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" />
+		
+            <label id="user" for="login">User:  
+            <input type="text" name="login" onchange="changeInput()" class="text ui-widget-content ui-corner-all" />
+			</label>
 
-			<button type="submit">Login </button>
+            <label id="password" for="senha">Password: 
+            <input type="password" name="senha" class="text ui-widget-content ui-corner-all"/>
+			</label>
+			
+			<button type="submit">></button>
+			
 		</form>
+
+
 
       <div style="margin-right: 2%; margin-top: 6%;" align="right"><span class="versionTag">Version 0.1</span></div>
 
 
 
 		</div>
-	</div>
 
 <%-- 	<c:import url="rodape.jsp" />	 Precisa excluir ou redimensionar essa pagina--%>
 
