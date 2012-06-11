@@ -8,68 +8,57 @@
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="David Kohout & Tom&Atilde;&iexcl;&Aring;&iexcl; Lach - www.tomaslach.cz">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="stylesheet" href="css/main.css" media="screen,projection">
+	<title>Fractal Tasks Project</title>
 
-<title>Login</title>
-<!-- this name can be much better... -->
-
-<link rel="stylesheet" href="/FractalProjec/resources/css/fractal/formularioDeLogin.css" type="text/css" />  
+	<link rel="stylesheet" href="/FractalProjec/resources/css/fractal/formularioDeLogin.css" type="text/css" />  
 
 </head>
 
 <body>
 
-<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
-
-	<div id="pageContent" style="border-radius: 7%">
-
-
-<script type="text/javascript">
-
-	function changeInput(){
-		$("#user").hide();
-		$("#password").show();
-	}
+	<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
 	
-	function submit(){
-		$("efetuaLogin").submit();
-	}
-	
-</script>
-
-		<form action="efetuaLogin" method="post" style="margin-top: 5%;">
+		<div id="pageContent" style="border-radius: 7%">
 		
-            <label id="user" for="login">User:  
-            <input type="text" name="login" onchange="changeInput()" class="text ui-widget-content ui-corner-all" />
-			</label>
-
-            <label id="password" for="senha">Password: 
-            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/>
-			</label>
-			
-		</form>
-
-<span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
+		<!-- Extract all js scripts to a external js file -->
+		
+				<form action="efetuaLogin" method="post" style="margin-top: 5%;">
+				
+		            <label id="user" for="login">User:  
+		            <input type="text" name="login" onchange="changeInput()" class="text ui-widget-content ui-corner-all" />
+					</label>
+		
+		            <label id="password" for="senha">Password: 
+		            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/>
+					</label>
+					
+				</form>
+		
+				<span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
 		</div>
-
-      
-      
-      
-      <div id="footer">
-      	
-      <span class="versionTag">@FractalTasks-2012 - Version 0.1</span>
-      
-      </div>
-      
+		      
+		<div id="footer">
+			<span>@FractalTasks-2012 - Version 0.1</span>
+		</div>
+    
 </body>
+
+	<script type="text/javascript">
+	
+		function changeInput(){
+			$("#user").hide();
+			$("#password").show();
+		}
+		
+		function submit(){
+			$("efetuaLogin").submit();
+		}
+		
+	</script>
 
 </html>
