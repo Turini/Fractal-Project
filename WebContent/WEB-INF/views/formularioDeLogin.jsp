@@ -22,52 +22,7 @@
 <title>Login</title>
 <!-- this name can be much better... -->
 
-<style type="text/css"> 
-	body {
-		font-size: 100.0%;
-		font: menu;
-	}
-
-	* {
-		color: #333333;
-	}
-
-	#img {
-		width: 75%;
-	}
- 	
- 	#pageContent{
-	 	background-color: darkGray;
-		height: 95px;
-		width: 265px;
-		margin-top: 5%;
-		float: right;
- 	}
- 	
- 	#password{
- 		display: none;
- 	}
- 	
- 	#footer{
- 		background-color: darkGray;
- 		height: 25px;
- 		position:fixed; 
- 		bottom:0; 
- 		left:0;
- 		right: 0;
- 	}
- 	
- 	input{
-	 	padding: 6%;
-		border-radius: 10px;
- 	}
- 	
- 	label{
- 		display: table-caption;
-		margin-left: 5%;
- 	}
- 	
-</style>
+<link rel="stylesheet" href="/FractalProjec/resources/css/fractal/formularioDeLogin.css" type="text/css" />  
 
 </head>
 
@@ -80,8 +35,6 @@
 
 <script type="text/javascript">
 
-	
-	
 	function changeInput(){
 		$("#user").hide();
 		$("#password").show();
