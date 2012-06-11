@@ -23,16 +23,18 @@
 <!-- this name can be much better... -->
 
 <style type="text/css"> 
- 		body { font-size: 100.0%; font: menu; }
-/*  		label, input { display:block; }  */
-/*   		input.text { margin-bottom:12px; width:95%; padding: .4em; } */
- 		fieldset { padding:0; border:0; margin-top:25px; } 
- 		h1 { font-size: 1.2em; margin: .6em 0; } 
-/*  		div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }  */
- 	
- 	#img {
- 		width: 75%;
- 	}
+	body {
+		font-size: 100.0%;
+		font: menu;
+	}
+
+	* {
+		color: #333333;
+	}
+
+	#img {
+		width: 75%;
+	}
  	
  	#pageContent{
 	 	background-color: darkGray;
@@ -44,6 +46,15 @@
  	
  	#password{
  		display: none;
+ 	}
+ 	
+ 	#footer{
+ 		background-color: darkGray;
+ 		height: 25px;
+ 		position:fixed; 
+ 		bottom:0; 
+ 		left:0;
+ 		right: 0;
  	}
  	
  	input{
@@ -62,7 +73,7 @@
 
 <body>
 
-<img id="img" alt="img" src="/FractalProjec/resources/img/imagemFractal.png">
+<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
 
 	<div id="pageContent" style="border-radius: 7%">
 
@@ -97,9 +108,15 @@
 <span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
 		</div>
 
-      <div style="margin-right: 2%; margin-top: 6%;" align="right"><span class="versionTag">Version 0.1</span></div>
-<%-- 	<c:import url="rodape.jsp" />	 Precisa excluir ou redimensionar essa pagina--%>
-
+      
+      
+      
+      <div id="footer">
+      	
+      <span class="versionTag">@FractalTasks-2012 - Version 0.1</span>
+      
+      </div>
+      
 </body>
 
 </html>
