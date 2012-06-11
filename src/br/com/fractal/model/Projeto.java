@@ -1,16 +1,22 @@
 package br.com.fractal.model;
 
+import java.util.Calendar;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 public class Projeto {
 
-	String nome;
-	
 	@Id
 	Long id;
+	
+	String nome;
 
+	String criador;
+	
+	Calendar dataCriacao;
+	
 	public String getNome() {
 		return nome;
 	}
