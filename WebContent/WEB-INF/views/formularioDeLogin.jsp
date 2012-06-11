@@ -36,7 +36,7 @@
  	
  	#pageContent{
 	 	background-color: darkGray;
-		height: 90px;
+		height: 95px;
 		width: 265px;
 		margin-top: 5%;
 		float: right;
@@ -47,12 +47,13 @@
  	}
  	
  	input{
- 	border-radius: 6px;
+	 	padding: 6%;
+		border-radius: 10px;
  	}
  	
  	label{
- 	display: table-caption;
-	margin-left: 5%;
+ 		display: table-caption;
+		margin-left: 5%;
  	}
  	
 </style>
@@ -63,7 +64,7 @@
 
 <img id="img" alt="img" src="/FractalProjec/resources/img/imagemFractal.png">
 
-	<div id="pageContent" style="border-radius: 10%">
+	<div id="pageContent" style="border-radius: 7%">
 
 
 <script type="text/javascript">
@@ -87,18 +88,14 @@
             <input type="password" name="senha" class="text ui-widget-content ui-corner-all"/>
 			</label>
 			
-			<button type="submit">></button>
+			<button type="submit" style="display: none">></button>
 			
 		</form>
 
-
-
-      <div style="margin-right: 2%; margin-top: 6%;" align="right"><span class="versionTag">Version 0.1</span></div>
-
-
-
+<span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
 		</div>
 
+      <div style="margin-right: 2%; margin-top: 6%;" align="right"><span class="versionTag">Version 0.1</span></div>
 <%-- 	<c:import url="rodape.jsp" />	 Precisa excluir ou redimensionar essa pagina--%>
 
 </body>
