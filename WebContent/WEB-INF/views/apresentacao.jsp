@@ -14,24 +14,59 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 		
-	<title>Fractal Tasks (it can work)</title> </head>
+	<title>Fractal Tasks (it can work)</title> 
+	
+	<style type="text/css">
+	
+	#projectBox{
+		background-color: darkGray;
+		width: 500px;
+		height: 200px;
+		float: right;
+		border-radius: 20px;
+		font: menu;
+	}
+	
+	#projects{
+		background-color: lightGrey;
+		margin-left: 1%;
+		font: menu;
+		width: 98%;
+	}
+	
+	#space{
+		background-color: darkGray;
+		margin-left: 1%;
+		width: 98%;
+		height: 2%;
+	}
+		
+	</style>
+	
+	</head>
 
 <body>
 
-Aqui serah a tela de boas vindas, onde terah uma pequena apresentacao do <br/> 
-projeto e apresentara aos usuarios os projetos ao qual ele faz parte ou eh admin <br/> 
-para que ele opte por qual deseja acessar... lembrando que isso ainda nao foi <br/>
-implementado, ou seja, atualmente soh existe um projeto pra uma empresa. <br/>
-
-<br/> Voce esta logado como ${usuarioLogado.login}, <a href="Menu"> entrar </a>  ou 
-<a href="logout">logout</a>.
+<br/> Voce esta logado como ${usuarioLogado.login}, <a href="logout">logout</a>.
 
 <br/><br/><br/>
-<c:forEach items="${projetos}" var="projeto">
-<a href="Menu?id=${projeto.id}">${projeto.nome}</a> <br/>
-</c:forEach>
 
 <br/>
+
+	<div id="projectBox">
+		<!-- Insert a if clause to verify if exist some project   -->
+		<!-- If don't, just show the message: Create a new one =) -->
+		<h3 style="margin-left: 3%;">These are your current projects:</h3>
+		
+		<c:forEach items="${projetos}" var="projeto">
+			<div id="projects"> 
+			${projeto.nome} - created by: (user name) on: (date of creation) 
+			<a href="Menu?id=${projeto.id}">>></a>
+			</div>
+			
+			<div id="space"></div>
+		</c:forEach>
+	</div>
 
 </body>
 

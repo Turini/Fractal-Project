@@ -76,6 +76,10 @@
 		$("#password").show();
 	}
 	
+	function submit(){
+		$("efetuaLogin").submit();
+	}
+	
 </script>
 
 		<form action="efetuaLogin" method="post" style="margin-top: 5%;">
@@ -85,10 +89,8 @@
 			</label>
 
             <label id="password" for="senha">Password: 
-            <input type="password" name="senha" class="text ui-widget-content ui-corner-all"/>
+            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/>
 			</label>
-			
-			<button type="submit" style="display: none">></button>
 			
 		</form>
 
