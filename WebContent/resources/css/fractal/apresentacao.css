@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+#projectContainer{
+	float: right;
+	display: block;	
+	font: menu;
+	
+}
+
+	#projectBox{
+		background-color: darkGray;
+		width: 500px;
+		height: 200px;
+		border-radius: 20px;
+	}
+
+	#projects{
+		background-color: lightGrey;
+		margin-left: 1%;
+		margin-bottom: 1%;
+		font: menu;
+		width: 98%;
+	}
+		

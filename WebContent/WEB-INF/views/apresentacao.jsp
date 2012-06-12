@@ -18,27 +18,8 @@
 		
 	<title>Fractal Tasks (it can work)</title> 
 	
-	<style type="text/css">
-	
-	#projectBox{
-		background-color: darkGray;
-		width: 500px;
-		height: 200px;
-		float: right;
-		border-radius: 20px;
-		font: menu;
-	}
-	
-	#projects{
-		background-color: lightGrey;
-		margin-left: 1%;
-		margin-bottom: 1%;
-		font: menu;
-		width: 98%;
-	}
+		<link rel="stylesheet" href="/FractalProjec/resources/css/fractal/apresentacao.css" type="text/css" />  
 		
-	</style>
-	
 	<script type="text/javascript">
 	
 	$(document).ready(function() {
@@ -57,8 +38,6 @@
 			dataCriacao = $("#dataCriacao"),
 			allFields = $( [] ).add( nome ).add( criador ).add( dataCriacao );
 
-// 			to aqui 
-			
 		$( "#dialog-project" ).dialog({
 			autoOpen: false,
 			height: 250,
@@ -98,9 +77,14 @@
 
 <br/> Voce esta logado como ${usuarioLogado.login}, <a href="logout">logout</a>.
 
+<br/> //TODO: incluir aqui as mensagens... e um grafico? do que?.
+
+
 <br/><br/><br/>
 
 <br/>
+
+<div id="projectContainer">
 
 	<div id="projectBox">
 		<!-- Insert a if clause to verify if exist some project   -->
@@ -118,8 +102,17 @@
 			</div>
 			
 		</c:forEach>
+	</div>	
+	
+ 	<div id="projectBox">
+		<!-- Insert if clause to verify if usuarioLogado == Owner -->
+		<!-- If don't, show the projects that he join -->
+		<h3 style="margin-left: 3%;">These are the current projects that you join?:</h3>
+	
 	</div>
 	
+</div>
+
 	<button id="create-project"> Create new project </button>
 	
 	<div id="dialog-project">
