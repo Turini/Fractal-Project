@@ -17,5 +17,17 @@ public class ProjetoDAO {
 	public List<Projeto> listaProjetos() {
 		return dao.lista();
 	}
+
+	public void adiciona(Projeto projeto) {
+		dao.adiciona(projeto);
+	}
+
+	public Projeto buscaPorId(Long id) {
+		return dao.buscaPorId(id);
+	}
+
+	public void remove(Projeto projeto) {
+		dao.remove(projeto);
+	}
 	
 }

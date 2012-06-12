@@ -3,6 +3,8 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%@ taglib tagdir="/WEB-INF/tags" prefix="homework"%>
+
 <html>
 
 	<head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -30,19 +32,66 @@
 	#projects{
 		background-color: lightGrey;
 		margin-left: 1%;
+		margin-bottom: 1%;
 		font: menu;
 		width: 98%;
-	}
-	
-	#space{
-		background-color: darkGray;
-		margin-left: 1%;
-		width: 98%;
-		height: 2%;
 	}
 		
 	</style>
 	
+	<script type="text/javascript">
+	
+	$(document).ready(function() {
+	    $("button").button();
+	  });
+
+	$(document).ready(function() {
+	  $("#dialog").dialog();
+	});
+		
+		$(function() {
+			$( "#dialog:ui-dialog" ).dialog( "destroy" );
+		
+			var nome = $( "#nome" ),
+			criador = $( "#criador" ), 
+			dataCriacao = $("#dataCriacao"),
+			allFields = $( [] ).add( nome ).add( criador ).add( dataCriacao );
+
+// 			to aqui 
+			
+		$( "#dialog-project" ).dialog({
+			autoOpen: false,
+			height: 250,
+			width: 820,
+			modal: true,
+			buttons: {
+				"Create Project": function() {
+						$( "#addProject" ).submit(); 						
+						$( this ).dialog( "close" );
+				},
+				Cancel: function() {
+					$( this ).dialog( "close" );
+			},
+			Clear: function() {
+				allFields.val( "" );
+			}
+		  }
+		});
+		
+			$( "#create-project" ).button().click(function() {
+				allFields.val( "" );
+				$( "#dialog-project" ).dialog( "open" );
+				$("#addProject").find(":input").attr("disabled", false);
+			});
+		});
+		
+		
+		function excluirProjeto(id) {
+			$.get("deleteProject", {id:id});
+		}
+	
+</script>
+
 	</head>
 
 <body>
@@ -60,14 +109,38 @@
 		
 		<c:forEach items="${projetos}" var="projeto">
 			<div id="projects"> 
-			${projeto.nome} - created by: (user name) on: (date of creation) 
+			${projeto.nome} - created by: ${projeto.criador} on: ${projeto.dataCriacao} 
 			<a href="Menu?id=${projeto.id}">>></a>
+			<button onclick="excluirProjeto(${projeto.id})">
+			<span class="ui-icon ui-icon-trash"
+			style="float: right; margin: 0 1px 6px 0; text-align: right;"></span>
+			</button>
 			</div>
 			
-			<div id="space"></div>
 		</c:forEach>
 	</div>
+	
+	<button id="create-project"> Create new project </button>
+	
+	<div id="dialog-project">
+		
+		<form action="addProject" id="addProject">
+		
+			<label for="nome">Project Name</label> 
+			<input type="text" name="nome" id="nome" maxlength="20" 
+			class="text ui-widget-content ui-corner-all"/>
+		
+			<label for="criador">Project Owner</label> 
+			<input type="text" name="criador" id="criador" maxlength="20" 
+			class="text ui-widget-content ui-corner-all"/>
+		
+			<label for="dataInicio">Starting date</label>
+			<homework:campoData name="dataInicio" id="dataInicio" />
 
+		</form>
+		
+	</div>
+	
 </body>
 
 </html>
