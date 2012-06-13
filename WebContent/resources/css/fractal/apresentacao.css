@@ -1,5 +1,20 @@
 @CHARSET "UTF-8";
 
+* {
+	color: #333333;
+}
+
+h3 {
+	margin-left: 3%;
+	padding: 2%;
+}
+
+span {
+	float: right; 
+	margin: 0 1px 6px 0; 
+	font: -webkit-control;
+}
+
 #projectContainer{
 	float: right;
 	display: block;	
@@ -16,9 +31,9 @@
 
 	#projects{
 		background-color: lightGrey;
-		margin-left: 1%;
+		margin-left: 2%;
 		margin-bottom: 1%;
 		font: menu;
-		width: 98%;
+		width: 96%;
 	}
 		

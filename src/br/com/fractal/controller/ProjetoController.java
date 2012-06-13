@@ -2,6 +2,7 @@ package br.com.fractal.controller;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class ProjetoController {
 	}
 	
 	@RequestMapping("deleteProject")
-	public String remove(Long id, HttpServletRequest request) {
+	public void remove(Long id, HttpServletRequest request, HttpServletResponse response) {
 		
 		EntityManager em = (EntityManager) request.getAttribute("em");
 		
@@ -30,7 +31,7 @@ public class ProjetoController {
 		Projeto projeto = dao.buscaPorId(id);
 		dao.remove(projeto);
 		
-		return "redirect:apresentacao";
+		response.setStatus(200);
 	}
 	
 }

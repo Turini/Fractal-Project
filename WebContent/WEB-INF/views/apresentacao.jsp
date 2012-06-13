@@ -57,7 +57,7 @@
 		  }
 		});
 		
-			$( "#create-project" ).button().click(function() {
+			$( "#create-project" ).click(function() {
 				allFields.val( "" );
 				$( "#dialog-project" ).dialog( "open" );
 				$("#addProject").find(":input").attr("disabled", false);
@@ -68,7 +68,8 @@
 		function excluirProjeto(id) {
 			$.get("deleteProject", {id:id});
 		}
-	
+		
+		
 </script>
 
 	</head>
@@ -89,31 +90,34 @@
 	<div id="projectBox">
 		<!-- Insert a if clause to verify if exist some project   -->
 		<!-- If don't, just show the message: Create a new one =) -->
-		<h3 style="margin-left: 3%;">These are your current projects:</h3>
+		<h3>These are your current projects:</h3>
 		
 		<c:forEach items="${projetos}" var="projeto">
 			<div id="projects"> 
 			${projeto.nome} - created by: ${projeto.criador} on: ${projeto.dataCriacao} 
-			<a href="Menu?id=${projeto.id}">>></a>
-			<button onclick="excluirProjeto(${projeto.id})">
-			<span class="ui-icon ui-icon-trash"
-			style="float: right; margin: 0 1px 6px 0; text-align: right;"></span>
-			</button>
+			
+			<a href="Menu?id=${projeto.id}">></a>
+
+			<span class="ui-icon  ui-icon-play"></span>			
+			
+			<span onclick="excluirProjeto(${projeto.id})" class="ui-icon ui-icon-trash"></span>
 			</div>
 			
 		</c:forEach>
+		
+		<span id="create-project">Add a new one...</span>
+		
 	</div>	
 	
  	<div id="projectBox">
 		<!-- Insert if clause to verify if usuarioLogado == Owner -->
 		<!-- If don't, show the projects that he join -->
-		<h3 style="margin-left: 3%;">These are the current projects that you join?:</h3>
+		<h3>These are the current projects that you join?:</h3>
 	
 	</div>
 	
 </div>
 
-	<button id="create-project"> Create new project </button>
 	
 	<div id="dialog-project">
 		
