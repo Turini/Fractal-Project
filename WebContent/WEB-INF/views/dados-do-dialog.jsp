@@ -1,5 +1,6 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="homework"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:useBean id="agora" class="java.util.Date"/>
 
@@ -35,8 +36,8 @@
 		<option value="Finalizada">Finalizada</option>
 	</select>
 	<br/>
-	<label for="projeto_id">Projeto ID</label>
-	<input type="text" name="projeto_id" class="text ui-widget-content ui-corner-all"/>
+	
+	<input type="hidden" name="projeto_id" value="${projeto}"/>
 				
 </form>
 <hr noshade>

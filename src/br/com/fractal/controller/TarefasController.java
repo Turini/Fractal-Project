@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ComentariosDAO;
+import br.com.fractal.dao.ProjetoDAO;
 import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Tarefas;
 
@@ -59,7 +60,11 @@ public class TarefasController {
 		EntityManager em = (EntityManager) request.getAttribute("em");
 		
 		TarefasDAO dao = new TarefasDAO(em);
-		model.addAttribute("tarefa", dao.buscaPorId(id));
+		
+		Tarefas tarefa = dao.buscaPorId(id);
+		
+		model.addAttribute("tarefa", tarefa);
+		model.addAttribute("projeto", tarefa.getProjeto_id());
 		
 		response.setStatus(200);
 		return "dados-do-dialog";
@@ -84,6 +89,7 @@ public class TarefasController {
 		TarefasDAO dao = new TarefasDAO(em);
 //		model.addAttribute("tarefas", dao.lista());
 		model.addAttribute("tarefas", dao.listaPorProjeto(id));
+		model.addAttribute("projetoId", id);
 		
 		return "menu";
 	}
