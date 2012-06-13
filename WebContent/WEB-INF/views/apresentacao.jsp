@@ -45,7 +45,7 @@
 			modal: true,
 			buttons: {
 				"Create Project": function() {
-						$( "#addProject" ).submit(); 						
+						$( "#addProject" ).submit();
 						$( this ).dialog( "close" );
 				},
 				Cancel: function() {
@@ -65,9 +65,10 @@
 		});
 		
 		
-		function excluirProjeto(id) {
+		$("#trash").live('click', function(){
+			var id = $("#trash").text();
 			$.get("deleteProject", {id:id});
-		}
+		});
 		
 		
 </script>
@@ -100,7 +101,7 @@
 
 			<span class="ui-icon  ui-icon-play"></span>			
 			
-			<span onclick="excluirProjeto(${projeto.id})" class="ui-icon ui-icon-trash"></span>
+			<span id="trash" class="ui-icon ui-icon-trash">${projeto.id}</span>
 			</div>
 			
 		</c:forEach>
