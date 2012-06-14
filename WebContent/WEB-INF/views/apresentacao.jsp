@@ -65,10 +65,15 @@
 		});
 		
 		
-		$("#trash").live('click', function(){
-			var id = $("#trash").text();
-			$.get("deleteProject", {id:id});
-		});
+	$("#trash").live('click', function(){
+		var id = $(this).text();
+			$.get("deleteProject", {id:id})
+				.success(function(){
+					$("#trash").closest("div").hide();
+				}).error(function(){
+					alert("some error message");
+			});
+	});
 		
 		
 </script>
