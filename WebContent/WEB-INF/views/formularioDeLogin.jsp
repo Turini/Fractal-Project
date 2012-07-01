@@ -4,62 +4,43 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html lang="cs">
+<html>
 
-<head>
-
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link type="text/css" href="<c:url value="/resources/css/jquery.css"/>" rel="stylesheet">
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui.js"/>"></script>
 
 	<title>Fractal Tasks Project</title>
 
-	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/formularioDeLogin.css"/>" type="text/css" />  
+	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/formularioDeLogin.css"/>" type="text/css" /></head>
 
-</head>
-
-<body>
-
-	<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
+	<body>
 	
-		<div id="pageContent" style="border-radius: 7%">
+		<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
 		
-		<!-- Extract all js scripts to a external js file -->
+		<div id="pageContent">
 		
-				<form id="efetuaLogin" action="efetuaLogin" method="post" style="margin-top: 5%;">
+			<form id="efetuaLogin" action="efetuaLogin" method="post" style="margin-top: 5%;">
+			
+	            <label id="user" for="login">User: 
+	            <input type="text" name="login" class="text ui-widget-content ui-corner-all"/> </label>
+	            
+	            <label id="password" for="senha">Password: 
+	            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/> </label>
+	            
+			</form>
 				
-		            <label id="user" for="login">User:  
-		            <input type="text" name="login" onchange="changeInput()" class="text ui-widget-content ui-corner-all" />
-					</label>
-		
-		            <label id="password" for="senha">Password: 
-		            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/>
-					</label>
-					
-				</form>
-				
-				<span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
+			<span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
 				
 		</div>
 	
 		<div id="footer">
 			<span>@FractalTasks-2012 - Version 0.1</span>
 		</div>
-    
-</body>
+	   
+	</body>
 
-	<script type="text/javascript">
+	<script type="text/javascript" src="<c:url value="/resources/js/fractal/formularioDelogin.js"/>"></script>
 	
-		function changeInput(){
-				$("#user").hide();
-				$("#password").show();
-		}
-		
-		function submit(){
-			$("efetuaLogin").submit();
-		}
-		
-	</script>
-
 </html>
