@@ -1,19 +1,25 @@
 package br.com.fractal.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuarios {
 	
-	@Id @GeneratedValue
+@Id @GeneratedValue
 	private Long id;
 	private String login;
 	private String senha;
 	private String email;
 	private String tipo;
 	private String telefone;
+	
+	@ManyToMany
+	private List<Projeto> projetos;
 
 	public Long getId() {
 		return id;
@@ -61,6 +67,14 @@ public class Usuarios {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
 	}
 
 }

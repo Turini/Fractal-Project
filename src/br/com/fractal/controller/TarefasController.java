@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.fractal.dao.ComentariosDAO;
-import br.com.fractal.dao.ProjetoDAO;
 import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Tarefas;
 
