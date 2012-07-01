@@ -8,13 +8,12 @@
 <html>
 
 	<head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" href="resources/css/jquery.css" rel="stylesheet">
-		<script type="text/javascript" src="resources/js/jquery.js"></script>
-		<script type="text/javascript" src="resources/js/jquery-ui.js"></script>
-		
-		<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link type="text/css" href="<c:url value="/resources/css/jquery-ui-1.8.21.custom.css"/>" rel="stylesheet">	
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	
+<%-- 	<link type="text/css" href="<c:url value="/resources/css/jquery.css"/>" rel="stylesheet"> --%>
+<%-- 	<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui-1.8.21.custom.js"/>"></script>	 --%>
 		
 	<title>Fractal Tasks (it can work)</title> 
 	

@@ -9,13 +9,13 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link type="text/css" href="<c:url value="/resources/css/jquery.css"/>" rel="stylesheet">
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui.js"/>"></script>
 
 	<title>Fractal Tasks Project</title>
 
-	<link rel="stylesheet" href="/FractalProjec/resources/css/fractal/formularioDeLogin.css" type="text/css" />  
+	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/formularioDeLogin.css"/>" type="text/css" />  
 
 </head>
 

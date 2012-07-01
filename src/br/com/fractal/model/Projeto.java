@@ -12,14 +12,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Projeto {
 
 	@Id @GeneratedValue
-	Long id;
+	private Long id;
 	
-	String nome;
+	private String nome;
 
-	String criador;
+	private String criador;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy")
-	Calendar dataCriacao;
+	private Calendar dataCriacao;
 	
 	public String getNome() {
 		return nome;

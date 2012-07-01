@@ -10,15 +10,13 @@
 <!-- TODO: I need change this jquery's externals resources to a local one, like this:  -->
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link type="text/css" href="resources/css/jquery.css" rel="stylesheet">
-<script type="text/javascript" src="resources/js/jquery.js"></script>
-<script type="text/javascript" src="resources/js/jquery-ui.js"></script>
-
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link type="text/css" href="<c:url value="/resources/css/jquery.css"/>" rel="stylesheet">
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui.js"/>"></script>
 
 <!-- TODO: Import all the js code from page to a new menu.js file... and delete which one is unused-->
+
+<script type="text/javascript" src='<c:url value="/resources/js/fractal/menu.js"></c:url>'></script>
 
 <script type="text/javascript">
 
@@ -29,185 +27,13 @@ $(document).ready(function() {
   $(document).ready(function() {
     $("#dialog").dialog();
   });
-
-$(function() {
-	$( "#dialog:ui-dialog" ).dialog( "destroy" );
-	
-	var nome = $( "#nome" ),
-	descricao = $( "#descricao" ), 
-	estado = $( "#estado" ),
-	destinario = $( "#destinario" ),
-	dataInicio = $("#dataInicio"),
-	dataTermino = $("#dataTermino"),
-	prazo = $("#prazo"),
-		allFields = $( [] ).add( nome ).add( descricao ).add( estado ).add( destinario ).add ( dataInicio ).add ( dataTermino ).add ( prazo );
-
-	
-$( "#dialog-task" ).dialog({
-	autoOpen: false,
-	height: 250,
-	width: 820,
-	modal: true,
-	buttons: {
-		"Create task": function() {
-				$( "#adicionaTarefa" ).submit(); 						
-				$( this ).dialog( "close" );
-		},
-		Cancel: function() {
-			$( this ).dialog( "close" );
-	},
-	Clear: function() {
-		allFields.val( "" );
-	}
-  }
-});
-
-	$( "#create-task" )
-	.button()
-	.click(function() {
-		allFields.val( "" );
-		$( "#dialog-task" ).dialog( "open" );
-		$("#adicionaTarefa").find(":input").attr("disabled", false);
-	});
-});
-  
-$(function() {
-	$( "#dialog:ui-dialog" ).dialog( "destroy" );
-
-	$( "#detalhes-tarefa" ).dialog({
-		autoOpen: false,
-		height:285,
-		width: 610,
-		modal: true,
-// 		buttons: {
-// 			"Delete all items": function() {
-// 				$( this ).dialog( "close" );
-// 			},
-// 			Cancel: function() {
-// 				$( this ).dialog( "close" );
-// 			}
-// 		}
-	});
-});
-
-function exibirTarefa(id) {
-	$.get("mostraTarefa", {id: id}, function(resposta) {
-		$("#detalhes-tarefa").html(resposta);
-		$('#detalhes-tarefa').dialog('open');
-		exibirComentarios(id);
-	});
-}
-
-function exibirComentarios(id) {
-	$.get("mostraComentariosDaTarefa", {id: id}, function(resposta) {
-		$("#novo-comentario").html(resposta);
-	});
-}
-	
-function excluirTarefa(id) {
-	$.get("removeTarefa?id="+id);
-// 	$.post("removeTarefa", {id: id} , function (){
-		$("#tarefa-"+id).hide();
-		$('#detalhes-tarefa').dialog('close');
-// 	});
-}
-
-function salvarEdicaoTarefa(id) {
-	$( "#alteraTarefa" ).submit();
-	$.get("removeTarefa?id="+id);
-}
-
-function habilitarEdicaoTarefa() {
-	$("#alteraTarefa").find(":input").attr("disabled", false);
-	$("#salvar").show();
-}
-
-function adiconaComentario(id) {
-	var conteudo = $("#conteudo").val();
-	$.post("adicionaComentario", {id:id, conteudo:conteudo});
-	
-//     $("#adicionaComentario").submit();	
-}
-
-	$(function() { 
-		$( "ul.droptrue" ).sortable({ 
-			connectWith: "ul" 
-		}); 
-
-		$( "ul.dropfalse" ).sortable({ 
-			connectWith: "ul" 
-// 			dropOnEmpty: false 
-		}); 
-
-		$( "#sortable1, #sortable2, #sortable3, #sortable4" ).disableSelection(); 
-	}); 
-	
-// Mexer nessa função depois... entender e reverter o efeito
-
-// 	$(function() {
-// 		$( ".ui-state-default" ).droppable({
-// 			drop: function( event, ui ) {
-// 				$( this )
-// 					.addClass( "ui-state-highlight" );
-// 			}
-// 		});
-// 	});
 	
 </script>
 
 
 <title>Fractal Task Project</title>
 
-<!-- TODO: organize and delete all the unnecessary style inserted here  -->
-
-<style type="text/css">
-body {
-	font-size: 100.0%;
-	font: menu;
-}
-/*  		label, input { display:block; }  */
-/*   		input.text { margin-bottom:12px; width:95%; padding: .4em; } */
-fieldset {
-	padding: 0;
-	border: 0;
-	margin-top: 25px;
-}
-
-h1 {
-	font-size: 1.2em;
-	margin: .6em 0;
-}
-/*  		div#users-contain { width: 350px; margin: 20px 0; }  */
-/*  		div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }  */
-/*  		div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; } */
-/*  		.ui-dialog .ui-state-error { padding: .3em; } */
-/*  		.validateTips { border: 1px solid transparent; padding: 0.3em; } */
-#sortable1,#sortable2,#sortable3,#sortable4 {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	float: left;
-	margin-right: 1%;
-	background: grey;
-	padding: 0;
-	width: 22%;
-}
-
-#sortable1 li,#sortable2 li,#sortable3 li,#sortable4 li {
-	margin: 1.5%;
-	padding: 0;
-	width: 96.3%;
-	background: buttonface;
-	height: 31px;
-	text-align: center;
-	padding-top: 3%;
-}
-
-#create-task{
-	margin-left: 5%;
-}
-
-</style>
+	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/menu.css"/>" type="text/css" />  
 
 </head>
 
