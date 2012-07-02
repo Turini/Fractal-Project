@@ -58,14 +58,6 @@ $(function() {
 	});
 });
 
-function exibirTarefa(id) {
-	$.get("mostraTarefa", {id: id}, function(resposta) {
-		$("#detalhes-tarefa").html(resposta);
-		$('#detalhes-tarefa').dialog('open');
-		exibirComentarios(id);
-	});
-}
-
 function exibirComentarios(id) {
 	$.get("mostraComentariosDaTarefa", {id: id}, function(resposta) {
 		$("#novo-comentario").html(resposta);
@@ -75,7 +67,7 @@ function exibirComentarios(id) {
 function excluirTarefa(id) {
 	$.get("removeTarefa?id="+id);
 // 	$.post("removeTarefa", {id: id} , function (){
-		$("#tarefa-"+id).hide();
+		$(id).hide();
 		$('#detalhes-tarefa').dialog('close');
 // 	});
 }
@@ -120,3 +112,12 @@ function adiconaComentario(id) {
 // 			}
 // 		});
 // 	});
+	
+	$('.lis-tasks').live('click', function(){
+		var id = $(this).attr('id');
+		$.get("mostraTarefa", {id: id}, function(resposta) {
+			$("#detalhes-tarefa").html(resposta);
+			$('#detalhes-tarefa').dialog('open');
+			exibirComentarios(id);
+		});
+	});
