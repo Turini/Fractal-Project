@@ -33,7 +33,7 @@ $(function() {
 		});
 		
 		
-	$("#trash").live('click', function(){
+	$('#trash').live('click', function(){
 		var id = $(this).text();
 			$.get("deleteProject", {id:id})
 				.success(function(){
@@ -42,3 +42,8 @@ $(function() {
 					alert("some error message");
 			});
 	});
+
+	$('#play').live('click', function(){
+		window.open("/FractalProjec/Menu?id="+$(this).attr('project-id'), '_self');
+	});
+	

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ProjetoDAO;
-import br.com.fractal.dao.UsuariosDAO;
 import br.com.fractal.model.Projeto;
 
 
