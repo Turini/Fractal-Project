@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import br.com.fractal.infra.JPAUtil;
+import br.com.fractal.model.Projeto;
 import br.com.fractal.model.Usuarios;
 
 public class UsuariosDAO {
@@ -36,7 +37,7 @@ public class UsuariosDAO {
 		return dao.lista();
 	}
 
-	public boolean existeUsuario(Usuarios user) {
+	public Usuarios existeUsuario(Usuarios user) {
 
 		if (user == null) {
 			throw new IllegalArgumentException("Usuario não deve ser nulo");
@@ -54,11 +55,15 @@ public class UsuariosDAO {
 		em.close();
 
 		if (resultList.size() == 0) {
-			return false;
+			return null;
 		} else {
-			return true;
+			return (Usuarios) resultList.get(0);
 		}
 
+	}
+
+	public List<Projeto> listaProjetosDoUsuario(Long id) {
+		return dao.listaProjetosDoUsuario(id);
 	}
 
 }

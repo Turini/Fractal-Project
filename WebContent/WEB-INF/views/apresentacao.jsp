@@ -29,14 +29,11 @@
 			<div id="projectBox">
 				<!-- Insert a if clause to verify if exist some project   -->
 				<!-- If don't, just show the message: Create a new one =) -->
-				<h3>These are your current projects:</h3>
+				<h3>These all current projects:</h3>
 				
 				<c:forEach items="${projetos}" var="projeto">
-				
 					<div id="projects"> ${projeto.nome} - created by: ${projeto.criador} on: ${projeto.dataCriacao} <a href="Menu?id=${projeto.id}">></a>
-					
 					<span class="ui-icon  ui-icon-play"></span>	<span id="trash" class="ui-icon ui-icon-trash">${projeto.id}</span> </div>
-					
 				</c:forEach>
 				
 				<span id="create-project">Add a new one...</span>
@@ -45,7 +42,12 @@
 		 	<div id="projectBox">
 				<!-- Insert if clause to verify if usuarioLogado == Owner -->
 				<!-- If don't, show the projects that he join -->
-				<h3>These are the current projects that you join?:</h3>
+				<h3>These are your current projects:</h3>
+				
+				<c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
+					<div id="projects"> ${projetosDoUsuario.nome} - created by: ${projetosDoUsuario.criador} on: ${projetosDoUsuario.dataCriacao} <a href="Menu?id=${projetosDoUsuario.id}">></a>
+					<span class="ui-icon  ui-icon-play"></span>	<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span> </div>
+				</c:forEach>
 			</div>
 			
 		</div>
@@ -61,7 +63,7 @@
 				<input type="text" name="criador" id="criador" maxlength="20" class="text ui-widget-content ui-corner-all"/>
 			
 				<label for="dataInicio">Starting date</label> <homework:campoData name="dataInicio" id="dataInicio"/>
-	
+				
 			</form>
 			
 		</div>
