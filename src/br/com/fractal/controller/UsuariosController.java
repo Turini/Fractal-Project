@@ -38,6 +38,11 @@ public class UsuariosController {
 		return "redirect:telaUsuarios";
 	}
 
-	
+	@RequestMapping("associaEmProjeto")
+	public void associaEmProjeto(Long usuarioId, Long projetoId, HttpServletRequest request) {
+		EntityManager em = (EntityManager) request.getAttribute("em");
+		UsuariosDAO dao = new UsuariosDAO(em);
+		dao.associaUsuarioEmProjeto(usuarioId, projetoId);
+	}
 	
 }

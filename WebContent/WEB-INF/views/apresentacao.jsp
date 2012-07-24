@@ -23,6 +23,12 @@
 		<br/> Voce esta logado como ${usuarioLogado.login}, <a href="logout">logout</a>.
 		
 		<br/> //TODO: incluir aqui as mensagens... e um grafico? do que?.
+
+	<form action="associaEmProjeto">
+			<input type="text" name="usuarioId" />		
+			<input type="text" name="projetoId" />		
+			<input type="submit" value="adicionar usuario em Projeto"/> 
+		</form>
 		
 		<div id="projectContainer">
 		

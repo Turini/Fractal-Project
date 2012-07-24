@@ -37,6 +37,7 @@ public class UsuariosDAO {
 		return dao.lista();
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Usuarios existeUsuario(Usuarios user) {
 
 		if (user == null) {
@@ -64,6 +65,10 @@ public class UsuariosDAO {
 
 	public List<Projeto> listaProjetosDoUsuario(Long id) {
 		return dao.listaProjetosDoUsuario(id);
+	}
+
+	public void associaUsuarioEmProjeto(Long usuarioId, Long projetoId) {
+		dao.associaUsuarioEmProjeto(usuarioId, projetoId);
 	}
 
 }
