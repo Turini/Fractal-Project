@@ -19,7 +19,9 @@
 	
 		<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
 		
+
 		<div id="pageContent">
+			<span style="float: right; margin-right: 5%; margin-top: 2%; font-size: smaller;">New here? <b id="sigup">Sign Up</b></span>
 		
 			<form id="efetuaLogin" action="efetuaLogin" method="post" style="margin-top: 5%;">
 			
@@ -29,9 +31,23 @@
 	            <label id="password" for="senha">Password: 
 	            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/> </label>
 	            
+			<span style="float: right; margin-right: 5%; margin-top: -1px; font-size: smaller;">Can't access your account?</span>
 			</form>
 				
-			<span style="float: right; margin-right: 5%; margin-top: 2%;">Can't access your account?</span>
+
+			<div id="newUser">
+				<form id="addUser" action="adicionaUsuario" method="post">
+				
+					<label for="login">Login</label>
+					<input type="text" name="login" class="text ui-widget-content ui-corner-all" />
+					<label for="email">Email</label>
+					<input type="text" name="email" class="text ui-widget-content ui-corner-all" />
+					<label for="senha">Pass</label>
+					<input type="password" name="senha" class="text ui-widget-content ui-corner-all" />
+			
+					<button type="submit">Add</button>
+				</form>			
+			</div>
 				
 		</div>
 	

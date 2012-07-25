@@ -1,4 +1,8 @@
-$('input[name=login]').live('change', function(){
+$(function(){
+	$('#newUser').hide();
+});
+
+$('input[name=login]').bind('change', function(){
 	$("#user").hide();
 	$("#password").show();
 });
@@ -6,3 +10,7 @@ $('input[name=login]').live('change', function(){
 function submit(){
 	$("efetuaLogin").submit();
 }
+
+$('#sigup').bind('click', function(){
+	$('#newUser').show('explode');
+});

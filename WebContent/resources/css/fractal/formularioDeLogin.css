@@ -13,7 +13,7 @@
 		width: 75%;
 	}
  	
- 	#pageContent{
+ 	div#pageContent{
  		border-radius: 8px;
 	 	background-color: darkGray;
 		height: 95px;
@@ -40,7 +40,41 @@
 		border-radius: 10px;
  	}
  	
+ 	div#newUser{
+ 		background-color: darkGray;
+ 		display: inline-block;
+/* 		display: none; */
+ 		border-radius: 3px;
+ 		margin-top: 20%;
+	}
+ 	
+ 	div#newUser input{
+ 		padding: 1%;
+		border-radius: 3px;
+		display: block;
+		float: left;
+ 	}
+ 	
+ 	div#newUser label{
+ 		display: block;
+ 		font-weight: bold;
+ 		color: #666;
+		float: left;
+		width: 47px;
+		padding-right: 10px;
+ 	}
+ 	
  	label{
  		display: table-caption;
-		margin-left: 5%;
+		margin-left: 3%;
  	}
+ 	
+ 	form#addUser {
+		margin: 5px;
+	}
+
+	button {
+		float: right;
+		margin-right: 10px;
+		margin-bottom: 5px;
+	}
