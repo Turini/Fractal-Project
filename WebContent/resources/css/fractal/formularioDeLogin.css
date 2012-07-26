@@ -6,7 +6,7 @@
 	}
 
 	* {
-		color: #333333;
+		color: #333;
 	}
 
 	#img {
@@ -36,14 +36,14 @@
  	}
  	
  	input{
-	 	padding: 6%;
+	 	padding: 5%;
 		border-radius: 10px;
+		width: 93%;
  	}
  	
  	div#newUser{
- 		background-color: darkGray;
+		background-color: gainsboro;
  		display: inline-block;
-/* 		display: none; */
  		border-radius: 3px;
  		margin-top: 20%;
 	}
@@ -53,20 +53,24 @@
 		border-radius: 3px;
 		display: block;
 		float: left;
+		width: 70%;
+		margin-top: 2%;
  	}
  	
  	div#newUser label{
  		display: block;
- 		font-weight: bold;
- 		color: #666;
+ 		font-weight: normal;
 		float: left;
 		width: 47px;
 		padding-right: 10px;
+		margin-top: 3%;
  	}
  	
- 	label{
- 		display: table-caption;
+	label{
+ 		display: block;
+ 		font-weight: bold;
 		margin-left: 3%;
+		width: 90%;
  	}
  	
  	form#addUser {
@@ -75,6 +79,18 @@
 
 	button {
 		float: right;
-		margin-right: 10px;
+		margin-right: 2%;
 		margin-bottom: 5px;
+		margin-top: 2%;
+	}
+	
+	div #divMessages{
+		margin-top: 15%;
+		font-size: smaller;
+		color: red;
+	}
+
+	span.smalltext{
+		font-size: smaller;
+		line-height: 200%;
 	}

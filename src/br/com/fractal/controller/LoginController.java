@@ -1,7 +1,5 @@
 package br.com.fractal.controller;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ProjetoDAO;
 import br.com.fractal.dao.UsuariosDAO;
-import br.com.fractal.model.Projeto;
 import br.com.fractal.model.Usuarios;
 
 @Controller
@@ -38,9 +35,10 @@ public class LoginController {
 			model.addAttribute("projetos", dao.listaProjetos());
 			model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(usuario.getId()));
 			return "apresentacao";
+		} else {
+			model.addAttribute("errorMessage", "Something wrong happened, please try again.");
+			return "formularioDeLogin";
 		}
-		// else, they're redirect to loginForm to try access again.
-		return "redirect:loginForm";
 	}
 	
 	@RequestMapping("logout")

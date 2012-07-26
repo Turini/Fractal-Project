@@ -26,26 +26,37 @@
 			<form id="efetuaLogin" action="efetuaLogin" method="post" style="margin-top: 5%;">
 			
 	            <label id="user" for="login">User: 
-	            <input type="text" name="login" class="text ui-widget-content ui-corner-all"/> </label>
+	            <input type="text" name="login" id="swap" class="text ui-widget-content ui-corner-all"/> </label>
 	            
 	            <label id="password" for="senha">Password: 
 	            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/> </label>
 	            
-			<span style="float: right; margin-right: 5%; margin-top: -1px; font-size: smaller;">Can't access your account?</span>
+			<span style="float: right; margin-right: 5%; margin-top: 1%; font-size: smaller;">Can't access your account?</span>
 			</form>
-				
+			
+				<div id="divMessages">
+					<c:if test="${not empty errorMessage}">
+						${errorMessage}
+					</c:if>
+					<c:if test="${not empty userAddError}">
+						${userAddError}
+					</c:if>
+					<c:if test="${not empty userAddSuccess}">
+						${userAddSuccess}
+					</c:if>
+				</div>		
 
 			<div id="newUser">
 				<form id="addUser" action="adicionaUsuario" method="post">
-				
 					<label for="login">Login</label>
 					<input type="text" name="login" class="text ui-widget-content ui-corner-all" />
 					<label for="email">Email</label>
 					<input type="text" name="email" class="text ui-widget-content ui-corner-all" />
 					<label for="senha">Pass</label>
 					<input type="password" name="senha" class="text ui-widget-content ui-corner-all" />
-			
-					<button type="submit">Add</button>
+					<input type="checkbox" checked="checked" style="width: 6%;"> 
+					<span class="smalltext">Accept receive newsletter</span>
+					<button type="submit">AddUser</button>
 				</form>			
 			</div>
 				

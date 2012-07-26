@@ -2,7 +2,7 @@ $(function(){
 	$('#newUser').hide();
 });
 
-$('input[name=login]').bind('change', function(){
+$('#swap').bind('change', function(){
 	$("#user").hide();
 	$("#password").show();
 });
@@ -12,5 +12,5 @@ function submit(){
 }
 
 $('#sigup').bind('click', function(){
-	$('#newUser').show('explode');
+	$('#newUser').show('slide');
 });

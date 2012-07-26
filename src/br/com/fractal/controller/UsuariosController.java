@@ -24,10 +24,17 @@ public class UsuariosController {
 	}
 	
 	@RequestMapping("adicionaUsuario")
-	public String adiciona(Usuarios usuario, HttpServletRequest request){
+	public String adiciona(Usuarios usuario, HttpServletRequest request, Model model){
 		EntityManager em = (EntityManager) request.getAttribute("em");
-		new UsuariosDAO(em).adiciona(usuario);
-		return "redirect:telaUsuarios";
+		
+		
+		try {
+			new UsuariosDAO(em).adiciona(usuario);
+			model.addAttribute("userAddSuccess", "User successfully registered");
+		} catch (Exception e) {
+			model.addAttribute("userAddError", "The user cannot be created");
+		}
+		return "formularioDeLogin";
 	}
 	
 	@RequestMapping("removeUsuario")
