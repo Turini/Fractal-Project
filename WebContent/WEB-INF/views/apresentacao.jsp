@@ -27,7 +27,7 @@
 			<a id="icon" class="ui-icon ui-icon-person"></a>
 			${usuarioLogado.login} (${usuarioLogado.email}) 
 		</span>
-	
+
 	<div id="addUserToProject">
 		<form action="associaEmProjeto">
 			<input type="text" name="usuarioId" />		
@@ -37,31 +37,18 @@
 	</div>
 		
 		<div id="projectContainer">
-		
 			<div id="projectBox">
 				<!-- Insert a if clause to verify if exist some project   -->
 				<!-- If don't, just show the message: Create a new one =) -->
 				<h3>These all current projects:</h3>
 				
-				<c:forEach items="${projetos}" var="projeto">
-					<div id="projects"> ${projeto.nome} - created by: ${projeto.criador} on: ${projeto.dataCriacao}
-					<span id="play" class="ui-icon  ui-icon-play" project-id="${projeto.id}"></span> <span id="trash" class="ui-icon ui-icon-trash">${projeto.id}</span> </div>
+				<c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
+					<div id="projects"> ${projetosDoUsuario.nome} - created by: ${projetosDoUsuario.criador} on: ${projetosDoUsuario.dataCriacao}
+					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> <span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span> </div>
 				</c:forEach>
 				
 				<span id="create-project">Add a new one...</span>
 			</div>	
-			
-		 	<div id="projectBox">
-				<!-- Insert if clause to verify if usuarioLogado == Owner -->
-				<!-- If don't, show the projects that he join -->
-				<h3>These are your current projects:</h3>
-				
-				<c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
-					<div id="projects"> ${projetosDoUsuario.nome} - created by: ${projetosDoUsuario.criador} on: ${projetosDoUsuario.dataCriacao}
-					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span>	<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span> </div>
-				</c:forEach>
-			</div>
-			
 		</div>
 			
 		<div id="dialog-project">
