@@ -27,13 +27,16 @@ public class UsuariosController {
 	public String adiciona(Usuarios usuario, HttpServletRequest request, Model model){
 		EntityManager em = (EntityManager) request.getAttribute("em");
 		
+		UsuariosDAO dao = new UsuariosDAO(em);
+		Usuarios userVerify = dao.existeUsuario(usuario);
 		
-		try {
-			new UsuariosDAO(em).adiciona(usuario);
+		if (userVerify != null) { 
+			model.addAttribute("userAddError", "The user already exist, try another login");
+		} else {
+			dao.adiciona(usuario);
 			model.addAttribute("userAddSuccess", "User successfully registered");
-		} catch (Exception e) {
-			model.addAttribute("userAddError", "The user cannot be created");
 		}
+		
 		return "formularioDeLogin";
 	}
 	

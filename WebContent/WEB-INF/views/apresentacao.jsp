@@ -17,21 +17,24 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/header.css"/>" type="text/css" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/apresentacao.css"/>" type="text/css" />	
 	<script type="text/javascript" src="<c:url value="/resources/js/fractal/apresentacao.js"/>"> </script>
-	<script type="text/javascript"> $(function() { $("button").button(); $("#dialog").dialog(); }); </script> </head>
+	<script type="text/javascript"> $(function() { $("button").button(); $("#dialog").dialog();}); </script> </head>
 
 	<body>
 	
 	<c:import url="header.jsp"/>
 	
-		<br/> Voce esta logado como ${usuarioLogado.login}, <a href="logout">logout</a>.
-		
-		<br/> //TODO: incluir aqui as mensagens... e um grafico? do que?.
-
-	<form action="associaEmProjeto">
+		<span id="showUser">
+			<a id="icon" class="ui-icon ui-icon-person"></a>
+			${usuarioLogado.login} (${usuarioLogado.email}) 
+		</span>
+	
+	<div id="addUserToProject">
+		<form action="associaEmProjeto">
 			<input type="text" name="usuarioId" />		
 			<input type="text" name="projetoId" />		
 			<input type="submit" value="adicionar usuario em Projeto"/> 
 		</form>
+	</div>
 		
 		<div id="projectContainer">
 		

@@ -15,6 +15,14 @@ span {
 	font: -webkit-control;
 }
 
+span#showUser{
+	float: left;
+	font-size: large;
+	font-weight: bold;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
 #projectContainer{
 	float: right;
 	display: block;	
@@ -37,3 +45,11 @@ span {
 		width: 96%;
 	}
 		
+	a#icon{
+		display: inline-block;
+		height: 14px;
+	}
+	
+	div#addUserToProject{
+		margin-top: 10%;
+	}

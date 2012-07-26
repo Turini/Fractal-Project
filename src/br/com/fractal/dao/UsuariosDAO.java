@@ -37,7 +37,7 @@ public class UsuariosDAO {
 		return dao.lista();
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("unchecked")
 	public Usuarios existeUsuario(Usuarios user) {
 
 		if (user == null) {
@@ -48,19 +48,16 @@ public class UsuariosDAO {
 
 		String jdbc = "select u from Usuarios u where u.login = :login and u.senha = :senha";
 
-		Query query = em.createQuery(jdbc);
-		query.setParameter("login", user.getLogin());
-		query.setParameter("senha", user.getSenha());
+		Query query = em.createQuery(jdbc).setParameter("login", user.getLogin()).setParameter("senha", user.getSenha());
 
-		List resultList = query.getResultList();
+		List<Usuarios> users = query.getResultList();
 		em.close();
 
-		if (resultList.size() == 0) {
-			return null;
+		if (users.size() != 0){
+			return users.get(0);
 		} else {
-			return (Usuarios) resultList.get(0);
+			return null;
 		}
-
 	}
 
 	public List<Projeto> listaProjetosDoUsuario(Long id) {

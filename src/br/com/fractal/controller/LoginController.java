@@ -30,13 +30,15 @@ public class LoginController {
 		
 		// if the user exist, they're redirect to menu interface.
 		if(usuario!=null){
-			sess.setAttribute("usuarioLogado", usuarios);
+			sess.setAttribute("usuarioLogado", usuario);
 			ProjetoDAO dao = new ProjetoDAO(em);
 			model.addAttribute("projetos", dao.listaProjetos());
 			model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(usuario.getId()));
 			return "apresentacao";
 		} else {
 			model.addAttribute("errorMessage", "Something wrong happened, please try again.");
+			
+			//TODO reirect to '/loginForm'
 			return "formularioDeLogin";
 		}
 	}
