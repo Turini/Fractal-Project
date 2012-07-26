@@ -14,11 +14,14 @@
 	
 	<title>Fractal Tasks (it can work)</title> 
 	
+	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/header.css"/>" type="text/css" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/apresentacao.css"/>" type="text/css" />	
 	<script type="text/javascript" src="<c:url value="/resources/js/fractal/apresentacao.js"/>"> </script>
 	<script type="text/javascript"> $(function() { $("button").button(); $("#dialog").dialog(); }); </script> </head>
 
 	<body>
+	
+	<c:import url="header.jsp"/>
 	
 		<br/> Voce esta logado como ${usuarioLogado.login}, <a href="logout">logout</a>.
 		

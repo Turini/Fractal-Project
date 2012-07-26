@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+	div#header{
+		background-color: lightgray; 
+		height: 140px;
+	}
+	
+	div#radio{
+		float: right;
+		margin-right: 3%;
+		margin-top: 7%;
+	}
