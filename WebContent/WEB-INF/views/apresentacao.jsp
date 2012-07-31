@@ -12,7 +12,13 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	
-	<title>Fractal Tasks (it can work)</title> 
+	<script>
+	$(function() {
+		$( "#accordion" ).accordion();
+	});
+	</script>
+	
+	<title>Fractal Tasks</title> 
 	
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/header.css"/>" type="text/css" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/apresentacao.css"/>" type="text/css" />	
@@ -23,25 +29,35 @@
 	
 	<c:import url="header.jsp"/>
 	
-		<span id="showUser">
-			<a id="icon" class="ui-icon ui-icon-person"></a>
-			${usuarioLogado.login} (${usuarioLogado.email}) 
-		</span>
+	<div id="accordion">
 
-	<div id="addUserToProject">
-		<form action="associaEmProjeto">
-			<input type="text" name="usuarioId" />		
-			<input type="text" name="projetoId" />		
-			<input type="submit" value="adicionar usuario em Projeto"/> 
-		</form>
-	</div>
+	    <h3><a href="#">DashBoard?</a></h3>
+	    <div></div>
 		
+	    <h3><a href="#">Your projects</a></h3>
+	    <div>
+		    <c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
+				<span> ${projetosDoUsuario.nome} on: ${projetosDoUsuario.dataCriacao}></span> 
+			</c:forEach>
+	    </div>
+	    <h3><a href="#">Add user to project</a></h3>
+	    <div id="addUserToProject">
+			<form action="associaEmProjeto">
+				<input type="text" name="usuarioId" />		
+				<input type="text" name="projetoId" />		
+				<input type="submit" value="adicionar usuario em Projeto"/> 
+			</form>
+	</div>
+	</div>
+	
 		<div id="projectContainer">
 			<div id="projectBox">
 				<!-- Insert a if clause to verify if exist some project   -->
 				<!-- If don't, just show the message: Create a new one =) -->
 				<h3>These all current projects:</h3>
 				
+<!-- TODO: and the projects that I'm not owner, but joined to the team? -->
+
 				<c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
 					<div id="projects"> ${projetosDoUsuario.nome} - created by: ${projetosDoUsuario.criador} on: ${projetosDoUsuario.dataCriacao}
 					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> <span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span> </div>

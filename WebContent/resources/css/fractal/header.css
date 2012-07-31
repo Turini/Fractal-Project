@@ -6,7 +6,15 @@
 	}
 	
 	div#radio{
+		clear: both;
 		float: right;
 		margin-right: 3%;
-		margin-top: 7%;
+		margin-top: 60px;
+	}
+
+	span#showUser{
+		float: right;
+		font-size: large;
+		font-weight: bold;
+		margin: 2% 1% 0 0;
 	}

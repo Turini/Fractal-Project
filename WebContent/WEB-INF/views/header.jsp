@@ -10,7 +10,14 @@
  </script>
   
 
-<div id="header"> <br>
+<div id="header"> 
+
+<span id="showUser">
+			<a id="icon" class="ui-icon ui-icon-person"></a>
+			${usuarioLogado.login} (${usuarioLogado.email}) 
+</span>
+
+<br>
 
 	<div id="radio">
 		

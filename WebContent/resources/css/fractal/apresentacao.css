@@ -15,14 +15,6 @@ span {
 	font: -webkit-control;
 }
 
-span#showUser{
-	float: left;
-	font-size: large;
-	font-weight: bold;
-	margin-top: 2%;
-	margin-left: 2%;
-}
-
 #projectContainer{
 	float: right;
 	display: block;	
@@ -51,5 +43,14 @@ span#showUser{
 	}
 	
 	div#addUserToProject{
-		margin-top: 10%;
+		display: inline-block;
 	}
+	
+.ui-accordion {
+	width: 35%;
+	margin-top: 2%;
+}
+
+div[id=accordion] h3 a {
+	background-color: lightgray;
+}
