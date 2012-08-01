@@ -25,11 +25,15 @@
 		
 			<form id="efetuaLogin" action="efetuaLogin" method="post" style="margin-top: 5%;">
 			
-	            <label id="user" for="login">User: 
-	            <input type="text" name="login" id="swap" class="text ui-widget-content ui-corner-all"/> </label>
+	            <label for="login">User: 
+	            	<input type="text" name="login" class="text ui-widget-content ui-corner-all"/> 
+	            </label>
 	            
-	            <label id="password" for="senha">Password: 
-	            <input type="password" name="senha" class="text ui-widget-content ui-corner-all" onblur="submit()"/> </label>
+	            <label for="senha">Password: 
+	            	<input type="password" name="senha" class="text ui-widget-content ui-corner-all"/> 
+	            </label>
+
+				<button type="submit" id="sigin">></button>
 	            
 			<span style="float: right; margin-right: 5%; margin-top: 1%; font-size: smaller;">Can't access your account?</span>
 			</form>

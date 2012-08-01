@@ -22,7 +22,7 @@
 		float: right;
  	}
  	
- 	#password{
+ 	label[for=senha] {
  		display: none;
  	}
  	
@@ -93,4 +93,8 @@
 	span.smalltext{
 		font-size: smaller;
 		line-height: 200%;
+	}
+	
+	#sigin {
+		margin: -11% 6%;
 	}
