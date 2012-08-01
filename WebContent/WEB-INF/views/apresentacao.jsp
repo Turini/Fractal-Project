@@ -37,8 +37,14 @@
 	    <h3><a href="#">Your projects</a></h3>
 	    <div>
 		    <c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
-				<span> ${projetosDoUsuario.nome} on: ${projetosDoUsuario.dataCriacao}></span> 
+		    	<div id="project">
+					<span> ${projetosDoUsuario.nome} on: ${projetosDoUsuario.dataCriacao}></span> 
+					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> 
+					<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span>
+		    	</div>
 			</c:forEach>
+			
+			<span id="create-project">Create a new project...</span>
 	    </div>
 	    <h3><a href="#">Add user to project</a></h3>
 	    <div id="addUserToProject">
@@ -50,38 +56,21 @@
 	</div>
 	</div>
 	
-		<div id="projectContainer">
-			<div id="projectBox">
-				<!-- Insert a if clause to verify if exist some project   -->
-				<!-- If don't, just show the message: Create a new one =) -->
-				<h3>These all current projects:</h3>
-				
-<!-- TODO: and the projects that I'm not owner, but joined to the team? -->
-
-				<c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
-					<div id="projects"> ${projetosDoUsuario.nome} - created by: ${projetosDoUsuario.criador} on: ${projetosDoUsuario.dataCriacao}
-					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> <span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span> </div>
-				</c:forEach>
-				
-				<span id="create-project">Add a new one...</span>
-			</div>	
-		</div>
+	<div id="dialog-project">
+		
+		<form action="addProject" id="addProject">
+		
+			<label for="nome">Project Name</label> 
+			<input type="text" name="nome" id="nome" maxlength="20" class="text ui-widget-content ui-corner-all"/>
+		
+			<label for="criador">Project Owner</label> 
+			<input type="text" name="criador" id="criador" maxlength="20" class="text ui-widget-content ui-corner-all"/>
+		
+			<label for="dataInicio">Starting date</label> <homework:campoData name="dataInicio" id="dataInicio"/>
 			
-		<div id="dialog-project">
-			
-			<form action="addProject" id="addProject">
-			
-				<label for="nome">Project Name</label> 
-				<input type="text" name="nome" id="nome" maxlength="20" class="text ui-widget-content ui-corner-all"/>
-			
-				<label for="criador">Project Owner</label> 
-				<input type="text" name="criador" id="criador" maxlength="20" class="text ui-widget-content ui-corner-all"/>
-			
-				<label for="dataInicio">Starting date</label> <homework:campoData name="dataInicio" id="dataInicio"/>
-				
-			</form>
-			
-		</div>
+		</form>
+		
+	</div>
 		
 	</body>
 
