@@ -37,8 +37,10 @@
  	
  	input{
 	 	padding: 5%;
-		border-radius: 10px;
+		border-radius: 5px;
+		border: white solid;
 		width: 93%;
+		outline: none;
  	}
  	
  	div#newUser{
@@ -80,8 +82,9 @@
 	button {
 		float: right;
 		margin-right: 2%;
-		margin-bottom: 5px;
+		margin-bottom: 9px;
 		margin-top: 2%;
+		outline: none;
 	}
 	
 	div #divMessages{
@@ -109,3 +112,5 @@
 /* 	input[type=email]:invalid { */  ???
 /* 		background: red; */
 /* 	} */
+
+

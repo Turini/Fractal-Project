@@ -26,11 +26,11 @@
 			<form id="efetuaLogin" action="efetuaLogin" method="post" style="position: relative; margin-top: 5%;">
 			
 	            <label for="login">User: 
-	            	<input type="text" name="login" class="text ui-widget-content ui-corner-all"/> 
+					<input type="text" name="login"/>
 	            </label>
 	            
 	            <label for="senha">Password: 
-	            	<input type="password" name="senha" class="text ui-widget-content ui-corner-all"/> 
+	            	<input type="password" name="senha"/> 
 	            </label>
 
 				<button type="submit" id="sigin">></button>
@@ -54,11 +54,11 @@
 				<form id="addUser" action="adicionaUsuario" method="post">
 					<label for="login">Login</label>
 					<!-- TODO: make placeholder compatible with Firefox (change text color?) -->
-					<input type="text" name="login" placeholder="Insert your login" class="text ui-widget-content ui-corner-all" />
+					<input type="text" name="login" placeholder="Insert your login"/>
 					<label for="email">Email</label>
-					<input type="email" name="email" placeholder="example@example.com" required class="text ui-widget-content ui-corner-all" />
+					<input type="email" name="email" placeholder="example@example.com" required />
 					<label for="senha">Pass</label>
-					<input type="password" name="senha" placeholder="Insert your password" class="text ui-widget-content ui-corner-all" />
+					<input type="password" name="senha" placeholder="Insert your password" />
 					<input type="checkbox" checked style="width: 6%;"> 
 					<span class="smalltext">Accept receive newsletter</span>
 					<button type="submit">AddUser</button>
