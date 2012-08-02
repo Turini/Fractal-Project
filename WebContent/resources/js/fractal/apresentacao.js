@@ -46,4 +46,15 @@ $(function() {
 	$('#play').live('click', function(){
 		window.open("/FractalProjec/Menu?id="+$(this).attr('project-id'), '_self');
 	});
+
+//	FIXME
+	$('#wrench').live('click', function(){
+//		$('#editProjectDiv').show();
+//		var projectId = $(this).attr('project-id');
+//		var projectNome = $(this).closest('span');
+//		$('input[name=nome]').val(projectId);
+	});
 	
+	$('#editProjectDiv input[type=submit]').live('click', function(){
+		$.get('editProject', {id: id});
+	});

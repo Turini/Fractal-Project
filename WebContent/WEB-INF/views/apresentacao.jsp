@@ -38,12 +38,21 @@
 	    <div>
 		    <c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
 		    	<div id="project">
-					<span> ${projetosDoUsuario.nome} on: ${projetosDoUsuario.dataCriacao}></span> 
-					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> 
 					<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span>
+					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> 
+					<span id="wrench" class="ui-icon  ui-icon-wrench" project-id="${projetosDoUsuario.id}"></span> 					
+					<span> ${projetosDoUsuario.nome}</span> 
 		    	</div>
 			</c:forEach>
 			
+			<div id="editProjectDiv" style="display: none">
+				<form action="editProject">
+					<input type="text" name="nome" >
+					<input type="text" name="id">					
+					<input type="submit" value="edit">
+				</form>
+			</div>
+						
 			<span id="create-project">Create a new project...</span>
 	    </div>
 	    <h3><a href="#">Add user to project</a></h3>

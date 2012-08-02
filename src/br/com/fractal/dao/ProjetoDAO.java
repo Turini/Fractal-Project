@@ -29,5 +29,9 @@ public class ProjetoDAO {
 	public void remove(Projeto projeto) {
 		dao.remove(projeto);
 	}
+
+	public void altera(Projeto projeto) {
+		dao.altera(projeto);
+	}
 	
 }

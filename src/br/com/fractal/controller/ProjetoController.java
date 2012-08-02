@@ -23,15 +23,21 @@ public class ProjetoController {
 	
 	@RequestMapping("deleteProject")
 	public void remove(Long id, HttpServletRequest request, HttpServletResponse response) {
-		
 		EntityManager em = (EntityManager) request.getAttribute("em");
-		
 		ProjetoDAO dao = new ProjetoDAO(em);
-		
 		Projeto projeto = dao.buscaPorId(id);
 		dao.remove(projeto);
-		
 		response.setStatus(200);
+	}
+	
+	@RequestMapping("editProject")
+	public String edit(Projeto projeto, HttpServletRequest request) {
+		EntityManager em = (EntityManager) request.getAttribute("em");
+		ProjetoDAO projetoDAO = new ProjetoDAO(em);
+		Projeto loadedProject = projetoDAO.buscaPorId(projeto.getId());
+		loadedProject.setNome(projeto.getNome());
+		projetoDAO.altera(loadedProject);
+		return "redirect:apresentacao";
 	}
 	
 }

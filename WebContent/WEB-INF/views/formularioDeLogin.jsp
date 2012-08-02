@@ -23,7 +23,7 @@
 		<div id="pageContent">
 			<span style="float: right; margin-right: 5%; margin-top: 2%; font-size: smaller;">New here? <b id="sigup">Sign Up</b></span>
 		
-			<form id="efetuaLogin" action="efetuaLogin" method="post" style="margin-top: 5%;">
+			<form id="efetuaLogin" action="efetuaLogin" method="post" style="position: relative; margin-top: 5%;">
 			
 	            <label for="login">User: 
 	            	<input type="text" name="login" class="text ui-widget-content ui-corner-all"/> 
@@ -49,16 +49,17 @@
 						${userAddSuccess}
 					</c:if>
 				</div>		
-
+ 
 			<div id="newUser">
 				<form id="addUser" action="adicionaUsuario" method="post">
 					<label for="login">Login</label>
-					<input type="text" name="login" class="text ui-widget-content ui-corner-all" />
+					<!-- TODO: make placeholder compatible with Firefox (change text color?) -->
+					<input type="text" name="login" placeholder="Insert your login" class="text ui-widget-content ui-corner-all" />
 					<label for="email">Email</label>
-					<input type="text" name="email" class="text ui-widget-content ui-corner-all" />
+					<input type="email" name="email" placeholder="example@example.com" required class="text ui-widget-content ui-corner-all" />
 					<label for="senha">Pass</label>
-					<input type="password" name="senha" class="text ui-widget-content ui-corner-all" />
-					<input type="checkbox" checked="checked" style="width: 6%;"> 
+					<input type="password" name="senha" placeholder="Insert your password" class="text ui-widget-content ui-corner-all" />
+					<input type="checkbox" checked style="width: 6%;"> 
 					<span class="smalltext">Accept receive newsletter</span>
 					<button type="submit">AddUser</button>
 				</form>			
@@ -66,9 +67,9 @@
 				
 		</div>
 	
-		<div id="footer">
-			<span>@FractalTasks-2012 - Version 0.1</span>
-		</div>
+		<footer>
+			<span>&copy; FractalTasks-2012 - Version 0.1</span>
+		</footer>
 	   
 	</body>
 

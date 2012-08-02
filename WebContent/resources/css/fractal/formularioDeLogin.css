@@ -26,7 +26,7 @@
  		display: none;
  	}
  	
- 	#footer{
+ 	footer{
  		background-color: darkGray;
  		height: 25px;
  		position:fixed; 
@@ -96,5 +96,16 @@
 	}
 	
 	#sigin {
-		margin: -11% 6%;
+		position: absolute;
+		right: 10px;
+		bottom: 0;
+		background: white;
+		border: white;
+		font-size: 21px;
+		color: #BDBDBD;
+		font-weight: bold;
 	}
+	
+/* 	input[type=email]:invalid { */  ???
+/* 		background: red; */
+/* 	} */
