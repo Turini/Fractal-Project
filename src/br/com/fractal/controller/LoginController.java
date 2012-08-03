@@ -36,7 +36,7 @@ public class LoginController {
 			model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(usuario.getId()));
 			return "apresentacao";
 		} else {
-			model.addAttribute("errorMessage", "Something wrong happened, please try again.");
+			model.addAttribute("errorMessage", "Invalid user and password, please try again.");
 			
 			//TODO reirect to '/loginForm'
 			return "formularioDeLogin";
