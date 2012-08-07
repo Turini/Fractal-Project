@@ -6,6 +6,16 @@ body {
 	color: #333333;
 }
 
+h3 {
+	margin: 5px;
+	text-transform: lowercase;
+/* 	text-replace: "_", " "; */
+}
+
+h3:FIRST-LETTER {
+	text-transform: uppercase;
+}
+
 fieldset {
 	padding: 0;
 	border: 0;
@@ -13,52 +23,65 @@ fieldset {
 }
 
 .sortable {
-	list-style-type: none;
-	background: grey;
-	margin: 10px 0;
+	background: darkgrey;
+	margin: 10px 5px;
+	border-radius: 2px;	
 	float: left;
 	padding: 0;
-	width: 22%;
+	width: 19%;
 }
 
-ul.sortable:FIRST-CHILD {
+.divisor {
+	overflow: auto;
+	max-height: 420px;
+}
+
+ul {
+	   list-style-type: none;
+	-webkit-padding-start: 0;
+	   -moz-padding-start: 0;	
+			padding-start: 0;
+}
+
+.sortable:FIRST-CHILD {
 	margin-left: 10px;
 }
 
-ul.sortable li {
+.sortable li {
 	margin: 3px;
 	padding: 0;
-	width: 96.3%;
 	background: buttonface;
-	height: 31px;
+	height: 45px;
 	text-align: left;
-	border: 1px solid buttonface;
-	padding-top: 3%;
-	border-radius: 5px;
+	text-indent: 5px;
+	border-radius: 2px;
 }
 
-ul li.sortable-title{
-	text-align: center; 
-	background-color: transparent;
-	border: 1px solid lightgray;
-	font-size: large;
+.sortable li:HOVER {
+/* 	-moz-transform: rotate(.5deg); */
+	border: .2px solid gray; 
 }
 
-#create-task{
-	margin-left: 5%;
+.sortable li:ACTIVE {
+	-moz-transform: rotate(2deg);
+}
+
+.create-task{
+	text-align: right;
+	margin: 20px 5px 4px;
+}
+
+.create-task:HOVER{
+	background-color: #797575;
 }
 
 #project-div{
-	background-color: gray; 
+	background-color: lightgray; 
 	position: absolute;
+	left: 10px
 	right: 10px;
 	bottom: 10px;
 	top: 10px;
-	width:80%;
+	width:99%;
 	border-radius: 10px; 
-}
-
-project-div.ui-sortable-helper {
-	width: 1px;
-	height: 1px;
 }

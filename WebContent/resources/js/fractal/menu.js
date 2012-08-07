@@ -30,8 +30,7 @@ $( "#dialog-task" ).dialog({
   }
 });
 
-	$( "#create-task" )
-	.button()
+	$( ".create-task" )
 	.click(function() {
 		allFields.val( "" );
 		$( "#dialog-task" ).dialog( "open" );
@@ -91,7 +90,9 @@ function adiconaComentario(id) {
 
 	$(function() { 
 		$( "ul.droptrue" ).sortable({ 
-			connectWith: "ul" 
+			connectWith: "ul", 
+ 			dropOnEmpty: true 
+ 			
 		}); 
 
 		$( "ul.dropfalse" ).sortable({ 
@@ -99,7 +100,7 @@ function adiconaComentario(id) {
 // 			dropOnEmpty: false 
 		}); 
 
-		$( ".sortable" ).disableSelection(); 
+//		$( ".sortable" ).disableSelection(); 
 	}); 
 	
 // Mexer nessa funcao depois... entender e reverter o efeito
