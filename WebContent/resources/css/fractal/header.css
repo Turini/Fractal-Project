@@ -18,3 +18,7 @@
 		font-weight: bold;
 		margin: 2% 1% 0 0;
 	}
+	
+	a:HOVER {
+		box-shadow:red;
+	}

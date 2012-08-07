@@ -99,10 +99,10 @@ function adiconaComentario(id) {
 // 			dropOnEmpty: false 
 		}); 
 
-		$( "#sortable1, #sortable2, #sortable3, #sortable4" ).disableSelection(); 
+		$( ".sortable" ).disableSelection(); 
 	}); 
 	
-// Mexer nessa funÃ§Ã£o depois... entender e reverter o efeito
+// Mexer nessa funcao depois... entender e reverter o efeito
 
 // 	$(function() {
 // 		$( ".ui-state-default" ).droppable({

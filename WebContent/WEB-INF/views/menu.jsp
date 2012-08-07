@@ -26,105 +26,59 @@
 
 <body> 
 
-		<button id="create-task">Create new task</button>
+	<button id="create-task">Create new task</button>
 		
-		<div id="project-div">
-		
-				<ul id="sortable1" class='droptrue'>
-					<li id="sortable-title" class="ui-state-default"> <b id="column-title">To do</b> </li>
-					<c:forEach items="${tarefas}" var="tarefa">
-						<c:if test="${tarefa.estado eq 'Designada'}">
-							<li id="${tarefa.id}" class="lis-tasks">${tarefa.nome}</li>
-						</c:if>
-					</c:forEach>
-				</ul>
-	
-				<ul id="sortable2" class='droptrue'>
-					<li id="sortable-title" class="ui-state-default"> <b id="column-title">Doing</b> </li>
-					<c:forEach items="${tarefas}" var="tarefa">
-						<c:if test="${tarefa.estado eq 'Tratativa'}">
-							<li id="${tarefa.id}" class="lis-tasks">${tarefa.nome}</li>
-						</c:if>
-					</c:forEach>
-				</ul>
-	
-				<ul id="sortable3" class='droptrue'>
-					<li id="sortable-title" class="ui-state-default"> <b id="column-title">Ice box</b> </li>
-					<c:forEach items="${tarefas}" var="tarefa">
-						<c:if test="${tarefa.estado eq 'Congelada'}">
-							<li id="${tarefa.id}" class="lis-tasks">${tarefa.nome}</li>
-						</c:if>
-					</c:forEach>
-				</ul>
-	
-				<ul id="sortable4" class='droptrue'>
-					<li id="sortable-title" class="ui-state-default"> <b id="column-title">Done</b> </li>
-					<c:forEach items="${tarefas}" var="tarefa">
-						<c:if test="${tarefa.estado eq 'Finalizada'}">
-							<li id="${tarefa.id}" class="lis-tasks">${tarefa.nome}</li>
-						</c:if>
-					</c:forEach>
-				</ul>
-			</div>
-
-<!-- TODO: Something like that... -->
-
-<!-- 	<div id="project-div"> -->
-	
-<%-- 		<c:forEach items="${tarefas.estado}" var="status" varStatus="st"> --%>
-
-<%-- 				<ul id="sortable${st}" class='droptrue'> --%>
+	<div id="project-div">
+		<c:forEach items="${estados}" var="status">
+			<ul class='droptrue sortable'>
+				<li class="sortable-title"> 
+					<b id="column-title">${status}</b> 
+				</li>
 				
-<!-- 					<li id="sortable-title" class="ui-state-default">  -->
-<%-- 						<b id="column-title">${status}</b>  --%>
-<!-- 					</li> -->
-					
-<%-- 					<c:forEach items="${tarefas}" var="task"> --%>
-<%-- 						<c:if test="${task.estado eq status}"> --%>
-<%-- 							<li id="${task.id}" class="lis-tasks">${task.nome}</li> --%>
-<%-- 						</c:if> --%>
-<%-- 					</c:forEach> --%>
-<!-- 				</ul> -->
-		
-<%-- 		</c:forEach> --%>
-<!-- 	</div> -->
+				<c:forEach items="${tarefas}" var="task">
+					<c:if test="${task.estado eq status}">
+						<li id="${task.id}">${task.nome}</li>
+					</c:if>
+				</c:forEach>
+			</ul>
+		</c:forEach>
+	</div>
 
 			
-	<div id="detalhes-tarefa" title="Detalhes da tarefa selecionada"> </div>
+<!-- 	<div id="detalhes-tarefa" title="Detalhes da tarefa selecionada"> </div> -->
 
-	<div id="dialog-task" title="Create new task">
-		<form id="adicionaTarefa" action="adicionaTarefa" method="get">
-			<fieldset>
-				<label for="nome">Task Name</label> 
-					<input type="text" name="nome" id="nome" maxlength="49" class="text ui-widget-content ui-corner-all" size="57px" /> 
+<!-- 	<div id="dialog-task" title="Create new task"> -->
+<!-- 		<form id="adicionaTarefa" action="adicionaTarefa" method="get"> -->
+<!-- 			<fieldset> -->
+<!-- 				<label for="nome">Task Name</label>  -->
+<!-- 					<input type="text" name="nome" id="nome" maxlength="49" class="text ui-widget-content ui-corner-all" size="57px" />  -->
 					
-				<label for="estado">State</label> 
-					<select name="estado" class="text ui-widget-content ui-corner-all">
-						<option value="Designada" selected="selected">Designada</option>
-						<option value="Tratativa">Tratativa</option>
-						<option value="Congelada">Congelada</option>
-						<option value="Finalizada">Finalizada</option>
-					</select>
-				<hr>
+<!-- 				<label for="estado">Status</label>  -->
+<!-- 					<select name="estado" class="text ui-widget-content ui-corner-all"> -->
+<%-- 						<c:forEach items="${estados}" var="status"> --%>
+<%-- 							<option value="${status}">${status}</option> --%>
+<%-- 						</c:forEach> --%>
+<!-- 					</select> -->
+<!-- 				<hr> -->
 				
-				<label for="descricao">Description</label> 
-					<input type="text" name="descricao" maxlength="99" id="descricao" value="" class="text ui-widget-content ui-corner-all" size="76px" /> <br />
-				<hr>
+<!-- 				<label for="descricao">Description</label>  -->
+<!-- 					<input type="text" name="descricao" maxlength="99" id="descricao" value="" class="text ui-widget-content ui-corner-all" size="76px" /> <br /> -->
+<!-- 				<hr> -->
 				
-				<label for="dataInicio">Starting date</label>
-					<homework:campoData name="dataInicio" id="dataInicio" />
+<!-- 				<label for="dataInicio">Starting date</label> -->
+<%-- 					<homework:campoData name="dataInicio" id="dataInicio" /> --%>
 					
-				<label for="dataTermino">Finish date</label>
-					<homework:campoData name="dataTermino" id="dataTermino" />
+<!-- 				<label for="dataTermino">Finish date</label> -->
+<%-- 					<homework:campoData name="dataTermino" id="dataTermino" /> --%>
 					
-				<label for="destinario">Addressed</label> 
-					<input type="text" name="destinario" id="destinario" maxlength="29" value="" class="text ui-widget-content ui-corner-all" size="31px" /> <br />
+<!-- 				<label for="destinario">Addressed</label>  -->
+<!-- 					<input type="text" name="destinario" id="destinario" maxlength="29" value="" class="text ui-widget-content ui-corner-all" size="31px" /> <br /> -->
 				
-				<input type="hidden" name="projeto_id" value="${projetoId}"/>
+<%-- 				<input type="hidden" name="projeto_id" value="${projetoId}"/> --%>
 				
-			</fieldset>
-		</form>
-	</div>
+<!-- 			</fieldset> -->
+<!-- 		</form> -->
+<!-- 	</div> -->
 
 </body>
 </html>

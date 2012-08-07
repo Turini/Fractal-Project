@@ -3,6 +3,7 @@
 body {
 	font-size: 100.0%;
 	font: menu;
+	color: #333333;
 }
 
 fieldset {
@@ -11,64 +12,53 @@ fieldset {
 	margin-top: 25px;
 }
 
-h1 {
-	font-size: 1.2em;
-	margin: .6em 0;
-}
-
-#sortable1,#sortable2,#sortable3,#sortable4 {
+.sortable {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	float: left;
-	margin-right: 1%;
 	background: grey;
+	margin: 10px 0;
+	float: left;
 	padding: 0;
 	width: 22%;
 }
 
-#sortable1 li,#sortable2 li,#sortable3 li,#sortable4 li {
-	margin: 1.5%;
+ul.sortable:FIRST-CHILD {
+	margin-left: 10px;
+}
+
+ul.sortable li {
+	margin: 3px;
 	padding: 0;
 	width: 96.3%;
 	background: buttonface;
 	height: 31px;
-	text-align: center;
+	text-align: left;
+	border: 1px solid buttonface;
 	padding-top: 3%;
+	border-radius: 5px;
+}
+
+ul li.sortable-title{
+	text-align: center; 
+	background-color: transparent;
+	border: 1px solid lightgray;
+	font-size: large;
 }
 
 #create-task{
 	margin-left: 5%;
 }
 
-#master{
-	background-color: #E8E8E8; height: 980px;
-}
-
-#menu-lateral{
-	background-color: gray; float: left; height: 100%; width: 19%;
-}
-
 #project-div{
-	background-color: gray; float: right; height: 100%; width:80%;
+	background-color: gray; 
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	top: 10px;
+	width:80%;
+	border-radius: 10px; 
 }
 
-.sortables-console{
-	margin-top: 3%; margin-left: 1%; height: 85%; width:97%; background-color: #B5B5B5; float: right;
-}
-
-#sortable1{
-	margin-left: 9px;
-}
-
-li#sortable-title{
-	text-align: center; background-color: transparent;
-}
-
-b#column-title{
-	font-size: large;
-}
-
-li#lis-tasks{
-	text-align: left;
+project-div.ui-sortable-helper {
+	width: 1px;
+	height: 1px;
 }

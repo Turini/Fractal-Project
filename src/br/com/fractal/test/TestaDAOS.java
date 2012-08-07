@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.infra.JPAUtil;
 import br.com.fractal.model.Tarefas;
+import br.com.fractal.model.enums.Estado;
 
 public class TestaDAOS {
 
@@ -19,7 +20,7 @@ public class TestaDAOS {
 		
 		Tarefas tarefas = new Tarefas();
 		tarefas.setNome("Test Taks");
-		tarefas.setEstado("Started");
+		tarefas.setEstado(Estado.DONE);
 		tarefas.setPrazo(1);
 		tarefas.setDestinario("Rodrigo");
 		tarefas.setDescricao("descricao");
@@ -27,7 +28,7 @@ public class TestaDAOS {
 		tarefas.setDataTermino(Calendar.getInstance());
 		
 		tarefasDAO.adiciona(tarefas);
-		tarefasDAO.remove(tarefas);
+//		tarefasDAO.remove(tarefas);
 		
 		em.getTransaction().commit();
 		em.close();

@@ -3,10 +3,14 @@ package br.com.fractal.model;
 import java.util.Calendar;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import br.com.fractal.model.enums.Estado;
 
 @Entity
 public class Tarefas {
@@ -16,7 +20,10 @@ public class Tarefas {
 
 	private String nome;
 	private String descricao;
-	private String estado;
+	
+	@Enumerated(EnumType.STRING)
+	private Estado estado;
+	
 	private String destinario;
 	
 	@DateTimeFormat(pattern="dd/MM/yyyy")
@@ -49,11 +56,11 @@ public class Tarefas {
 		this.descricao = descricao;
 	}
 
-	public String getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
 

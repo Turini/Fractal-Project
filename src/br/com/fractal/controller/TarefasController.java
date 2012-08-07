@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Tarefas;
+import br.com.fractal.model.enums.Estado;
 
 
 @Controller
@@ -88,6 +89,7 @@ public class TarefasController {
 //		model.addAttribute("tarefas", dao.lista());
 		model.addAttribute("tarefas", dao.listaPorProjeto(id));
 		model.addAttribute("projetoId", id);
+		model.addAttribute("estados", Estado.values());
 		
 		return "menu";
 	}
