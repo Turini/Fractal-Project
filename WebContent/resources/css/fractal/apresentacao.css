@@ -35,10 +35,15 @@ div[id=accordion] h3 a {
 }
 
 div#project{
-	width: 115%;
+	width: 50%;
 	float: right;
 	margin: 1% -7%;
 	background-color: rgb(233, 236, 233);
+}
+
+div#project:HOVER{
+	-moz-transition: all 1s;
+	width: 115%;
 }
 
 span#create-project {

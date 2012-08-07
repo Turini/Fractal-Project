@@ -19,16 +19,33 @@
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	
-	
-	<title>Fractal Task Project</title>
+	<c:forEach items="${allProjects}" var="pjs">
+			<c:forEach items="${tarefas}" var="tasks">
+				<c:if test="${pjs.id eq tasks.id}">
+					<title>Fractal | ${pjs.nome}</title>
+				</c:if>
+			</c:forEach>
+	</c:forEach>
 
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/menu.css"/>" type="text/css" /> </head>
 
 <body> 
 
+
 	<div id="project-div">
+	<header>
+		<c:forEach items="${allProjects}" var="pjs">
+			<c:forEach items="${tarefas}" var="tasks">
+				<c:if test="${pjs.id eq tasks.id}"><h3>${pjs.nome}</h3></c:if>
+			</c:forEach>
+		</c:forEach>
+	</header>
 	
-	
+		
+		<section>
+			<span class="ui-icon  ui-icon-carat-1-e"></span>
+		</section>
+		
 		<c:forEach items="${estados}" var="status">
 		<div class="sortable">
 			<h3> ${status} </h3>

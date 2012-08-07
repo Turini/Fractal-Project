@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.fractal.dao.ProjetoDAO;
 import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.model.Tarefas;
 import br.com.fractal.model.enums.Estado;
@@ -90,7 +91,7 @@ public class TarefasController {
 		model.addAttribute("tarefas", dao.listaPorProjeto(id));
 		model.addAttribute("projetoId", id);
 		model.addAttribute("estados", Estado.values());
-		
+		model.addAttribute("allProjects", new ProjetoDAO(em).listaProjetos());
 		return "menu";
 	}
 	
