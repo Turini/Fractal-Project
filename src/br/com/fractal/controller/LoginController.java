@@ -43,6 +43,11 @@ public class LoginController {
 		}
 	}
 	
+	@RequestMapping("dashboard")
+	public String dashboard() {
+		return "apresentacao";
+	}
+	
 	@RequestMapping("logout")
 	public String logout(HttpSession session){
 		session.invalidate();

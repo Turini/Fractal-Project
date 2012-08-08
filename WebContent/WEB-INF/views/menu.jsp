@@ -29,13 +29,21 @@
 	<div id="project-div">
 	<header>
 		<h3>${currentProject.nome}</h3>
+		
+		
+		<nav> 
+			<a href="dashboard"> Dashboard </a>
+			<a href="loginForm"> Logout </a>
+		</nav>
+		
 	</header>
 	
 		
-		<section>
-			<span class="ui-icon  ui-icon-carat-1-e"></span>
+		<section id="activity">
+			<span class="ui-icon ui-icon-carat-1-e"></span>
 		</section>
 		
+		<section class="workspace"> 
 		<c:forEach items="${estados}" var="status">
 		<div class="sortable">
 			<h3> ${status} </h3>
@@ -54,6 +62,7 @@
 			</div>
 		</div>
 		</c:forEach>
+		</section>
 		
 	</div>
 
@@ -64,10 +73,10 @@
 		<form id="adicionaTarefa" action="adicionaTarefa" method="get">
 			<fieldset>
 				<label for="nome">Task Name</label> 
-					<input type="text" name="nome" id="nome" maxlength="49" class="text ui-widget-content ui-corner-all" size="57px" /> 
+					<input type="text" name="nome" id="nome" maxlength="49" size="57px" /> 
 					
 				<label for="estado">Status</label> 
-					<select name="estado" class="text ui-widget-content ui-corner-all">
+					<select name="estado">
 						<c:forEach items="${estados}" var="status">
 							<option value="${status}">${status}</option>
 						</c:forEach>
@@ -75,7 +84,7 @@
 				<hr>
 				
 				<label for="descricao">Description</label> 
-					<input type="text" name="descricao" maxlength="99" id="descricao" value="" class="text ui-widget-content ui-corner-all" size="76px" /> <br />
+					<input type="text" name="descricao" maxlength="99" id="descricao" value="" size="76px" /> <br />
 				<hr>
 				
 				<label for="dataInicio">Starting date</label>
@@ -85,7 +94,7 @@
 					<homework:campoData name="dataTermino" id="dataTermino" />
 					
 				<label for="destinario">Addressed</label> 
-					<input type="text" name="destinario" id="destinario" maxlength="29" value="" class="text ui-widget-content ui-corner-all" size="31px" /> <br />
+					<input type="text" name="destinario" id="destinario" maxlength="29" value="" size="31px" /> <br />
 				
 				<input type="hidden" name="projeto_id" value="${currentProject.id}"/>
 				
