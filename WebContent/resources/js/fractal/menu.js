@@ -18,8 +18,8 @@ $( "#dialog-task" ).dialog({
 	modal: true,
 	buttons: {
 		"Create task": function() {
-				$( "#adicionaTarefa" ).submit(); 						
-				$( this ).dialog( "close" );
+			$( "#adicionaTarefa" ).submit();
+			$( this ).dialog( "close" );
 		},
 		Cancel: function() {
 			$( this ).dialog( "close" );
@@ -64,12 +64,12 @@ function exibirComentarios(id) {
 }
 	
 function excluirTarefa(id) {
-	$.get("removeTarefa?id="+id);
-// 	$.post("removeTarefa", {id: id} , function (){
-		$(id).hide();
-		$('#detalhes-tarefa').dialog('close');
-// 	});
-}
+	$.get("removeTarefa?id="+id)
+		.success(function(){
+			$('li[id='+id+']').hide();
+			$('#detalhes-tarefa').dialog('close');
+		});
+	}
 
 function salvarEdicaoTarefa(id) {
 	$( "#alteraTarefa" ).submit();
@@ -106,13 +106,45 @@ function adiconaComentario(id) {
 // Mexer nessa funcao depois... entender e reverter o efeito
 
 // 	$(function() {
-// 		$( ".ui-state-default" ).droppable({
+// 		$( ".ui-sortable" ).droppable({
 // 			drop: function( event, ui ) {
-// 				$( this )
-// 					.addClass( "ui-state-highlight" );
+// 				var lis = $(this).find('li');
+// 				console.log('lis -->'+lis);
+// 				for (var aux=0; aux <= lis.length; aux++){
+// 					console.log($(lis[aux]).attr('status'));
+// 					if ($(lis[aux]).attr('class') != null) {
+ 						
+// 						setTimeout(alteraEstado(this, $(this).attr('id')), 10000);
+ 						
+// 						if ($(lis[aux]).attr('class').indexOf("placeholder") != -1){
+// 							console.log($(this).find('li[status!=DONE]'));
+ 							
+ 							
+// 							console.log('===>' + $($(this).find('li[status!=DONE][id!=x]')[0]).attr('id'));
+// 							console.log('=> '+ $(lis[aux]).attr('id'));
+// 							var status = $(this).attr('id');
+// 							var taskId = $(this).find('li[status!='+status+'][id!=x]').attr('id');
+// 							$.get('alteraEstado',{taskId: taskId , status: status});
+// 							console.log('agora sim seu fdp !!!'+ $(lis[aux]).attr('class'));
+// 						}
+// 					}
+ 					
+// 				}
+// 				$( this ).addClass( "ui-state-highlight" );
 // 			}
 // 		});
+// 		$('.lis-tasks').draggable(
+// 			function() {
+// 				console.log(this);
+// 			}
+// 		);
 // 	});
+ 	
+// 	function alteraEstado(ul, id){
+// 		console.log($(ul).find('li'));
+// 		console.log('id: '+id);
+// 		console.log($('ul[id='+id+']').find('li'));
+// 	}
 	
 	$('.lis-tasks').live('click', function(){
 		var id = $(this).attr('id');
@@ -122,3 +154,19 @@ function adiconaComentario(id) {
 			exibirComentarios(id);
 		});
 	});
+
+	
+//(function(){
+//	
+//	var uls = $('ul');
+//	
+//		for (var u = 0; u <= uls.length; u++) {
+//			if ($($('ul')[u]).find('li').size() == 0) {
+//				$($('ul')[u])
+//			}
+//					
+//					console.log($('ul')[u]);
+////			$('ul li#x').size() == 0
+//		}
+//		
+//});

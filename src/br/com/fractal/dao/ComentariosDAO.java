@@ -34,6 +34,10 @@ public class ComentariosDAO {
 	public List<Comentario> lista() {
 		return dao.lista();
 	}
+
+	public void removeComentariosDaTarefa(Tarefas task) {
+		dao.removeComentariosDaTarefa(task);
+	}
 	
 //	public List<Comentario> buscaComentarioPorTarefa(Long id, Tarefas tarefa) {		
 //		return dao.buscaComentarioPorTarefa(id, tarefa);

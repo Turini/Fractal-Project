@@ -78,4 +78,9 @@ public class GenericDAO<T> {
 		this.em.createNativeQuery(query).setParameter("usuarioId", usuarioId).setParameter("projetoId", projetoId).executeUpdate();
 	}
 
+	public void removeComentariosDaTarefa(Tarefas task) {
+		String jpql = "delete from Comentario where tarefas_id = :taskId";
+		this.em.createNativeQuery(jpql).setParameter("taskId", task.getId()).executeUpdate();
+	}
+
 }

@@ -24,12 +24,10 @@
 
 	<label for="estado">Status</label> 
 		<select name="estado" class="text ui-widget-content ui-corner-all">
-			<option value="${tarefa.estado}" selected="selected">${tarefa.estado}</option>
-			<option value="Designada">Designada</option>
-			<option value="Tratativa">Tratativa</option>
-			<option value="Congelada">Congelada</option>
-			<option value="Finalizada">Finalizada</option>
-		</select> 
+			<c:forEach items="${estados}" var="status">
+				<option value="${status}">${status}</option>
+			</c:forEach>
+		</select>
 	
 	<br/> <input type="hidden" name="projeto_id" value="${projeto}"/>
 				

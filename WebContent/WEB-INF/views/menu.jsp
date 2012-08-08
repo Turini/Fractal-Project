@@ -19,13 +19,7 @@
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	
-	<c:forEach items="${allProjects}" var="pjs">
-			<c:forEach items="${tarefas}" var="tasks">
-				<c:if test="${pjs.id eq tasks.id}">
-					<title>Fractal | ${pjs.nome}</title>
-				</c:if>
-			</c:forEach>
-	</c:forEach>
+	<title>Fractal | ${currentProject.nome}</title>
 
 	<link rel="stylesheet" href="<c:url value="/resources/css/fractal/menu.css"/>" type="text/css" /> </head>
 
@@ -34,11 +28,7 @@
 
 	<div id="project-div">
 	<header>
-		<c:forEach items="${allProjects}" var="pjs">
-			<c:forEach items="${tarefas}" var="tasks">
-				<c:if test="${pjs.id eq tasks.id}"><h3>${pjs.nome}</h3></c:if>
-			</c:forEach>
-		</c:forEach>
+		<h3>${currentProject.nome}</h3>
 	</header>
 	
 		
@@ -50,11 +40,11 @@
 		<div class="sortable">
 			<h3> ${status} </h3>
 			<div class="divisor">
-				<ul class='droptrue'>
-					<li></li>
+				<ul class='droptrue' id="${status}">
+					<li id="x" status="${status}"></li>
 					<c:forEach items="${tarefas}" var="task">
 						<c:if test="${task.estado eq status}">
-							<li id="${task.id}"><span>${task.nome}</span></li>
+							<li class="lis-tasks" id="${task.id}" status="${status}"><span>${task.nome}</span></li>
 						</c:if>
 					</c:forEach>
 				</ul>
@@ -70,7 +60,7 @@
 			
 	<div id="detalhes-tarefa" title="Detalhes da tarefa selecionada"> </div>
 
-	<div id="dialog-task" title="Create new task">
+	<div id="dialog-task">
 		<form id="adicionaTarefa" action="adicionaTarefa" method="get">
 			<fieldset>
 				<label for="nome">Task Name</label> 
@@ -97,7 +87,7 @@
 				<label for="destinario">Addressed</label> 
 					<input type="text" name="destinario" id="destinario" maxlength="29" value="" class="text ui-widget-content ui-corner-all" size="31px" /> <br />
 				
-				<input type="hidden" name="projeto_id" value="${projetoId}"/>
+				<input type="hidden" name="projeto_id" value="${currentProject.id}"/>
 				
 			</fieldset>
 		</form>
