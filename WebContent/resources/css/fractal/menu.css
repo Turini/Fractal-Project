@@ -7,7 +7,8 @@ body {
 }
 
 header {
-	background-color: darkgray;
+	background-color: #6ACAA4;
+	border: 1px solid #A2A2A2;
 	border-radius: 2px;
 	height: 60px;
 	width: 99%;
@@ -20,9 +21,10 @@ header h3 {
 section#activity {
 	-moz-transition: all 1s;
 	-webkit-transition: all 1s;
+	border: 1px solid #A2A2A2;
     float: left;
     height: 88%;
-    background-color: darkgray;
+    background-color: #6ACAA4;
     margin-left: 0;
     margin-top: 0.7%;
     width: 2%;
@@ -53,9 +55,10 @@ nav a {
 section#activity:HOVER {
 	-moz-transition: all 2s;
 	-webkit-transition: all 2s;
+	border: 1px solid #A2A2A2;
     width: 17%;
     margin-bottom: 0.7%;
-    background-color: gray;
+    background-color: #B9B9B9;
     height: 87%;
     margin-left: 0.5%;
     margin-right: 0.5%;
@@ -82,7 +85,8 @@ fieldset {
 }
 
 .sortable {
-	background: darkgrey;
+	background: #6ACAA4;
+	border: 1px solid #A2A2A2;
 	margin: 10px 5px;
 	border-radius: 2px;	
 	float: left;
@@ -96,10 +100,11 @@ fieldset {
 }
 
 ul {
-	   list-style-type: none;
 	-webkit-padding-start: 0;
-	   -moz-padding-start: 0;	
-			padding-start: 0;
+    -moz-padding-start: 0;	
+    list-style-type: none;
+	padding-start: 0;
+	min-height: 32px;
 }
 
 div.sortable:FIRST-CHILD {
@@ -108,8 +113,9 @@ div.sortable:FIRST-CHILD {
 
 .sortable li {
 	margin: 3px;
+	border: 1px solid #A2A2A2;
 	padding: 0;
-	background: buttonface;
+	background: #F1F1F1;
 	height: 45px;
 	text-align: left;
 	text-indent: 5px;
@@ -127,10 +133,6 @@ div.sortable:FIRST-CHILD {
 	-webkit-transform: rotate(2deg);	
 }
 
-.sortable li#x {
-/* 	background-color: darkgray; */
-}
-
 .create-task{
 	text-align: right;
 	margin: 20px 5px 4px;
@@ -146,7 +148,7 @@ div.sortable:FIRST-CHILD {
 }
 
 #project-div{
-	background-color: lightgray; 
+	background-color: #F1F1F1; 
 	position: absolute;
 	left: 10px
 	right: 10px;

@@ -18,7 +18,7 @@ $( "#dialog-task" ).dialog({
 	modal: true,
 	buttons: {
 		"Create task": function() {
-			$( "#adicionaTarefa" ).submit();
+			$( "#addTask" ).submit();
 			$( this ).dialog( "close" );
 		},
 		Cancel: function() {
@@ -30,11 +30,12 @@ $( "#dialog-task" ).dialog({
   }
 });
 
-	$( ".create-task" )
-	.click(function() {
-		allFields.val( "" );
-		$( "#dialog-task" ).dialog( "open" );
-		$("#adicionaTarefa").find(":input").attr("disabled", false);
+	$( ".create-task" ).click(function() {
+		allFields.val('');
+		$('#dialog-task').dialog('open');
+		var status = $(this).parent().find('ul').attr('id');
+		$('#addTask input[name=estado]').val(status);
+		$("#addTask").find(":input").attr("disabled", false);
 	});
 });
   
@@ -58,13 +59,13 @@ $(function() {
 });
 
 function exibirComentarios(id) {
-	$.get("mostraComentariosDaTarefa", {id: id}, function(resposta) {
+	$.get("showComments", {id: id}, function(resposta) {
 		$("#novo-comentario").html(resposta);
 	});
 }
 	
 function excluirTarefa(id) {
-	$.get("removeTarefa?id="+id)
+	$.get("removeTask", {id : id})
 		.success(function(){
 			$('li[id='+id+']').hide();
 			$('#detalhes-tarefa').dialog('close');
@@ -72,20 +73,23 @@ function excluirTarefa(id) {
 	}
 
 function salvarEdicaoTarefa(id) {
-	$( "#alteraTarefa" ).submit();
-	$.get("removeTarefa?id="+id);
+	$( "#changeTask" ).submit();
+	$.get("removeTask", {id : id});
 }
 
 function habilitarEdicaoTarefa() {
-	$("#alteraTarefa").find(":input").attr("disabled", false);
+	$("#changeTask").find(":input").attr("disabled", false);
 	$("#salvar").show();
 }
 
 function adiconaComentario(id) {
 	var conteudo = $("#conteudo").val();
-	$.post("adicionaComentario", {id:id, conteudo:conteudo});
-	
-//     $("#adicionaComentario").submit();	
+	$.post("addComment", {id:id, conteudo:conteudo})
+		.success(function(){
+			$("#novo-comentario").html(conteudo);
+		}).error(function(){
+			alert('Sorry, but something wrong just happend');
+		});
 }
 
 	$(function() { 
@@ -114,7 +118,7 @@ function adiconaComentario(id) {
 // 					console.log($(lis[aux]).attr('status'));
 // 					if ($(lis[aux]).attr('class') != null) {
  						
-// 						setTimeout(alteraEstado(this, $(this).attr('id')), 10000);
+// 						setTimeout(changeStatus(this, $(this).attr('id')), 10000);
  						
 // 						if ($(lis[aux]).attr('class').indexOf("placeholder") != -1){
 // 							console.log($(this).find('li[status!=DONE]'));
@@ -124,7 +128,7 @@ function adiconaComentario(id) {
 // 							console.log('=> '+ $(lis[aux]).attr('id'));
 // 							var status = $(this).attr('id');
 // 							var taskId = $(this).find('li[status!='+status+'][id!=x]').attr('id');
-// 							$.get('alteraEstado',{taskId: taskId , status: status});
+// 							$.get('changeStatus',{taskId: taskId , status: status});
 // 							console.log('agora sim seu fdp !!!'+ $(lis[aux]).attr('class'));
 // 						}
 // 					}
@@ -140,7 +144,7 @@ function adiconaComentario(id) {
 // 		);
 // 	});
  	
-// 	function alteraEstado(ul, id){
+// 	function changeStatus(ul, id){
 // 		console.log($(ul).find('li'));
 // 		console.log('id: '+id);
 // 		console.log($('ul[id='+id+']').find('li'));
@@ -148,7 +152,7 @@ function adiconaComentario(id) {
 	
 	$('.lis-tasks').live('click', function(){
 		var id = $(this).attr('id');
-		$.get("mostraTarefa", {id: id}, function(resposta) {
+		$.get("showTask", {id: id}, function(resposta) {
 			$("#detalhes-tarefa").html(resposta);
 			$('#detalhes-tarefa').dialog('open');
 			$(".ui-dialog-titlebar").hide();

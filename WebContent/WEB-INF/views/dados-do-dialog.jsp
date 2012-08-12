@@ -4,16 +4,20 @@
 
 <jsp:useBean id="agora" class="java.util.Date"/> <br/>
 
-<form action="alteraTarefa" id="alteraTarefa" method="post">
+<form action="changeTask" id="changeTask" method="post">
+	
+	<input type="checkbox" />
 
 	<input type="hidden" name="id" value="${tarefa.id}"/> 
 	
 	<label for="nome">Task Name</label> 
-		<input type="text" name="nome" maxlength="49" class="text ui-widget-content ui-corner-all" disabled="disabled" size="53px" value="${tarefa.nome}"/>
+		<input type="text" name="nome" maxlength="49" class="text ui-widget-content ui-corner-all" disabled="disabled" size="45px" value="${tarefa.nome}"/>
 	<hr noshade>
 
 	<label for="descricao">Description</label> 
-		<input type="text" name="descricao" maxlength="99" class="text ui-widget-content ui-corner-all" disabled="disabled" size="53px" value="${tarefa.descricao}"/> <br />
+<%-- 		<textarea type="text" name="descricao" maxlength="99" class="text ui-widget-content ui-corner-all" disabled="disabled" size="45px" value="${tarefa.descricao}"/> <br /> --%>
+		<textarea rows="2" cols="52" class="text ui-widget-content ui-corner-all"></textarea>
+		
 	<hr noshade>
 
 	<label for="dataInicio">Created</label>
@@ -33,7 +37,7 @@
 				
 </form> <hr noshade>
 
-<form action="adicionaComentario" id="adicionaComentario" method="post">
+<form action='<c:url value="addComment"/>' id="addComment" method="post">
 	Comment <input type="text" id="conteudo" name="conteudo" class="text ui-widget-content ui-corner-all" size="48px" />
 	<button onclick="adiconaComentario(${tarefa.id}); return false;">Add</button>
 </form>

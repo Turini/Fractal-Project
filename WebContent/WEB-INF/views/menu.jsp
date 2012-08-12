@@ -49,7 +49,6 @@
 			<h3> ${status} </h3>
 			<div class="divisor">
 				<ul class='droptrue' id="${status}">
-					<li id="x" status="${status}"></li>
 					<c:forEach items="${tarefas}" var="task">
 						<c:if test="${task.estado eq status}">
 							<li class="lis-tasks" id="${task.id}" status="${status}"><span>${task.nome}</span></li>
@@ -70,33 +69,40 @@
 	<div id="detalhes-tarefa" title="Detalhes da tarefa selecionada"> </div>
 
 	<div id="dialog-task">
-		<form id="adicionaTarefa" action="adicionaTarefa" method="get">
+		<form id="addTask" action='<c:url value="addTask"/>' method="get">
 			<fieldset>
-				<label for="nome">Task Name</label> 
+			
+				<span>Trabalhar com prazo</span>
+				<input type="checkbox" value="false"/>
+			
+				<label for="nome">Task Name
 					<input type="text" name="nome" id="nome" maxlength="49" size="57px" /> 
-					
-				<label for="estado">Status</label> 
-					<select name="estado">
-						<c:forEach items="${estados}" var="status">
-							<option value="${status}">${status}</option>
-						</c:forEach>
-					</select>
-				<hr>
+				</label> 
+
+				<input type="hidden" name="estado"/>
+
+				<label for="descricao">Description
+					<input type="text" name="descricao" maxlength="99" id="descricao" value="" size="76px" />
+				</label> 
 				
-				<label for="descricao">Description</label> 
-					<input type="text" name="descricao" maxlength="99" id="descricao" value="" size="76px" /> <br />
-				<hr>
 				
-				<label for="dataInicio">Starting date</label>
-					<homework:campoData name="dataInicio" id="dataInicio" />
-					
-				<label for="dataTermino">Finish date</label>
-					<homework:campoData name="dataTermino" id="dataTermino" />
-					
-				<label for="destinario">Addressed</label> 
-					<input type="text" name="destinario" id="destinario" maxlength="29" value="" size="31px" /> <br />
+<!-- 				TODO: this fieldset need to be hidden, end only display when checked -->
 				
-				<input type="hidden" name="projeto_id" value="${currentProject.id}"/>
+				<fieldset>
+					<label for="dataInicio">Starting date
+						<homework:campoData name="dataInicio" id="dataInicio" />
+					</label>
+						
+					<label for="dataTermino">Finish date
+						<homework:campoData name="dataTermino" id="dataTermino" />
+					</label>
+				</fieldset>
+					
+				<label for="destinario">Addressed
+					<input type="text" name="destinario" id="destinario" maxlength="29" value="" size="31px" />
+				</label> 
+				
+				<input type="hidden" name="projeto_id" value="${currentProject.id}" />
 				
 			</fieldset>
 		</form>

@@ -34,12 +34,10 @@ public class LoginController {
 			ProjetoDAO dao = new ProjetoDAO(em);
 			model.addAttribute("projetos", dao.listaProjetos());
 			model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(usuario.getId()));
-			return "apresentacao";
+			return dashboard();
 		} else {
 			model.addAttribute("errorMessage", "Invalid user and password, please try again.");
-			
-			//TODO reirect to '/loginForm'
-			return "formularioDeLogin";
+			return loginForm();
 		}
 	}
 	
