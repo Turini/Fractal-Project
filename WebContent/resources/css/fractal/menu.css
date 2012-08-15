@@ -7,24 +7,28 @@ body {
 }
 
 header {
-	background-color: #6ACAA4;
+	background: -moz-linear-gradient(left, #3c7027 0%, #add664 33%, #add664 35%, #3c7027 100%);
+	background: -webkit-linear-gradient(left, #3c7027 0%, #add664 33%, #add664 35%, #3c7027 100%);	
+	-moz-box-shadow: 1px 1px 14px #020202;	
+	-webkit-box-shadow: 1px 1px 14px #020202;
 	border: 1px solid #A2A2A2;
 	border-radius: 2px;
-	height: 60px;
-	width: 99%;
-	margin: 5px;
+	height: 80px;
+	width: 100%;
+	margin: 0;
 }
 
 header h3 {
 	padding: 10px;
 }
+
 section#activity {
 	-moz-transition: all 1s;
 	-webkit-transition: all 1s;
 	border: 1px solid #A2A2A2;
     float: left;
     height: 88%;
-    background-color: #6ACAA4;
+    background-color: #98BB5A;
     margin-left: 0;
     margin-top: 0.7%;
     width: 2%;
@@ -85,9 +89,9 @@ fieldset {
 }
 
 .sortable {
-	background: #6ACAA4;
+	background: #98BB5A;
 	border: 1px solid #A2A2A2;
-	margin: 10px 5px;
+	margin: 20px 5px;
 	border-radius: 2px;	
 	float: left;
 	padding: 0;
@@ -114,6 +118,8 @@ div.sortable:FIRST-CHILD {
 .sortable li {
 	margin: 3px;
 	border: 1px solid #A2A2A2;
+	-webkit-box-shadow: 1px 0 2px black;
+	-moz-box-shadow: 1px 0 2px black;
 	padding: 0;
 	background: #F1F1F1;
 	height: 45px;
@@ -150,10 +156,48 @@ div.sortable:FIRST-CHILD {
 #project-div{
 	background-color: #F1F1F1; 
 	position: absolute;
-	left: 10px
-	right: 10px;
-	bottom: 10px;
-	top: 5px;
-	width:99%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	width:100%;
 	border-radius: 10px; 
+}
+
+div#detalhes-tarefa textarea {
+	width: 98%;
+	text-indent: 10px;
+	border-radius: 3px;
+	border: 1px solid #9C9C9C;
+	outline: 0;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+div#detalhes-tarefa input{
+	margin-bottom: 15px;
+	width: 82%;
+	text-indent: 10px;
+	border-radius: 3px;
+	border: 1px solid #9C9C9C;
+	outline: 0;
+}
+
+div#detalhes-tarefa input[name^=data]{
+	width: 31%;
+	text-align: center;
+}
+
+div#detalhes-tarefa input[name^=conteudo]{
+	width: 74%;
+}
+
+.ui-widget-overlay {
+	background: #363636/*{bgColorOverlay}*/ url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlOverlay}*/ 50%/*{bgOverlayXPos}*/ 200%/*{bgOverlayYPos}*/ repeat-x/*{bgOverlayRepeat}*/;
+	opacity: .8;
+}
+
+#novo-comentario li {
+	margin: 15px 0;
+	background-color: #F0EAEA;
 }

@@ -1,5 +1,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<ul>
 <c:forEach items="${comentario}" var="comentario">
-Comentario = ${comentario.conteudo}
+	<li>
+		<strong>${usuarioLogado.login}</strong> : ${comentario.conteudo}
+	</li>	
 </c:forEach>
+</ul>

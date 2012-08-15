@@ -44,7 +44,7 @@ $(function() {
 
 	$( "#detalhes-tarefa" ).dialog({
 		autoOpen: false,
-		height:285,
+//		height:285,
 		width: 610,
 		modal: true,
 // 		buttons: {
@@ -86,7 +86,8 @@ function adiconaComentario(id) {
 	var conteudo = $("#conteudo").val();
 	$.post("addComment", {id:id, conteudo:conteudo})
 		.success(function(){
-			$("#novo-comentario").html(conteudo);
+			var content = $("#novo-comentario ul").html();
+			$("#novo-comentario ul").html(content + '<li>'+conteudo+'</li>');
 		}).error(function(){
 			alert('Sorry, but something wrong just happend');
 		});

@@ -5,12 +5,8 @@
 <%@ attribute name="name" required="true" %>
 <%@ attribute name="value" required="false" type="java.util.Calendar"%>
 
-
-
-<input type="text" id="${id}" name="${name}" value="<fmt:formatDate value="${value.time}" pattern="dd/MM/yyyy"/>" class="text ui-widget-content ui-corner-all" disabled="disabled" size="12px"/>
+<input type="text" class="date" name="${name}" value="<fmt:formatDate value="${value.time}" pattern="dd/MM/yyyy"/>" disabled="disabled" />
 
 <script type="text/javascript">
-
-	$("#${id}").datepicker({dateFormat: 'dd/mm/yy'});
-
+	$(".date").datepicker({dateFormat: 'dd/mm/yy'});
 </script>
