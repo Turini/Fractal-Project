@@ -39,10 +39,13 @@ public class TarefasController {
 	@RequestMapping("showTask")
 	public String showTask(Long id, Model model, HttpServletResponse response, HttpServletRequest request){
 		EntityManager em = (EntityManager) request.getAttribute("em");
-		Tarefas tarefa = new TarefasDAO(em).buscaPorId(id);
+		TarefasDAO tarefasDAO = new TarefasDAO(em);
+		Tarefas tarefa = tarefasDAO.buscaPorId(id);
 		model.addAttribute("tarefa", tarefa);
 		model.addAttribute("projeto", tarefa.getProjeto_id());
 		model.addAttribute("estados", Estado.values());
+		model.addAttribute("comentario", tarefasDAO.buscaComentarioPorTarefa(tarefa));
+	
 		response.setStatus(200);
 		return "dados-do-dialog";
 	}

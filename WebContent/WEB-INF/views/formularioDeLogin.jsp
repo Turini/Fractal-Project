@@ -17,7 +17,7 @@
 
 	<body>
 	
-		<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.png">
+		<img id="img" alt="img" src="/FractalProjec/resources/img/FractalLogo.jpg">
 		
 
 		<div id="pageContent">

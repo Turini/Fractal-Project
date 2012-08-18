@@ -45,7 +45,7 @@ $(function() {
 	$( "#detalhes-tarefa" ).dialog({
 		autoOpen: false,
 //		height:285,
-		width: 610,
+		width: 650,
 		modal: true,
 // 		buttons: {
 // 			"Delete all items": function() {

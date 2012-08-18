@@ -2,7 +2,7 @@
 
 body {
 	font-size: 100.0%;
-	font: menu;
+	font: caption;
 	color: #333333;
 }
 
@@ -43,6 +43,11 @@ section.workspace {
 span.ui-icon {
 	margin-top: 250px;
 	float: right;
+}
+
+span#info-msg {
+	color: #CF4747;
+	font-size: small;
 }
 
 nav {
@@ -173,7 +178,6 @@ div#detalhes-tarefa textarea {
 	border: 1px solid #9C9C9C;
 	outline: 0;
 	margin-top: 5px;
-	margin-bottom: 15px;
 }
 
 div#detalhes-tarefa input{
@@ -195,11 +199,34 @@ div#detalhes-tarefa input[name^=conteudo]{
 }
 
 .ui-widget-overlay {
-	background: #363636/*{bgColorOverlay}*/ url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlOverlay}*/ 50%/*{bgOverlayXPos}*/ 200%/*{bgOverlayYPos}*/ repeat-x/*{bgOverlayRepeat}*/;
+	background: #000000/*{bgColorOverlay}*/ url(images/ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlOverlay}*/ 50%/*{bgOverlayXPos}*/ 200%/*{bgOverlayYPos}*/ repeat-x/*{bgOverlayRepeat}*/;
 	opacity: .8;
 }
 
 #novo-comentario li {
 	margin: 15px 0;
 	background-color: #F0EAEA;
+}
+
+.hidden {
+	display: none;
+}
+
+b#show-element {
+	cursor: pointer;
+}
+
+#comment-icon {
+	position: relative;
+}
+
+#count {
+	position: absolute;
+	right: 1px;
+	bottom: -8px;
+	font-size: 11px;
+	background-color: #DB3D3D;
+	padding: 0 2px;
+	color: white;
+	border-radius: 4px;
 }
