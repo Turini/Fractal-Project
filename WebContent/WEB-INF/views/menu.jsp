@@ -27,16 +27,15 @@
 
 
 	<div id="project-div">
-	<header>
-		<h3>${currentProject.nome}</h3>
-		
-		<nav> 
-			<a href="${pageContext.request.contextPath}/dashboard/${usuarioLogado.id}"> Dashboard </a>
-			<a href="${pageContext.request.contextPath}/logout"> Logout </a>
-		</nav>
-		
-	</header>
 	
+		<header>
+			<h3>${currentProject.nome}</h3>
+			<nav> 
+				<a href="${pageContext.request.contextPath}/dashboard/${usuarioLogado.id}"> Dashboard </a>
+				<a href="${pageContext.request.contextPath}/logout"> Logout </a>
+			</nav>
+		</header>
+		
 		
 		<section id="activity">
 			<span class="ui-icon ui-icon-carat-1-e"></span>

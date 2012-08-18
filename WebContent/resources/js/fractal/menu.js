@@ -84,12 +84,14 @@ function habilitarEdicaoTarefa() {
 	$("#salvar").show();
 }
 
-function adiconaComentario(id) {
+function adiconaComentario() {
 	var conteudo = $("#conteudo").val();
+	var id = $('input[name=id]').val();
 	$.post("addComment", {id:id, conteudo:conteudo})
 		.success(function(){
 			var content = $("#novo-comentario ul").html();
 			$("#novo-comentario ul").html(content + '<li>'+conteudo+'</li>');
+			$("#conteudo").val('');
 		}).error(function(){
 			alert('Sorry, but something wrong just happend');
 		});

@@ -40,14 +40,9 @@
 	
 	<hr noshade>
 	
-<%-- 	<form action='<c:url value="addComment"/>' id="addComment" method="post"> --%>
-<!-- 		Comment <input type="text" id="conteudo" name="conteudo" size="48px" /> -->
-<%-- 		<button onclick="adiconaComentario(${tarefa.id}); return false;">Add</button> --%>
-<!-- 	</form> -->
 </div>
 
 <div id="novo-comentario"> </div> 
-<!-- <hr noshade> -->
 
 <button onclick="excluirTarefa(${tarefa.id})">
 	<span class="ui-icon ui-icon-trash" style="float: right; margin: 0 1px 6px 0; text-align: right;"></span>

@@ -11,8 +11,11 @@ $(function() {
 	$('#novo-comentario').dialog({
 		autoOpen: false,
 		modal: true,
-		height:685,
 		width: 690
 	});
 	
+});
+
+$('#comment-icon').click(function(){
+	$('#novo-comentario').dialog('open');
 });
