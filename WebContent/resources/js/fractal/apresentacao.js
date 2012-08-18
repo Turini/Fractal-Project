@@ -44,7 +44,7 @@ $(function() {
 	});
 
 	$('#play').live('click', function(){
-		window.open("/FractalProjec/Menu?id="+$(this).attr('project-id'), '_self');
+		window.open("/FractalProjec/project/"+$(this).attr('project-id'), '_self');
 	});
 
 //	FIXME

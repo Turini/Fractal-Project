@@ -7,8 +7,10 @@ body {
 }
 
 header {
-	background: -moz-linear-gradient(left, #3c7027 0%, #add664 33%, #add664 35%, #3c7027 100%);
-	background: -webkit-linear-gradient(left, #3c7027 0%, #add664 33%, #add664 35%, #3c7027 100%);	
+/* 	background: -moz-linear-gradient(left, rgba(112,112,112,1) 0%, rgba(242,242,242,1) 21%, rgba(181,181,181,1) 46%, rgba(112,112,112,1) 100%); FF3.6+ */
+/* 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(112,112,112,1)), color-stop(21%,rgba(242,242,242,1)), color-stop(46%,rgba(181,181,181,1)), color-stop(100%,rgba(112,112,112,1))); Chrome,Safari4+ */
+/* 	background: -webkit-linear-gradient(left, rgba(112,112,112,1) 0%,rgba(242,242,242,1) 21%,rgba(181,181,181,1) 46%,rgba(112,112,112,1) 100%); Chrome10+,Safari5.1+ */
+	background-color: lightgray;
 	-moz-box-shadow: 1px 1px 14px #020202;	
 	-webkit-box-shadow: 1px 1px 14px #020202;
 	border: 1px solid #A2A2A2;
@@ -28,7 +30,7 @@ section#activity {
 	border: 1px solid #A2A2A2;
     float: left;
     height: 88%;
-    background-color: #98BB5A;
+    background-color: lightgray;
     margin-left: 0;
     margin-top: 0.7%;
     width: 2%;
@@ -62,7 +64,7 @@ section#activity:HOVER {
 	border: 1px solid #A2A2A2;
     width: 17%;
     margin-bottom: 0.7%;
-    background-color: #B9B9B9;
+    background-color: lightgray;
     height: 87%;
     margin-left: 0.5%;
     margin-right: 0.5%;
@@ -89,7 +91,7 @@ fieldset {
 }
 
 .sortable {
-	background: #98BB5A;
+	background: lightgray;
 	border: 1px solid #A2A2A2;
 	margin: 20px 5px;
 	border-radius: 2px;	

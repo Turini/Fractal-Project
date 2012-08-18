@@ -74,6 +74,8 @@ function excluirTarefa(id) {
 
 function salvarEdicaoTarefa(id) {
 	$( "#changeTask" ).submit();
+	var status = $(this).parent().find('ul').attr('id');
+	$('#changeTask input[name=estado]').val(status);
 	$.get("removeTask", {id : id});
 }
 
@@ -110,6 +112,28 @@ function adiconaComentario(id) {
 	
 // Mexer nessa funcao depois... entender e reverter o efeito
 
+	
+//	$(function(){
+//		$('.droptrue').droppable({
+//			drop: function (event, ui) {
+//				console.log(this);
+//				var lis = $(this).find('li');
+//				console.log($(this).find('li'));
+//				for ( var aux = 0; aux < lis.length; aux++) {
+//					console.log($(lis[aux]));
+//					console.log('bb' + $(lis[aux]).attr('status'));
+//					
+//					if ($(lis[aux]).attr('status') != $(this).attr('id')){
+////						console.log('aaa' + $(lis[aux]));
+////						console.log('bb' + $(lis[aux]).attr('status'));
+////						console.log('c' + $(this).attr('id'));
+//					}
+//				}
+//			}
+//		});
+//	});
+	
+	
 // 	$(function() {
 // 		$( ".ui-sortable" ).droppable({
 // 			drop: function( event, ui ) {

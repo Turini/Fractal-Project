@@ -25,7 +25,7 @@
 			<a href="telaUsuarios">Users</a> 
 			
 		<input type="radio" name="radio"/>
-			<a href="logout">Logout</a>
+			<a href="${pageContext.request.contextPath}/logout">Logout</a>
 			
 	</div>
 

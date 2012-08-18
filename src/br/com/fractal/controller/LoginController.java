@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ProjetoDAO;
@@ -31,18 +32,21 @@ public class LoginController {
 		// if the user exist, they're redirect to menu interface.
 		if(usuario!=null){
 			sess.setAttribute("usuarioLogado", usuario);
-			ProjetoDAO dao = new ProjetoDAO(em);
-			model.addAttribute("projetos", dao.listaProjetos());
-			model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(usuario.getId()));
-			return dashboard();
+			return dashboard(null, usuario, request, model);
 		} else {
 			model.addAttribute("errorMessage", "Invalid user and password, please try again.");
 			return loginForm();
 		}
 	}
 	
-	@RequestMapping("dashboard")
-	public String dashboard() {
+	@RequestMapping("dashboard/{id}")
+	public String dashboard(@PathVariable Long id, Usuarios usuario, HttpServletRequest request, Model model) {
+		EntityManager em = (EntityManager) request.getAttribute("em");
+		UsuariosDAO usuariosDAO = new UsuariosDAO(em);
+		ProjetoDAO dao = new ProjetoDAO(em);
+		model.addAttribute("projetos", dao.listaProjetos());
+		Long userId = usuario.getId() == null ? id : usuario.getId();
+		model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(userId));
 		return "apresentacao";
 	}
 	

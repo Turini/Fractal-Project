@@ -30,10 +30,9 @@
 	<header>
 		<h3>${currentProject.nome}</h3>
 		
-		
 		<nav> 
-			<a href="dashboard"> Dashboard </a>
-			<a href="loginForm"> Logout </a>
+			<a href="${pageContext.request.contextPath}/dashboard/${usuarioLogado.id}"> Dashboard </a>
+			<a href="${pageContext.request.contextPath}/logout"> Logout </a>
 		</nav>
 		
 	</header>

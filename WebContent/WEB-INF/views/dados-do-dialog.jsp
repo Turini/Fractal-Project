@@ -16,7 +16,7 @@
 			<homework:campoData name="dataInicio" id="dataInicio" value="${tarefa.dataInicio}"/>
 			<span>Expected Finish</span>	
 			<homework:campoData name="dataTermino" id="dataTermino" value="${tarefa.dataTermino}"/>
-	
+			<input type="hidden" name="estado" value="${tarefa.estado}"/>
 		<input type="hidden" name="projeto_id" value="${projeto}"/>
 					
 	</form> 
