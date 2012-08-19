@@ -64,14 +64,15 @@
 	</div>
 
 			
-	<div id="detalhes-tarefa" title="Detalhes da tarefa selecionada"> </div>
+	<div id="detalhes-tarefa"> </div>
 
 	<div id="dialog-task">
 		<form id="addTask" action='<c:url value="addTask"/>' method="get">
 			<fieldset>
 			
-				<span>Trabalhar com prazo</span>
-				<input type="checkbox" value="false"/>
+				<span>Trabalhar com prazo
+				 <input type="checkbox" value="false"/>
+				</span>
 			
 				<label for="nome">Task Name
 					<input type="text" name="nome" id="nome" maxlength="49" size="57px" /> 

@@ -182,7 +182,7 @@ function adiconaComentario() {
 		$.get("showTask", {id: id}, function(resposta) {
 			$("#detalhes-tarefa").html(resposta);
 			$('#detalhes-tarefa').dialog('open');
-			$(".ui-dialog-titlebar").hide();
+//			$(".ui-dialog-titlebar").hide();
 //			TODO: here
 //		    $(".ui-dialog").addClass("customclass");
 			exibirComentarios(id);

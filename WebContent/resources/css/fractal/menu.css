@@ -171,13 +171,22 @@ div.sortable:FIRST-CHILD {
 	border-radius: 10px; 
 }
 
+div#detalhes-tarefa {
+	padding: 0;
+	margin-left: 6px;
+}
+
 div#detalhes-tarefa textarea {
-	width: 98%;
+	width: 97%;
 	text-indent: 10px;
 	border-radius: 3px;
 	border: 1px solid #9C9C9C;
 	outline: 0;
 	margin-top: 5px;
+}
+
+div#dialog-task input {
+	
 }
 
 div#detalhes-tarefa input{
@@ -229,4 +238,17 @@ b#show-element {
 	padding: 0 2px;
 	color: white;
 	border-radius: 4px;
+}
+
+.ui-dialog .ui-dialog-title {
+	display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	background: none;
+	margin: 0;
+	height:0;
+	padding-left: 0;
+	padding-bottom: 0;
+	border: 0;
 }
