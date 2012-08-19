@@ -178,6 +178,7 @@ div#detalhes-tarefa {
 
 div#detalhes-tarefa textarea {
 	width: 97%;
+	overflow: hidden;
 	text-indent: 10px;
 	border-radius: 3px;
 	border: 1px solid #9C9C9C;
@@ -185,8 +186,33 @@ div#detalhes-tarefa textarea {
 	margin-top: 5px;
 }
 
+div#dialog-task {
+	overflow: hidden;
+	position: relative;
+}
+
+div#dialog-task span#show-dates {
+	position: absolute;
+	top: 4px;
+	right: 30px;
+	color: #CF4747;
+	font-size: small;
+}
+
+div#dialog-task label {
+	display: block;
+}
+
 div#dialog-task input {
-	
+	margin-bottom: 15px;
+	text-indent: 10px;
+	border-radius: 3px;
+	border: 1px solid #9C9C9C;
+	outline: 0;
+}
+
+div#dialog-task input:not([type=checkbox]):not([name^=data]) {
+	width: 85%;
 }
 
 div#detalhes-tarefa input{
@@ -240,6 +266,13 @@ b#show-element {
 	border-radius: 4px;
 }
 
+
+/* Jquery manual css reset */
+
+.ui-button-text-only .ui-button-text {
+	padding: 0;
+}
+
 .ui-dialog .ui-dialog-title {
 	display: none;
 }
@@ -252,3 +285,5 @@ b#show-element {
 	padding-bottom: 0;
 	border: 0;
 }
+
+/* end of jquery manual css reset */

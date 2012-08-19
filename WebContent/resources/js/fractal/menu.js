@@ -13,8 +13,8 @@ $(function() {
 	
 $( "#dialog-task" ).dialog({
 	autoOpen: false,
-	height: 250,
-	width: 820,
+//	height: 250,
+	width: 660,
 	modal: true,
 	buttons: {
 		"Create task": function() {

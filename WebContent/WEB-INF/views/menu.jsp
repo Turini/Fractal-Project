@@ -70,8 +70,9 @@
 		<form id="addTask" action='<c:url value="addTask"/>' method="get">
 			<fieldset>
 			
-				<span>Trabalhar com prazo
+				<span id="show-dates">
 				 <input type="checkbox" value="false"/>
+				 Trabalhar com prazo
 				</span>
 			
 				<label for="nome">Task Name
