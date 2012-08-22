@@ -58,3 +58,25 @@ $(function() {
 	$('#editProjectDiv input[type=submit]').live('click', function(){
 		$.get('editProject', {id: id});
 	});
+	
+	
+//	$(function(){
+//		$( ".draggable" ).draggable({
+//			helper: 'clone'
+//		});
+//		$( ".droppable" ).droppable({drop: function(event, ui){
+//	        if (ui.draggable.hasClass('originalclass')) {
+//	            $(this).append(ui.draggable); ui.draggable.css('top', ui.position.top);
+//	                ui.draggable.css('left', ui.position.left);
+//	                ui.draggable.css('position', 'absolute');
+//	                ui.draggable.draggable('destroy').draggable(); /* need to reset the draggability */    
+//	                }
+//	    }});
+//			drop: function( event, ui ) {
+//				$( this )
+//					.addClass( "ui-state-highlight" )
+//					.find( "p" )
+//						.html( "Dropped!" );
+//			}
+//		});
+//	});

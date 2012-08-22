@@ -85,10 +85,7 @@
 					<input type="text" name="descricao" maxlength="99" id="descricao" value="" size="76px" />
 				</label> 
 				
-				
-<!-- 				TODO: this fieldset need to be hidden, end only display when checked -->
-				
-				<fieldset>
+				<fieldset id="fieldset-dates">
 					<label for="dataInicio">Starting date
 						<homework:campoData name="dataInicio" id="dataInicio" />
 					</label>

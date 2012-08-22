@@ -200,7 +200,7 @@ div#dialog-task span#show-dates {
 }
 
 div#dialog-task label {
-	display: block;
+	display: inline;
 }
 
 div#dialog-task input {
@@ -212,7 +212,20 @@ div#dialog-task input {
 }
 
 div#dialog-task input:not([type=checkbox]):not([name^=data]) {
-	width: 85%;
+	width: 83%;
+}
+
+div#dialog-task input[name^=data]{
+	width: 180px;
+}
+
+div#dialog-task fieldset#fieldset-dates {
+	display: none;
+	border: 1px solid #F08787;
+	margin: 0 0 13px 0;
+	background-color: #FFCFCF;
+	border-radius: 2px;
+	padding: 5px 15px 0;
 }
 
 div#detalhes-tarefa input{
@@ -268,6 +281,11 @@ b#show-element {
 
 
 /* Jquery manual css reset */
+
+.ui-dialog .ui-dialog-buttonpane {
+	margin: 0;
+	padding: 0;
+}
 
 .ui-button-text-only .ui-button-text {
 	padding: 0;

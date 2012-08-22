@@ -37,7 +37,7 @@
 	    <h3><a href="#">Your projects</a></h3>
 	    <div>
 		    <c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
-		    	<div id="project">
+		    	<div id="project" class="draggable">
 					<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span>
 					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> 
 					<span id="wrench" class="ui-icon  ui-icon-wrench" project-id="${projetosDoUsuario.id}"></span> 					
@@ -79,6 +79,11 @@
 			
 		</form>
 		
+	</div>
+	
+	
+	<div class="droppable">
+		<p>aaaaa</p>
 	</div>
 		
 	</body>
