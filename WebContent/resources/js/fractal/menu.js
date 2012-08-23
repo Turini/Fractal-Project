@@ -94,8 +94,8 @@ function adiconaComentario() {
 
 	$(function() { 
 		$( "ul.droptrue" ).sortable({ 
-			connectWith: "ul", 
- 			dropOnEmpty: true
+			connectWith: "ul" 
+// 			dropOnEmpty: true
 		}); 
 
 		// TODO: ever change, need be requested !!!

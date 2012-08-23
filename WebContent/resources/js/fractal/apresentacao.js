@@ -61,6 +61,13 @@ $(function() {
 	
 	
 //	$(function(){
+//		$( ".sort" ).sortable({
+//			connectWith: "div",
+//			helper: "clone"
+//		});
+//	});
+	
+//	$(function(){
 //		$( ".draggable" ).draggable({
 //			helper: 'clone'
 //		});

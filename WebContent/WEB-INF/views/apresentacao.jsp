@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="homework"%>
 
+  
 <html>
 
 	<head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,10 +14,48 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	
 	<script>
-	$(function() {
-		$( "#accordion" ).accordion();
-	});
+	$(function() {$( "#accordion" ).accordion();});
 	</script>
+	
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load('visualization', '1', {'packages':['corechart']});
+google.setOnLoadCallback(desenhaGrafico);
+
+function desenhaGrafico() {
+
+	var data = new google.visualization.DataTable();
+	  data.addColumn('string', 'Mês');
+	  data.addColumn('number', 'Gastos em R$');
+	  data.addColumn('number', 'Gastos em U$');	   
+	  
+	  data.addRows(5);
+	   
+// 	  TODO: quantidade de tarefas por status, exemplo: TODO, DOING, DONE, ETC. 
+	  
+	  // dados de janeiro 
+	  data.setValue(0, 0, 'Janeiro');
+	  data.setValue(0, 1, 20450.0);
+	  // dados de fevereiro 
+	  data.setValue(1, 0, 'Fevereiro');
+	  data.setValue(1, 1, 21870.0);
+	  // dados de marco 
+	  data.setValue(2, 0, 'Março');
+	  data.setValue(2, 1, 22250.0);
+	  // dados de abril 
+	  data.setValue(3, 0, 'Abril');
+	  data.setValue(3, 1, 21769.0);
+	  // dados de maio 
+	  data.setValue(4, 0, 'Maio');
+	  data.setValue(4, 1, 23234.0);
+	   
+	  // cria grafico 
+	  var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+	  // desenha grafico de 400x240 com titulo especificado 
+	  chart.draw(data, {width: 600, height: 340, title: 'Gastos do mês', colors: ['lightgrey']});
+}
+	</script>		
+	
 	
 	<title>Fractal Tasks</title> 
 	
@@ -35,9 +74,9 @@
 	    <div></div>
 		
 	    <h3><a href="#">Your projects</a></h3>
-	    <div>
+	    <div class="sort">
 		    <c:forEach items="${projetosDoUsuario}" var="projetosDoUsuario">
-		    	<div id="project" class="draggable">
+		    	<div id="project">
 					<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span>
 					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> 
 					<span id="wrench" class="ui-icon  ui-icon-wrench" project-id="${projetosDoUsuario.id}"></span> 					
@@ -82,10 +121,13 @@
 	</div>
 	
 	
-	<div class="droppable">
-		<p>aaaaa</p>
-	</div>
+	<div class="config-project">
+		<ul>Insert your project here...</ul>
 		
+  		<div id="chart_div"></div>
+		
+	</div>
+
 	</body>
 
 </html>

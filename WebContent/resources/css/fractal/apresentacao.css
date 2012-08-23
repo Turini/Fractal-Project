@@ -52,3 +52,20 @@ span#create-project {
 	right: 0;
 	bottom: 0;
 }
+
+div.config-project {
+	position: absolute;
+	border: 1px solid lightgray;
+	right: 20px;
+	top: 220px;	
+	width: 59%;
+	height: 59%;
+}
+
+div.config-project ul {
+	float: right;
+	margin: 10px;
+	border: 1px solid lightgray;
+	border-radius: 2px;
+	color: lightGrey;
+}
