@@ -87,3 +87,129 @@ $(function() {
 //			}
 //		});
 //	});
+	
+	$('#getGraphInfo').live('click', function(e){
+		var id = 2;
+		$.get("project/countTasksByStatus", {id:id}, function(countOfTasks){
+			console.log(jQuery.parseJSON( countOfTasks ));
+		});
+		e.preventDefault();
+	});
+	
+	$('.draw-graphic').live('click', function(){
+		var projectId = $(this).attr('project_id');
+		$('#current-project').val(projectId);
+		drawGraphicOfThisProject(projectId);
+		$('#geral_user_table').hide();
+		$('#chart_div').show();
+	});
+	
+	$('#users').live('click', function(){
+		var projectId = $('#current-project').val();
+		$('#geral_user_table tr').hide();
+		$('#chart_div').hide();
+		$('#geral_user_table').show();
+		$('#geral_user_table thead tr').show();
+		$('#geral_user_table tr.project_'+projectId).show();
+	});
+
+	
+	google.load('visualization', '1', {'packages':['corechart']});
+	
+//		google.setOnLoadCallback(drawGraphicOfThisProject);
+	
+	function drawGraphicOfThisProject(projectId) {
+	
+		var data = new google.visualization.DataTable();
+		
+		  data.addColumn('string', 'Status');
+		  data.addColumn('number', 'Tasks');
+		  data.addRows(8);
+		   
+			var statuses = document.getElementsByClassName('statuses');
+		  
+			for ( var int = 0; int < statuses.length; int++) {
+			var status = statuses[int];	
+			  if (status.getAttribute('project_id') == projectId) {
+				  data.setValue(int, 0, status.id);					
+				  data.setValue(int, 1, parseInt(status.value));
+			  }
+			}
+	
+		  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+		  
+		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status', titleTextStyle: {color: 'grey'}, colors: ['lightgrey']});
+	}
+	
+	$('#users').live('click', function(){
+		
+	});
+	
+	
+	
+	$('span[id^=remover_]').live('click', function(){
+		
+		var self = $(this);
+		var id = $(this).attr('id').split('_')[1];
+		var pid = $(this).closest('tr').attr('class').split('_')[1];
+		
+		$.get('removeFromProject', {id : id, pid : pid})
+			.success(function(){
+				$(self).closest('tr').remove();
+			})
+			.error(function(){
+				alert("Something really wrong just happen.");
+			});
+	});
+
+	$(function() {
+		var allUsersData = [
+			"ActionScript",
+			"AppleScript",
+			"Asp",
+			"BASIC",
+			"C",
+			"C++",
+			"Clojure",
+			"COBOL",
+			"ColdFusion",
+			"Erlang",
+			"Fortran",
+			"Groovy",
+			"Haskell",
+			"Java",
+			"JavaScript",
+			"Lisp",
+			"Perl",
+			"PHP",
+			"Python",
+			"Ruby",
+			"Scala",
+			"Scheme"
+		];
+	
+		$( "#allUsers" ).autocomplete({
+			source: function (request, response) {
+	            $.ajax({
+	            	
+	            	url: "listAllUsers",
+	            	dataType: "json",
+//	            	data: { startsWith: request.term },
+	            	data: { login: request.term },
+	            	
+	            	success: function (data) {
+	            		response( $.map( data.userList, function( item ) {
+	            			return {
+	            				label: item.id + ", " +item.name,
+	            				value: item.id
+	            			}
+	            		}));
+	            	},
+	            	minLength: 1
+	            });
+			}
+		});
+	});
+	
+	
+	

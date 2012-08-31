@@ -68,4 +68,16 @@ public class UsuariosDAO {
 		dao.associaUsuarioEmProjeto(usuarioId, projetoId);
 	}
 
+	public List<Object> listUsersByProject() {
+		return dao.listUsersByProject();
+	}
+
+	public void removeFromProject(long id, long pid) {
+		dao.removeFromProject(id, pid);
+	}
+
+	public List<Usuarios> listByLogin(String login) {
+		return (List<Usuarios>) dao.listBylogin(login);
+	}
+
 }

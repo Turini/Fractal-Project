@@ -20,6 +20,8 @@ $( "#dialog-task" ).dialog({
 	autoOpen: false,
 	width: 660,
 	modal: true,
+	show: "slide",
+	hide: "drop",
 	buttons: {
 		"Create task": function() {
 			$( "#addTask" ).submit();
@@ -50,6 +52,8 @@ $(function() {
 		autoOpen: false,
 		width: 650,
 		modal: true,
+		show: "slide",
+		hide: "drop"
 	});
 });
 

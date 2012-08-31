@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import br.com.fractal.model.Comentario;
 import br.com.fractal.model.Projeto;
 import br.com.fractal.model.Tarefas;
+import br.com.fractal.model.Usuarios;
 
 public class GenericDAO<T> {
 
@@ -66,11 +67,7 @@ public class GenericDAO<T> {
 	@SuppressWarnings("unchecked")
 	public List<Projeto> listaProjetosDoUsuario(Long id) {
 		String jpql = "select u.projetos from Usuarios u where u.id= :id";
-		
-		Query query = this.em.createQuery(jpql);
-		query.setParameter("id", id);
-		
-		return query.getResultList();		
+		return this.em.createQuery(jpql).setParameter("id", id).getResultList();		
 	}
 
 	public void associaUsuarioEmProjeto(Long usuarioId, Long projetoId) {
@@ -81,6 +78,29 @@ public class GenericDAO<T> {
 	public void removeComentariosDaTarefa(Tarefas task) {
 		String jpql = "delete from Comentario where tarefas_id = :taskId";
 		this.em.createNativeQuery(jpql).setParameter("taskId", task.getId()).executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Object> listCountOfTasksAndStatusByProject() {
+		String query = "select estado, count(*), projeto_id from Tarefas group by estado, projeto_id";
+		return this.em.createNativeQuery(query).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Object> listUsersByProject() {
+		String query = "select u.id, u.email, u.login, up.projetos_id from Usuarios_Projeto as up left join Usuarios as u on u.id = up.usuarios_id";
+		return this.em.createNativeQuery(query).getResultList();
+	}
+
+	public void removeFromProject(long id, long pid) {
+		String query = "delete from Usuarios_Projeto where Usuarios_id = :id and projetos_id = :pid";
+		this.em.createNativeQuery(query).setParameter("id", id).setParameter("pid", pid).executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Usuarios> listBylogin(String login) {
+		String query = "from "+ classe.getName()+ " where login like '%"+login+"%'";
+		return this.em.createQuery(query).getResultList();
 	}
 
 }

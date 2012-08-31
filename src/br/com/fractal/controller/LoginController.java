@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fractal.dao.ProjetoDAO;
+import br.com.fractal.dao.TarefasDAO;
 import br.com.fractal.dao.UsuariosDAO;
 import br.com.fractal.model.Usuarios;
 
@@ -42,11 +43,11 @@ public class LoginController {
 	@RequestMapping("dashboard/{id}")
 	public String dashboard(@PathVariable Long id, Usuarios usuario, HttpServletRequest request, Model model) {
 		EntityManager em = (EntityManager) request.getAttribute("em");
-		UsuariosDAO usuariosDAO = new UsuariosDAO(em);
-		ProjetoDAO dao = new ProjetoDAO(em);
-		model.addAttribute("projetos", dao.listaProjetos());
+		model.addAttribute("projetos", new ProjetoDAO(em).listaProjetos());
 		Long userId = usuario.getId() == null ? id : usuario.getId();
-		model.addAttribute("projetosDoUsuario", usuariosDAO.listaProjetosDoUsuario(userId));
+		model.addAttribute("projetosDoUsuario", new UsuariosDAO(em).listaProjetosDoUsuario(userId));
+		model.addAttribute("countOfTasksByProject", new TarefasDAO(em).listCountOfTasksAndStatusByProject());
+		model.addAttribute("team", new UsuariosDAO(em).listUsersByProject());
 		return "apresentacao";
 	}
 	

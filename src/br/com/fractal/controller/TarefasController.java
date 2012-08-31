@@ -1,5 +1,7 @@
 package br.com.fractal.controller;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.fractal.dao.ComentariosDAO;
 import br.com.fractal.dao.ProjetoDAO;
@@ -78,5 +83,13 @@ public class TarefasController {
 		dao.altera(tarefaLoaded);
 		response.setStatus(200);
 	}
+	
+//	@RequestMapping(value="countTasksByStatus", method=RequestMethod.GET)
+//	public @ResponseBody List<Object> countTasksByStatus(@RequestParam long id, HttpServletRequest resquest, Model model, HttpServletResponse response) {
+//		EntityManager em = (EntityManager) resquest.getAttribute("em");
+//		model.addAttribute("countOfTasks", new TarefasDAO(em).listCountOfTasksByStatus(id));
+//		response.setStatus(200);
+//		return new TarefasDAO(em).listCountOfTasksByStatus(id);
+//	}
 	
 }
