@@ -81,8 +81,8 @@ public class GenericDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Object> listCountOfTasksAndStatusByProject() {
-		String query = "select estado, count(*), projeto_id from Tarefas group by estado, projeto_id";
+	public List<Object> listCountOfTasksByStatusOfAllProjects() {
+		String query = "select estado, count(*) from Tarefas group by estado";
 		return this.em.createNativeQuery(query).getResultList();
 	}
 

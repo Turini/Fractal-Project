@@ -14,7 +14,43 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 	
 	<script>
-	$(function() {$( "#accordion" ).accordion();});
+	$(function() {
+		$( "#accordion" ).accordion();
+		
+		var data = new google.visualization.DataTable();
+		
+		  data.addColumn('string', 'Status');
+		  data.addColumn('number', 'Tasks');
+		  data.addRows(document.getElementsByClassName('allProjectsInfo').length);
+		  
+		  if (document.getElementsByClassName('allProjectsInfo')[0]){		  
+		  data.setValue(0, 0, document.getElementsByClassName('allProjectsInfo')[0].id.split('_')[0]);					
+		  data.setValue(0, 1, parseInt(document.getElementsByClassName('allProjectsInfo')[0].value));
+		  }
+		  
+		  if (document.getElementsByClassName('allProjectsInfo')[1]){		  
+		  data.setValue(1, 0, document.getElementsByClassName('allProjectsInfo')[1].id.split('_')[0]);					
+		  data.setValue(1, 1, parseInt(document.getElementsByClassName('allProjectsInfo')[1].value));
+		  }
+		  if (document.getElementsByClassName('allProjectsInfo')[2]){		  		  
+		  	data.setValue(2, 0, document.getElementsByClassName('allProjectsInfo')[2].id.split('_')[0]);					
+		  	data.setValue(2, 1, parseInt(document.getElementsByClassName('allProjectsInfo')[2].value));
+		  }
+		  if (document.getElementsByClassName('allProjectsInfo')[3]){		  
+		  	data.setValue(3, 0, document.getElementsByClassName('allProjectsInfo')[3].id.split('_')[0]);					
+		  	data.setValue(3, 1, parseInt(document.getElementsByClassName('allProjectsInfo')[3].value));
+		  }
+		  if (document.getElementsByClassName('allProjectsInfo')[4]){
+			  data.setValue(4, 0, document.getElementsByClassName('allProjectsInfo')[4].id.split('_')[0]);					
+			  data.setValue(4, 1, parseInt(document.getElementsByClassName('allProjectsInfo')[4].value));
+		  }
+		  
+		  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+		  
+		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status of all projects', titleTextStyle: {color: '#504F4F'}, colors: ['#504F4F']});
+		
+	});
+	
 	</script>
 	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -29,6 +65,10 @@
 	<body>
 	<input type="hidden" id="blabla" value="20"/>
 	<c:import url="header.jsp"/>
+	
+	<c:forEach items="${countOfTasksOfAllProjects}" var="count">
+		<input type="hidden" class="allProjectsInfo" id="${count[0]}" value="${count[1]}"/>
+	</c:forEach>
 	
 	<div id="accordion">
 
@@ -87,11 +127,6 @@
 		<span id="current-project"></span>
 		<span id="users">users</span>	
 	
-		<c:forEach items="${countOfTasksByProject}" var="tasks">
-			<input type="hidden" class="statuses" id="${tasks[0]}" 
-				value="${tasks[1]}" project_id="${tasks[2]}" />
-		</c:forEach>
-		
 		<table id="geral_user_table" class="hidden">
 			<thead>
 			  <tr>

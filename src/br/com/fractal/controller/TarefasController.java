@@ -1,9 +1,6 @@
 package br.com.fractal.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import br.com.fractal.dao.ComentariosDAO;
 import br.com.fractal.dao.ProjetoDAO;
 import br.com.fractal.dao.TarefasDAO;
-import br.com.fractal.dao.UsuariosDAO;
 import br.com.fractal.model.Tarefas;
-import br.com.fractal.model.Usuarios;
 import br.com.fractal.model.enums.Estado;
-import br.com.fractal.util.GraphInfos;
 
 @Controller
 @RequestMapping("project")
@@ -92,32 +86,9 @@ public class TarefasController {
 	
 	@RequestMapping(value="getGraphicInformation", method = RequestMethod.GET, headers="Accept=*/*")
 	public @ResponseBody List<Object> listAllUsers(HttpServletRequest request, @RequestParam String projectId) {
-		
 		EntityManager em = (EntityManager) request.getAttribute("em");
-
-		List<GraphInfos> infoList = new ArrayList<GraphInfos>();
-		
 		List<Object> listObjects = new TarefasDAO(em).listCountOfTasksByStatus(projectId);
-		
-//		listObjects.
-//		for (Object object : listObjects) {
-//			object.
-//			infoList.add(new GraphInfos(object[0], usuario.getLogin()));
-//		}
-				
-//		for (Usuarios usuario : listObjects) {
-//			infoList.add(new GraphInfos(usuario.getId(), usuario.getLogin()));
-//		}
-		
-		Map<String, List<GraphInfos>> userMap = new HashMap<String, List<GraphInfos>>();
-		
-		userMap.put("userList", infoList);
 		return listObjects;
-		
-		
-//		model.addAttribute("countOfTasks", new TarefasDAO(em).listCountOfTasksByStatus(id));
-//		response.setStatus(200);
-//		return new TarefasDAO(em).listCountOfTasksByStatus(id);
 	}
 	
 }

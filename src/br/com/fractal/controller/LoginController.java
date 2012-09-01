@@ -46,7 +46,7 @@ public class LoginController {
 		model.addAttribute("projetos", new ProjetoDAO(em).listaProjetos());
 		Long userId = usuario.getId() == null ? id : usuario.getId();
 		model.addAttribute("projetosDoUsuario", new UsuariosDAO(em).listaProjetosDoUsuario(userId));
-		model.addAttribute("countOfTasksByProject", new TarefasDAO(em).listCountOfTasksAndStatusByProject());
+		model.addAttribute("countOfTasksOfAllProjects", new TarefasDAO(em).listCountOfTasksByStatusOfAllProjects());
 		model.addAttribute("team", new UsuariosDAO(em).listUsersByProject());
 		return "apresentacao";
 	}

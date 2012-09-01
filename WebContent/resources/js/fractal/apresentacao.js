@@ -172,8 +172,7 @@ $(function() {
 		  }
 		  
 		  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-		  
-		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status', titleTextStyle: {color: 'grey'}, colors: ['lightgrey']});
+		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status', titleTextStyle: {color: '#504F4F'}, colors: ['#504F4F']});
 	}
 	
 //	$('#users').live('click', function(){
