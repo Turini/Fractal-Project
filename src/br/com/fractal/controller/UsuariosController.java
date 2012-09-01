@@ -59,9 +59,10 @@ public class UsuariosController {
 	}
 
 	@RequestMapping("associaEmProjeto")
-	public void associaEmProjeto(Long usuarioId, Long projetoId, HttpServletRequest request) {
+	public void associaEmProjeto(Long usuarioId, Long projetoId, HttpServletRequest request, HttpServletResponse response) {
 		EntityManager em = (EntityManager) request.getAttribute("em");
 		new UsuariosDAO(em).associaUsuarioEmProjeto(usuarioId, projetoId);
+		response.setStatus(200);
 	}
 	
 	@RequestMapping("removeFromProject")

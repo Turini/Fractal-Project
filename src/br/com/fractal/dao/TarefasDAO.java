@@ -47,4 +47,9 @@ private final GenericDAO<Tarefas> dao;
 		return dao.listCountOfTasksAndStatusByProject();
 	}
 
+	public List<Object> listCountOfTasksByStatus(String projectId) {
+		return dao.listCountOfTasksByStatus(projectId);
+		
+	}
+
 }

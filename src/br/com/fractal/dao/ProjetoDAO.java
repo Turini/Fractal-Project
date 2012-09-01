@@ -33,5 +33,9 @@ public class ProjetoDAO {
 	public void altera(Projeto projeto) {
 		dao.altera(projeto);
 	}
+
+	public List<Projeto> listByName(String name) {
+		return dao.listByName(name);
+	}
 	
 }

@@ -88,18 +88,58 @@ $(function() {
 //		});
 //	});
 	
-	$('#getGraphInfo').live('click', function(e){
-		var id = 2;
-		$.get("project/countTasksByStatus", {id:id}, function(countOfTasks){
-			console.log(jQuery.parseJSON( countOfTasks ));
-		});
-		e.preventDefault();
-	});
+//	$('#getGraphInfo').live('click', function(e){
+//		var id = 2;
+//		$.get("project/countTasksByStatus", {id:id}, function(countOfTasks){
+//			console.log(jQuery.parseJSON( countOfTasks ));
+//		});
+//		e.preventDefault();
+//	});
 	
-	$('.draw-graphic').live('click', function(){
+//	$('.draw-graphic').live('click', function(){
+//		var projectId = $(this).attr('project_id');
+//		$('#current-project').val(projectId);
+//		drawGraphicOfThisProject(projectId);
+//		$('#geral_user_table').hide();
+//		$('#chart_div').show();
+//	});
+	
+//	google.load('visualization', '1', {'packages':['corechart']});
+	
+	$('.draw-graphic').live('click', function(request, response){
 		var projectId = $(this).attr('project_id');
 		$('#current-project').val(projectId);
-		drawGraphicOfThisProject(projectId);
+		
+		$.ajax({
+        	
+        	url: "project/getGraphicInformation",
+        	dataType: "json",
+        	data: { projectId: projectId },
+        	
+        	success: function (data) {
+        		drawGraphicOfThisProject(data);
+        		
+//        	var data = new google.visualization.DataTable();
+        		
+//      		  data.addColumn('string', 'Status');
+//      		  data.addColumn('number', 'Tasks');
+//      		  data.addRows(8);
+      		  
+//        		for (var i = 0; i < data.length; i ++) {
+//  				  data.setValue(i, 0, data[i][0]);					
+//				  data.setValue(i, 1, data[i][1]);
+//        		}        		
+        		
+//        		var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+      		  
+//      		    chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by statuses', titleTextStyle: {color: 'grey'}, colors: ['lightgrey']});
+    		}
+        });
+		
+		
+		
+		
+//		drawGraphicOfThisProject(projectId);
 		$('#geral_user_table').hide();
 		$('#chart_div').show();
 	});
@@ -118,34 +158,27 @@ $(function() {
 	
 //		google.setOnLoadCallback(drawGraphicOfThisProject);
 	
-	function drawGraphicOfThisProject(projectId) {
+	function drawGraphicOfThisProject(info) {
 	
 		var data = new google.visualization.DataTable();
 		
 		  data.addColumn('string', 'Status');
 		  data.addColumn('number', 'Tasks');
-		  data.addRows(8);
+		  data.addRows(info.length);
 		   
-			var statuses = document.getElementsByClassName('statuses');
+		  for ( var i = 0; i < info.length; i++) {
+			  data.setValue(i, 0, info[i][0].split('_')[0]);					
+			  data.setValue(i, 1, parseInt(info[i][1]));
+		  }
 		  
-			for ( var int = 0; int < statuses.length; int++) {
-			var status = statuses[int];	
-			  if (status.getAttribute('project_id') == projectId) {
-				  data.setValue(int, 0, status.id);					
-				  data.setValue(int, 1, parseInt(status.value));
-			  }
-			}
-	
 		  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 		  
 		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status', titleTextStyle: {color: 'grey'}, colors: ['lightgrey']});
 	}
 	
-	$('#users').live('click', function(){
-		
-	});
-	
-	
+//	$('#users').live('click', function(){
+//		
+//	});
 	
 	$('span[id^=remover_]').live('click', function(){
 		
@@ -163,38 +196,12 @@ $(function() {
 	});
 
 	$(function() {
-		var allUsersData = [
-			"ActionScript",
-			"AppleScript",
-			"Asp",
-			"BASIC",
-			"C",
-			"C++",
-			"Clojure",
-			"COBOL",
-			"ColdFusion",
-			"Erlang",
-			"Fortran",
-			"Groovy",
-			"Haskell",
-			"Java",
-			"JavaScript",
-			"Lisp",
-			"Perl",
-			"PHP",
-			"Python",
-			"Ruby",
-			"Scala",
-			"Scheme"
-		];
-	
 		$( "#allUsers" ).autocomplete({
 			source: function (request, response) {
 	            $.ajax({
 	            	
 	            	url: "listAllUsers",
 	            	dataType: "json",
-//	            	data: { startsWith: request.term },
 	            	data: { login: request.term },
 	            	
 	            	success: function (data) {
@@ -209,7 +216,32 @@ $(function() {
 	            });
 			}
 		});
+	
+	$( "#allProjects" ).autocomplete({
+		source: function (request, response) {
+            $.ajax({
+            	
+            	url: "listAllProjects",
+            	dataType: "json",
+            	data: { name: request.term },
+            	
+            	success: function (data) {
+            		response( $.map( data.projectList, function( item ) {
+            			return {
+            				label: item.id + ", " +item.name,
+            				value: item.id
+            			}
+            		}));
+            	},
+            	minLength: 1
+            });
+			}
+		});
 	});
-	
-	
+
+	$('#addToProject').live('click', function(){
+		var userId = $(this).parent().find('input')[0];
+		var projectId = $(this).parent().find('input')[1];
+//		$.get('associaEmProjeto', {userId:userId, projectId:projectId});
+	});
 	

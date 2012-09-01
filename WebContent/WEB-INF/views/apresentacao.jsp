@@ -58,12 +58,10 @@
 	    </div>
 	    <h3><a href="#">Add user to project</a></h3>
 	    <div id="addUserToProject">
-			<form action="associaEmProjeto">
-				<input id="allUsers" type="text" name="usuarioId" />		
-				<input type="text" name="projetoId" />		
-				<input type="submit" value="adicionar usuario em Projeto"/> 
-			</form>
-	</div>
+			<input id="allUsers" type="text" name="usuarioId" />		
+			<input id="allProjects" type="text" name="projetoId" />		
+			<input id="addToProject" type="submit" value="add"/> 
+		</div>
 	</div>
 	
 	<div id="dialog-project">

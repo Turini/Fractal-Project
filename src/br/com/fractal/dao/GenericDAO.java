@@ -103,4 +103,16 @@ public class GenericDAO<T> {
 		return this.em.createQuery(query).getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Projeto> listByName(String name) {
+		String query = "from "+ classe.getName()+ " where nome like '%"+name+"%'";
+		return this.em.createQuery(query).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Object> listCountOfTasksByStatus(String projectId) {
+		String query = "select estado, count(*) from Tarefas where projeto_id = :projeto_id group by estado;";
+		return this.em.createNativeQuery(query).setParameter("projeto_id", projectId).getResultList();
+	}
+
 }
