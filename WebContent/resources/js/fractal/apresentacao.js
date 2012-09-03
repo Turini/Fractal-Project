@@ -107,6 +107,15 @@ $(function() {
 //	google.load('visualization', '1', {'packages':['corechart']});
 	
 	$('.draw-graphic').live('click', function(request, response){
+		
+		$('.draw-graphic').each(function(index) {
+			$(this).attr('id', '');
+		});
+		
+		console.log(this);
+		
+		$(this).attr('id', 'selected');
+		
 		var projectId = $(this).attr('project_id');
 		$('#current-project').val(projectId);
 		
@@ -172,7 +181,7 @@ $(function() {
 		  }
 		  
 		  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status', titleTextStyle: {color: '#504F4F'}, colors: ['#504F4F']});
+		  chart.draw(data, {width: 750, height: 370, title: 'Count of tasks by status', titleTextStyle: {color: '#504F4F'}, colors: ['#504F4F']});
 	}
 	
 //	$('#users').live('click', function(){

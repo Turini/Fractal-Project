@@ -38,15 +38,32 @@ div[id=accordion] h3 a {
 	background-color: lightgray;
 }
 
-div#project{
-/* 	width: 50%; */
-	width: 115%;
+div.draw-graphic{
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;	
+	width: 95%;
 	float: right;
 	margin: 1% -7%;
 	background-color: rgb(233, 236, 233);
 }
 
-div#project:HOVER{
+div.draw-graphic:FIRST-CHILD{
+	margin-top: -5px
+}
+
+div.draw-graphic span#projectName{
+	float: left;
+	margin-left: 10px;
+}
+
+div.draw-graphic[id=selected]{
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;	
+	border: 2px solid gray;
+	width: 110%;
+}
+
+div.draw-graphic:HOVER{
 /* 	-moz-transition: all 1s; */
 /* 	width: 115%; */
 }
@@ -88,4 +105,13 @@ table#geral_user_table tbody tr:nth-child(2n) {
 
 .ui-autocomplete-loading { 
 	background: white url('../images/ui-anim_basic_16x16.gif') right center no-repeat; 
+}
+
+.ui-accordion .ui-accordion-content-active {
+  overflow: hidden;
+  height: 10px;
+}
+
+defs#defs{
+	width: 0;
 }

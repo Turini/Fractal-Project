@@ -15,7 +15,7 @@
 	
 	<script>
 	$(function() {
-		$( "#accordion" ).accordion();
+		$( "#accordion" ).accordion({event: "mouseover"});
 		
 		var data = new google.visualization.DataTable();
 		
@@ -47,7 +47,7 @@
 		  
 		  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
 		  
-		  chart.draw(data, {width: 600, height: 340, title: 'Count of tasks by status of all projects', titleTextStyle: {color: '#504F4F'}, colors: ['#504F4F']});
+		  chart.draw(data, {width: 750, height: 370, title: 'Count of tasks by status of all projects', titleTextStyle: {color: '#504F4F'}, colors: ['#504F4F']});
 		
 	});
 	
@@ -82,7 +82,7 @@
 					<span id="trash" class="ui-icon ui-icon-trash">${projetosDoUsuario.id}</span>
 					<span id="play" class="ui-icon  ui-icon-play" project-id="${projetosDoUsuario.id}"></span> 
 					<span id="wrench" class="ui-icon  ui-icon-wrench" project-id="${projetosDoUsuario.id}"></span> 					
-					<span> ${projetosDoUsuario.nome}</span> 
+					<span id="projectName"> ${projetosDoUsuario.nome}</span> 
 		    	</div>
 			</c:forEach>
 			
@@ -94,7 +94,6 @@
 				</form>
 			</div>
 						
-			<span id="create-project">Create a new project...</span>
 	    </div>
 	    <h3><a href="#">Add user to project</a></h3>
 	    <div id="addUserToProject">
@@ -102,6 +101,12 @@
 			<input id="allProjects" type="text" name="projetoId" />		
 			<input id="addToProject" type="submit" value="add"/> 
 		</div>
+		
+		<h3><a href="#">Add new project</a></h3>
+	    <div id="addProject">
+			<span id="create-project">Create a new project...</span>
+		</div>
+		
 	</div>
 	
 	<div id="dialog-project">
