@@ -99,8 +99,16 @@ table#geral_user_table thead tr {
 	background-color: lightgray;
 }
 
-table#geral_user_table tbody tr:nth-child(2n) {
-	background-color: red;
+table#geral_user_table tbody tr:HOVER {
+	background-color: gray;
+}
+
+table#geral_user_table thead tr th:FIRST-CHILD {
+	width: 40px;
+}
+
+table#geral_user_table tbody td {
+	text-align: center;
 }
 
 .ui-autocomplete-loading { 

@@ -88,7 +88,7 @@ public class GenericDAO<T> {
 
 	@SuppressWarnings("unchecked")
 	public List<Object> listUsersByProject() {
-		String query = "select u.id, u.email, u.login, up.projetos_id from Usuarios_Projeto as up left join Usuarios as u on u.id = up.usuarios_id";
+		String query = "select u.id, u.email, u.login, u.telefone, up.projetos_id from Usuarios_Projeto as up left join Usuarios as u on u.id = up.usuarios_id";
 		return this.em.createNativeQuery(query).getResultList();
 	}
 

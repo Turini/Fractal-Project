@@ -130,30 +130,43 @@
 	<div class="config-project">
 	
 		<span id="current-project"></span>
-		<span id="users">users</span>	
-	
+		
+		<div style="margin-top: 15px; background-color: #8B8B8B; position:absolute; right:0; padding-left: 5px; 
+			border-top-left-radius:5px; border-bottom-left-radius:5px; padding-top: 3px; width: 61px;">
+			<span class="ui-icon ui-icon-person"></span>
+			<span id="users">users</span>	
+		</div>
+
+		<div style="margin-top: 50px; background-color: #8B8B8B; position:absolute; right:0; padding-left: 5px; 
+			border-top-left-radius:5px; border-bottom-left-radius:5px; padding-top: 3px;">
+			<span class="ui-icon ui-icon-arrowreturnthick-1-w"></span>
+			<span id="graphic">graphic</span>	
+		</div>
+		
 		<table id="geral_user_table" class="hidden">
 			<thead>
 			  <tr>
-			    <th>ID</th>
-			    <th>E-mail</th>
-			    <th>Login</th>
+			    <th style="height: 26px;">ID</th>
+			    <th style="width: 240px;">E-mail</th>
+			    <th style="width: 120px;">Login</th>
+			    <th style="width: 120px;">Phone</th>
 			    <th></th>
 			  </tr>
 			</thead>
 			<c:forEach items="${team}" var="user">
 			<tbody>
-			  <tr class="project_${user[3]}">
+			  <tr class="project_${user[4]}">
 			    <td>${user[0]}</td>
 			    <td>${user[1]}</td>
 			    <td>${user[2]}</td>				    
+			    <td>${user[3]}</td>				    			    
 			    <td><span id="remover_${user[0]}">remover</span></td>
 			  </tr>
 			</c:forEach>
 			</tbody>
 		</table>
-		
-  		<div id="chart_div"></div>
+
+  		<div id="chart_div" style="margin-left: -45px;"></div>
   		
 	</div>
 
